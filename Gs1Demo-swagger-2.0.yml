@@ -89,7 +89,7 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: gs1DeviceIdentifier
+        name: gs1UdiDeviceIdentifier
         description: Search filter for Device identifier
         type: string
         required: false
@@ -124,13 +124,38 @@ paths:
         type: string
         required: false
       - in: query
-        name: gs1UdiDataUrl
-        description: Search filter for GS1 data URL
+        name: gs1UdiGs1Data
+        description: Search filter for GS1 data
         type: string
         required: false
       - in: query
         name: gs1UdiDigitalLink
         description: Search filter for Digital link
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiEan13Image
+        description: Search filter for EAN 13 image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1128Image
+        description: Search filter for GS1 128 image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1DataMatrixImage
+        description: Search filter for GS1 data matrix image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1QrCodeImage
+        description: Search filter for GS1 QRCode image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiDigitalLinkQrCodeImage
+        description: Search filter for Digital link image
         type: string
         required: false
       tags:
@@ -349,6 +374,29 @@ definitions:
       `UDI` = `UDI-DI` (static _device identifier_, the GTIN) + `UDI-PI` (_production identifiers_)
     type: object
     properties:
+      gs1UdiSerialNumber:
+        description: Serial number
+        type: string
+        maxLength: 20
+      gs1UdiDigitalLink:
+        description: Digital link
+        type: string
+        maxLength: 100
+      gs1UdiGs1DataMatrixImage:
+        description: GS1 data matrix image
+        type: object
+      gs1UdiSoftwareVersion:
+        description: Software version
+        type: string
+        maxLength: 20
+      gs1UdiExpirationDate:
+        description: Expiration date
+        type: string
+        maxLength: 10
+        example: yyyy-MM-dd
+      gs1UdiEan13Image:
+        description: EAN 13 image
+        type: object
       gs1UdiHumanReadableInterpretation:
         description: Human readable interpretation
         type: string
@@ -358,39 +406,31 @@ definitions:
         type: string
         maxLength: 10
         example: yyyy-MM-dd
-      gs1UdiSerialNumber:
-        description: Serial number
-        type: string
-        maxLength: 20
-      gs1UdiDataUrl:
-        description: GS1 data URL
-        type: string
-        maxLength: 100
-      gs1UdiDigitalLink:
-        description: Digital link
+      gs1UdiGs1QrCodeImage:
+        description: GS1 QRCode image
+        type: object
+      gs1UdiDigitalLinkQrCodeImage:
+        description: Digital link image
+        type: object
+      gs1UdiGs1Data:
+        description: GS1 data
         type: string
         maxLength: 100
       gs1UdiLotNumber:
         description: Lot number
         type: string
         maxLength: 20
-      gs1UdiSoftwareVersion:
-        description: Software version
-        type: string
-        maxLength: 20
       row_id:
         description: Unique technical row ID
         type: string
         maxLength: 11
-      gs1DeviceIdentifier:
+      gs1UdiDeviceIdentifier:
         description: Device identifier
         type: string
         maxLength: 14
-      gs1UdiExpirationDate:
-        description: Expiration date
-        type: string
-        maxLength: 10
-        example: yyyy-MM-dd
+      gs1UdiGs1128Image:
+        description: GS1 128 image
+        type: object
   ArrayOfGs1UDI:
     description: List of Unique device identifiers
     type: array
