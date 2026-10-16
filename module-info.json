@@ -1,0 +1,10 @@
+{
+    "date": "2026-10-16 21:01:09",
+    "name": "Gs1Demo",
+    "format": "xml",
+    "files": ["Gs1Demo.xml"],
+    "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-gs1demo.git"}},
+    "version": "7",
+    "branch": "master",
+    "platform": "7.0.0-beta"
+}
