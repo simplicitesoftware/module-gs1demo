@@ -374,6 +374,126 @@ paths:
       - Gs1Gtin
       consumes:
       - application/json
+  /rest/Gs1Udi:
+    get:
+      summary: Search Gs1Udi business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-gs1udi-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfGs1Udi'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: gs1UdiGtinId
+        description: Search filter for GTIN
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGtinId__gs1GtinIdentifier
+        description: Search filter for GTIN Identifier
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGtinId__gs1GtinLabel
+        description: Search filter for GTIN Label
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiProductionDate
+        description: Search filter for Production date
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiExpirationDate
+        description: Search filter for Expiration date
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiLotNumber
+        description: Search filter for Lot number
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiSerialNumber
+        description: Search filter for Serial number
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiSoftwareVersion
+        description: Search filter for Software version
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiHumanReadableInterpretation
+        description: Search filter for Human readable interpretation (HRI)
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1Data
+        description: Search filter for GS1 data
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiDigitalLink
+        description: Search filter for Digital link
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1128Image
+        description: Search filter for GS1 128 image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1DataMatrixImage
+        description: Search filter for GS1 data matrix image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiGs1QrCodeImage
+        description: Search filter for GS1 QRCode image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiDigitalLinkQrCodeImage
+        description: Search filter for Digital link image
+        type: string
+        required: false
+      - in: query
+        name: gs1UdiDescription
+        description: Search filter for Description
+        type: string
+        required: false
+      tags:
+      - Gs1Udi
   /rest/Gs1Gtin:
     get:
       summary: Search Gs1Gtin business object records or get contextualized metadata
@@ -457,126 +577,6 @@ paths:
         required: false
       tags:
       - Gs1Gtin
-  /rest/Gs1Udi:
-    get:
-      summary: Search Gs1Udi business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-gs1udi-search
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/ArrayOfGs1Udi'
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-      parameters:
-      - in: query
-        name: _metadata
-        description: Metadata?
-        type: boolean
-        required: false
-      - in: query
-        name: _count
-        description: Count?
-        type: boolean
-        required: false
-      - in: query
-        name: _doc
-        description: Documentation?
-        type: boolean
-        required: false
-      - in: query
-        name: gs1UdiGtinId
-        description: Search filter for GTIN
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiGtinId__gs1GtinIdentifier
-        description: Search filter for GTIN Identifier
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiGtinId__gs1GtinLabel
-        description: Search filter for GTIN Label
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiProductionDate
-        description: Search filter for Production date
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiExpirationDate
-        description: Search filter for Expiration date
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiLotNumber
-        description: Search filter for Lot number
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiSerialNumber
-        description: Search filter for Serial number
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiSoftwareVersion
-        description: Search filter for Software version
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiHumanReadableInterpretation
-        description: Search filter for Human readable interpretation
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiGs1Data
-        description: Search filter for GS1 data
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiDigitalLink
-        description: Search filter for Digital link
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiGs1128Image
-        description: Search filter for GS1 128 image
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiGs1DataMatrixImage
-        description: Search filter for GS1 data matrix image
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiGs1QrCodeImage
-        description: Search filter for GS1 QRCode image
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiDigitalLinkQrCodeImage
-        description: Search filter for Digital link image
-        type: string
-        required: false
-      - in: query
-        name: gs1UdiDescription
-        description: Search filter for Description
-        type: string
-        required: false
-      tags:
-      - Gs1Udi
   /:
     get:
       summary: Get user session information
@@ -658,7 +658,7 @@ definitions:
         maxLength: 10
         example: yyyy-MM-dd
       gs1UdiHumanReadableInterpretation:
-        description: Human readable interpretation
+        description: Human readable interpretation (HRI)
         type: string
         maxLength: 100
       gs1UdiGtinId__gs1GtinLabel:
@@ -814,7 +814,7 @@ info:
   title: Gs1Demo
   version: '7'
 tags:
-- name: Gs1Gtin
-  description: GTIN
 - name: Gs1Udi
   description: UDI
+- name: Gs1Gtin
+  description: GTIN

@@ -2702,7 +2702,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Udi production date</tsl_value>
+		<tsl_value>Date de production</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -2802,7 +2802,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Human readable interpretation</tsl_value>
+		<tsl_value>Human readable interpretation (HRI)</tsl_value>
 		<tsl_simplehelp><![CDATA[<p>The UDI as printed under the barcode, AIs in parentheses, e.g. (01)00614141999996(17)271231(10)A1B2C3.</p>]]></tsl_simplehelp>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -2822,7 +2822,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Udi human readable interpretation</tsl_value>
+		<tsl_value>Human readable interpretation (HRI)</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3102,7 +3102,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin identifier</tsl_value>
+		<tsl_value>Identifiant</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3142,7 +3142,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin type</tsl_value>
+		<tsl_value>Type</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3182,7 +3182,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin picture</tsl_value>
+		<tsl_value>Photo</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3222,7 +3222,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin description</tsl_value>
+		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3262,7 +3262,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Udi gtin id</tsl_value>
+		<tsl_value>GTIN</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3302,7 +3302,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin label</tsl_value>
+		<tsl_value>Libellé</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3462,7 +3462,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Udi description</tsl_value>
+		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -3556,7 +3556,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Détails</tsl_value>
+		<tsl_value>Codes</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -3584,7 +3584,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin -1</tsl_value>
+		<tsl_value>Identification</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -3612,7 +3612,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin -2</tsl_value>
+		<tsl_value>Codes</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -3640,7 +3640,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Udi -4</tsl_value>
+		<tsl_value>Détails</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -3668,7 +3668,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gtin -3</tsl_value>
+		<tsl_value>Détails</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
