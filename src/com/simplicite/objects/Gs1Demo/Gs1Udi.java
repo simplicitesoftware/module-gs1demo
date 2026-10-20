@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.simplicite.util.AppLog;
-import com.simplicite.util.Message;
 import com.simplicite.util.ObjectDB;
-import com.simplicite.util.ObjectField;
 import com.simplicite.util.tools.GS1Tool;
 
 public class Gs1Udi extends ObjectDB {
@@ -30,7 +28,7 @@ public class Gs1Udi extends ObjectDB {
         setFieldValue("gs1UdiDigitalLink", udi.digitalLink(null));
 
         try {
-            getField("gs1UdiGs1128Image").setDocument(this, "gs1_128-" + gtin + ".png", GS1Tool.gs1_128PNG(udi));
+            getField("gs1UdiGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", GS1Tool.gs1_128PNG(udi));
         } catch (Exception e) {
             AppLog.error(e);
         }

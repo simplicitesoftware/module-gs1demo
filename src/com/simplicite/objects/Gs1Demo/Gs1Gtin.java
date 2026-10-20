@@ -21,8 +21,8 @@ public class Gs1Gtin extends ObjectDB {
             msgs.add(Message.formatError("GS1_GTIN_INVALID_IDENTIFIER", null, id.getName()));
 
         try {
-            getField("gs1GtinEan13Image").setDocument(this, "ean13-" + id.getValue() + ".png", GS1Tool.ean13PNG(id.getValue())); }
-        catch (Exception e) {
+            getField("gs1GtinEan13Image").setDocument(this, "ean13-" + id.getValue() + ".png", GS1Tool.ean13PNG(id.getValue()));
+        } catch (Exception e) {
             AppLog.error(e);
         }
 
