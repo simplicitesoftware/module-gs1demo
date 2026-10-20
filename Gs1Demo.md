@@ -44,12 +44,17 @@ _Domains organize the application's main navigation menu. Each domain groups the
 
 ### Relationships
 
+* Belongs to **Gs1Prefix** via `gs1GtinPreId` (optional) — on parent delete: set-null
 * Has many **Gs1Udi** via `gs1UdiGtinId` [on delete: cascade, visible]
 
 ### Fields
 
 | Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| **`gs1GtinPreId`** link to **`Gs1Prefix`**                   | id                                       | gs1_gtin_pre_id                |          | yes       |          | -                                                                                |
+| _`gs1PrePrefix`_                                             | _char(3)_                                | _gs1_pre_prefix_               |          |           |          | _-_                                                                              |
+| _`gs1PreCtyId`_                                              | _id_                                     | _gs1_pre_cty_id_               |          |           |          | _-_                                                                              |
+| _`gs1CtyCode`_                                               | _char(3)_                                | _gs1_cty_code_                 |          |           |          | _Country code (3 letters)_                                                       |
 | `gs1GtinIdentifier`                                          | char(14)                                 | gs1_gtin_identifier            | yes*     | yes       |          | -                                                                                |
 | `gs1GtinType`                                                | enum(50) using GS1_GTIN_TYPE list        | gs1_gtin_type                  | yes      | yes       |          | -                                                                                |
 | `gs1GtinLabel`                                               | char(255)                                | gs1_gtin_label                 | yes      | yes       |          | -                                                                                |
@@ -80,6 +85,7 @@ GS1 prefixes
 ### Relationships
 
 * Belongs to **Gs1Country** via `gs1PreCtyId` (optional) — on parent delete: set-null
+* Has many **Gs1Gtin** via `gs1GtinPreId` [on delete: set-null, visible]
 
 ### Fields
 

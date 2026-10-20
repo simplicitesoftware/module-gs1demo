@@ -178,11 +178,21 @@ components:
         `GTIN`: Internationally unique product identifier managed by the GS1 Organization
       type: object
       properties:
-        gs1GtinEan13Image:
-          description: EAN 13 image
-          type: object
+        gs1GtinPreId:
+          description: Prefix
+          type: string
+          maxLength: 11
         gs1GtinUpcaImage:
           description: UPC-A image
+          type: object
+        gs1GtinItf14Image:
+          description: ITF14 image
+          type: object
+        gs1GtinPicture:
+          description: Picture
+          type: object
+        gs1GtinEan13Image:
+          description: EAN 13 image
           type: object
         gs1GtinDescription:
           description: Description
@@ -195,13 +205,22 @@ components:
           enum:
           - MEDICAL_DEVICE
           - OTHER
-        gs1GtinItf14Image:
-          description: ITF14 image
-          type: object
+        gs1GtinPreId__gs1PrePrefix:
+          description: Prefix
+          type: string
+          maxLength: 3
+        gs1GtinPreId__gs1PreCtyId__gs1CtyCode:
+          description: Country code (3 letters)
+          type: string
+          maxLength: 3
         gs1GtinLabel:
           description: Label
           type: string
           maxLength: 255
+        gs1GtinPreId__gs1PreCtyId:
+          description: Prefix Country
+          type: string
+          maxLength: 11
         row_id:
           description: Unique technical row ID
           type: string
@@ -210,9 +229,6 @@ components:
           description: Identifier
           type: string
           maxLength: 14
-        gs1GtinPicture:
-          description: Picture
-          type: object
     Error400:
       description: Bad request
       type: object
@@ -1193,6 +1209,30 @@ paths:
         in: query
         name: gs1GtinLabel
         description: Search filter for Label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId
+        description: Search filter for Prefix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PrePrefix
+        description: Search filter for Prefix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PreCtyId
+        description: Search filter for Prefix Country
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PreCtyId__gs1CtyCode
+        description: Search filter for Country code (3 letters)
         required: false
       - schema:
           type: string
