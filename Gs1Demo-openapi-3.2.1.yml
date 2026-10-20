@@ -191,6 +191,10 @@ components:
         gs1GtinPicture:
           description: Picture
           type: object
+        gs1GtinPreId__gs1PreCtyId__gs1CtyName:
+          description: Country name
+          type: string
+          maxLength: 100
         gs1GtinEan13Image:
           description: EAN 13 image
           type: object
@@ -1191,6 +1195,20 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - Gs1GtinStats
+        in: query
+        name: _crosstab
+        description: Apply pivot table
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _crosstabcubes
+        description: Pivot table data as cubes?
+        required: false
+      - schema:
+          type: string
         in: query
         name: gs1GtinIdentifier
         description: Search filter for Identifier
@@ -1233,6 +1251,12 @@ paths:
         in: query
         name: gs1GtinPreId__gs1PreCtyId__gs1CtyCode
         description: Search filter for Country code (3 letters)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PreCtyId__gs1CtyName
+        description: Search filter for Country name
         required: false
       - schema:
           type: string

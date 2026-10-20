@@ -760,6 +760,18 @@ paths:
         type: string
         required: false
       - in: query
+        name: _crosstab
+        description: Apply pivot table
+        type: string
+        required: false
+        enum:
+        - Gs1GtinStats
+      - in: query
+        name: _crosstabcubes
+        description: Pivot table data as cubes?
+        type: boolean
+        required: false
+      - in: query
         name: gs1GtinIdentifier
         description: Search filter for Identifier
         type: string
@@ -795,6 +807,11 @@ paths:
       - in: query
         name: gs1GtinPreId__gs1PreCtyId__gs1CtyCode
         description: Search filter for Country code (3 letters)
+        type: string
+        required: false
+      - in: query
+        name: gs1GtinPreId__gs1PreCtyId__gs1CtyName
+        description: Search filter for Country name
         type: string
         required: false
       - in: query
@@ -1268,6 +1285,10 @@ definitions:
       gs1GtinPicture:
         description: Picture
         type: object
+      gs1GtinPreId__gs1PreCtyId__gs1CtyName:
+        description: Country name
+        type: string
+        maxLength: 100
       gs1GtinEan13Image:
         description: EAN 13 image
         type: object
