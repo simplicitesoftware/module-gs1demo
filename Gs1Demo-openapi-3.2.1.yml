@@ -999,149 +999,6 @@ paths:
         required: true
       tags:
       - Gs1Country
-  /rest/Gs1Udi:
-    get:
-      summary: Search Gs1Udi business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      operationId: obj-gs1udi-search
-      responses:
-        '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArrayOfGs1Udi'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGtinId
-        description: Search filter for GTIN
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGtinId__gs1GtinIdentifier
-        description: Search filter for GTIN Identifier
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGtinId__gs1GtinLabel
-        description: Search filter for GTIN Label
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiProductionDate
-        description: Search filter for Production date
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiExpirationDate
-        description: Search filter for Expiration date
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiLotNumber
-        description: Search filter for Lot number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiSerialNumber
-        description: Search filter for Serial number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiSoftwareVersion
-        description: Search filter for Software version
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiHumanReadableInterpretation
-        description: Search filter for Human readable interpretation (HRI)
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1Data
-        description: Search filter for GS1 data
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiDigitalLink
-        description: Search filter for Digital link
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1128Image
-        description: Search filter for GS1 128 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1DataMatrixImage
-        description: Search filter for GS1 data matrix image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1QrCodeImage
-        description: Search filter for GS1 QRCode image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiDigitalLinkQrCodeImage
-        description: Search filter for Digital link image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiDescription
-        description: Search filter for Description
-        required: false
-      tags:
-      - Gs1Udi
   /rest/Gs1Gtin:
     get:
       summary: Search Gs1Gtin business object records or get contextualized metadata
@@ -1290,6 +1147,155 @@ paths:
         required: false
       tags:
       - Gs1Gtin
+  /rest/Gs1Udi:
+    get:
+      summary: Search Gs1Udi business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1udi-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Udi'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: _indexsearch
+        description: Index search query
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId
+        description: Search filter for GTIN
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId__gs1GtinIdentifier
+        description: Search filter for GTIN Identifier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId__gs1GtinLabel
+        description: Search filter for GTIN Label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiProductionDate
+        description: Search filter for Production date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiExpirationDate
+        description: Search filter for Expiration date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiLotNumber
+        description: Search filter for Lot number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiSerialNumber
+        description: Search filter for Serial number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiSoftwareVersion
+        description: Search filter for Software version
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiHumanReadableInterpretation
+        description: Search filter for Human readable interpretation (HRI)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGs1Data
+        description: Search filter for GS1 data
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDigitalLink
+        description: Search filter for Digital link
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGs1128Image
+        description: Search filter for GS1 128 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGs1DataMatrixImage
+        description: Search filter for GS1 data matrix image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGs1QrCodeImage
+        description: Search filter for GS1 QRCode image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDigitalLinkQrCodeImage
+        description: Search filter for Digital link image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDescription
+        description: Search filter for Description
+        required: false
+      tags:
+      - Gs1Udi
   /:
     get:
       summary: Get user session information
@@ -1604,7 +1610,7 @@ tags:
   description: Prefix
 - name: Gs1Country
   description: Country
-- name: Gs1Udi
-  description: UDI
 - name: Gs1Gtin
   description: GTIN
+- name: Gs1Udi
+  description: UDI
