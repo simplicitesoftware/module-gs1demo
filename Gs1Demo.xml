@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite elements="101" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="164" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
@@ -129,6 +129,16 @@ within Simplicité.]]></mdl_comment>
 		<grp_scope_id.sco_name>Gs1DemoScope</grp_scope_id.sco_name>
 		<grp_scope_id.sco_home_id.viw_name>Gs1Demo</grp_scope_id.sco_home_id.viw_name>
 	</data>
+	<data>
+		<grp_name>GS1_DEMO_PUBLIC</grp_name>
+		<grp_comment/>
+		<grp_type>G</grp_type>
+		<grp_parent_id.grp_name/>
+		<grp_home_id.viw_name/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<grp_scope_id.sco_name/>
+		<grp_scope_id.sco_home_id.viw_name/>
+	</data>
 </object>
 <object>
 	<name>Profile</name>
@@ -146,6 +156,15 @@ within Simplicité.]]></mdl_comment>
 		<rsp_login_id.usr_login>designer</rsp_login_id.usr_login>
 		<rsp_group_id.grp_name>GS1_DEMO</rsp_group_id.grp_name>
 		<rsp_start_dt>2026-10-16</rsp_start_dt>
+		<rsp_end_dt/>
+		<rsp_activ>1</rsp_activ>
+		<rsp_api>1</rsp_api>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<rsp_login_id.usr_login>public</rsp_login_id.usr_login>
+		<rsp_group_id.grp_name>GS1_DEMO_PUBLIC</rsp_group_id.grp_name>
+		<rsp_start_dt>2020-01-01</rsp_start_dt>
 		<rsp_end_dt/>
 		<rsp_activ>1</rsp_activ>
 		<rsp_api>1</rsp_api>
@@ -172,11 +191,193 @@ within Simplicité.]]></mdl_comment>
 	</data>
 </object>
 <object>
+	<name>ListOfValue</name>
+	<action>upsert</action>
+	<data>
+		<lov_name>TEXT</lov_name>
+		<lov_code>GS1_GTIN_INVALID_IDENTIFIER</lov_code>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[Invalid GTIN identifier]]></lov_value>
+		<lov_order_by>1</lov_order_by>
+		<lov_event_id.lev_code/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_name>TEXT</lov_name>
+		<lov_code>GS1_GTIN_INVALID_IDENTIFIER</lov_code>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Identifiant GTIN invalide]]></lov_value>
+		<lov_order_by>1</lov_order_by>
+		<lov_event_id.lev_code/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>FieldList</name>
+	<action>upsert</action>
+	<data>
+		<lov_name>GS1_GTIN_TYPE</lov_name>
+		<lov_navbar/>
+		<lov_navbar_opt/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<lov_model_id.mod_name/>
+		<lov_selectall_opt/>
+	</data>
+</object>
+<object>
+	<name>FieldListCode</name>
+	<action>upsert</action>
+	<data>
+		<lov_list_id.lov_name>GS1_GTIN_TYPE</lov_list_id.lov_name>
+		<lov_code>MEDICAL_DEVICE</lov_code>
+		<lov_order_by>10</lov_order_by>
+		<lov_label>Medical device</lov_label>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon>fas/laptop-medical</lov_icon>
+		<lov_display>I;L;T</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>GS1_GTIN_TYPE</lov_list_id.lov_name>
+		<lov_code>OTHER</lov_code>
+		<lov_order_by>20</lov_order_by>
+		<lov_label>Other</lov_label>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon>fas/archive</lov_icon>
+		<lov_display>I;L;T</lov_display>
+	</data>
+</object>
+<object>
+	<name>FieldListValue</name>
+	<action>upsert</action>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>GS1_GTIN_TYPE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>MEDICAL_DEVICE</lov_code_id.lov_code>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[Medical device]]></lov_value>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>GS1_GTIN_TYPE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>OTHER</lov_code_id.lov_code>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[Other]]></lov_value>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>GS1_GTIN_TYPE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>MEDICAL_DEVICE</lov_code_id.lov_code>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Medical_device]]></lov_value>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>GS1_GTIN_TYPE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>OTHER</lov_code_id.lov_code>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Other]]></lov_value>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
 	<name>Field</name>
 	<action>upsert</action>
 	<data>
-		<fld_name oldvalue="gs1DeviceIdentifier">gs1UdiDeviceIdentifier</fld_name>
-		<fld_dbname>gs1_udi_device_identifier</fld_dbname>
+		<fld_name>gs1GtinDescription</fld_name>
+		<fld_dbname>gs1_gtin_description</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>3;2</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>11</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>1000000</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinEan13Image</fld_name>
+		<fld_dbname>gs1_gtin_ean13_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinIdentifier</fld_name>
+		<fld_dbname>gs1_gtin_identifier</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>3;2</fld_updatable>
 		<fld_required>1</fld_required>
@@ -197,6 +398,276 @@ within Simplicité.]]></mdl_comment>
 		<fld_copy>1</fld_copy>
 		<fld_size>14</fld_size>
 		<fld_minsize>14</fld_minsize>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinItf14Image</fld_name>
+		<fld_dbname>gs1_gtin_itf14_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinLabel</fld_name>
+		<fld_dbname>gs1_gtin_label</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>3;2</fld_updatable>
+		<fld_required>1</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>3</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>255</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinPicture</fld_name>
+		<fld_dbname>gs1_gtin_picture</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>3;2</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision>100</fld_precision>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering>PICTE</fld_rendering>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinType</fld_name>
+		<fld_dbname>gs1_gtin_type</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>3;2</fld_updatable>
+		<fld_required>1</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>7</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name>GS1_GTIN_TYPE</fld_list_id.lov_name>
+		<fld_copy>1</fld_copy>
+		<fld_size>50</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinUpcaImage</fld_name>
+		<fld_dbname>gs1_gtin_upca_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1UdiDescription</fld_name>
+		<fld_dbname>gs1_udi_description</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>3;2</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>11</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>1000000</fld_size>
+		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
 		<fld_dfault/>
@@ -267,51 +738,6 @@ within Simplicité.]]></mdl_comment>
 	<data>
 		<fld_name>gs1UdiDigitalLinkQrCodeImage</fld_name>
 		<fld_dbname>gs1_udi_digital_link_qr_code_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiEan13Image</fld_name>
-		<fld_dbname>gs1_udi_ean13_image</fld_dbname>
 		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
 		<fld_required>0</fld_required>
@@ -580,6 +1006,51 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
+		<fld_name>gs1UdiGtinId</fld_name>
+		<fld_dbname>gs1_udi_gtin_id</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>2;3</fld_updatable>
+		<fld_required>1</fld_required>
+		<fld_fonctid>1</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>0</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering>FKPS</fld_rendering>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
 		<fld_name>gs1UdiHumanReadableInterpretation</fld_name>
 		<fld_dbname>gs1_udi_human_readable_interpretation</fld_dbname>
 		<fld_visible>2</fld_visible>
@@ -601,51 +1072,6 @@ within Simplicité.]]></mdl_comment>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>100</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiItf14Image</fld_name>
-		<fld_dbname>gs1_udi_itf14_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -849,67 +1275,34 @@ within Simplicité.]]></mdl_comment>
 		<fld_deprecated/>
 		<fld_compliance>NE</fld_compliance>
 	</data>
-	<data>
-		<fld_name>gs1UdiUpcaImage</fld_name>
-		<fld_dbname>gs1_udi_upca_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
 </object>
 <object>
 	<name>Template</name>
 	<action>upsert</action>
 	<data>
+		<tpl_name>Gs1Gtin</tpl_name>
+		<tpl_ui><![CDATA[<div>
+  <div class="area" data-area="1"></div>
+  <div class="area" data-area="2"></div>
+  <div class="area" data-area="3"></div>
+</div>]]></tpl_ui>
+		<tpl_min/>
+		<tpl_image/>
+		<tpl_grid/>
+		<tpl_context/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
 		<tpl_name>Gs1UDI</tpl_name>
 		<tpl_ui><![CDATA[<div>
+  <div class="area" data-area="1"></div>
+  <div class="area" data-area="2"></div>
   <div class="row">
-    <div class="col-sm-3">
-      <div class="area" data-area="1"></div>
-    </div>
-    <div class="col-sm-9">
-      <div class="area" data-area="2"></div>
-    </div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-9"></div>
   </div>
   <div class="area" data-area="3"></div>
+  <div class="area" data-area="4"></div>
   <div class="text" data-text=""></div>
 </div>]]></tpl_ui>
 		<tpl_min/>
@@ -923,15 +1316,76 @@ within Simplicité.]]></mdl_comment>
 	<name>ObjectFieldArea</name>
 	<action>upsert</action>
 	<data>
-		<ofa_name>Gs1UDI-1</ofa_name>
+		<ofa_name>Gs1Gtin-1</ofa_name>
 		<ofa_position>1</ofa_position>
 		<ofa_title>1</ofa_title>
-		<ofa_ui><![CDATA[<div class="field" data-field="gs1UdiDeviceIdentifier"></div>]]></ofa_ui>
+		<ofa_ui><![CDATA[<div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="field" data-field="gs1GtinIdentifier"></div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field" data-field="gs1GtinType"></div>
+    </div>
+  </div>
+  <div class="field" data-field="gs1GtinLabel"></div>
+</div>]]></ofa_ui>
+		<ofa_icon>fas/info-circle</ofa_icon>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<ofa_name>Gs1Gtin-2</ofa_name>
+		<ofa_position>2</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div class="row">
+  <div class="col-sm-4">
+    <div class="field" data-display="image" data-field="gs1GtinEan13Image"></div>
+  </div>
+  <div class="col-sm-4">
+    <div class="field" data-display="image" data-field="gs1GtinUpcaImage"></div>
+  </div>
+  <div class="col-sm-4">
+    <div class="field" data-display="image" data-field="gs1GtinItf14Image"></div>
+  </div>
+</div>]]></ofa_ui>
+		<ofa_icon>fas/barcode</ofa_icon>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<ofa_name>Gs1Gtin-3</ofa_name>
+		<ofa_position>3</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="field" data-field="gs1GtinDescription"></div>
+    </div>
+    <div class="col-sm-3">
+      <div class="field" data-field="gs1GtinPicture"></div>
+    </div>
+  </div>
+  <div class="area" data-area="Gs1Udi;gs1UdiGtinId"></div>
+</div>]]></ofa_ui>
+		<ofa_icon>fas/book</ofa_icon>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<ofa_name>Gs1Udi-1</ofa_name>
+		<ofa_position>1</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div class="row">
+  <div class="col-sm-4">
+    <div class="field" data-field="gs1UdiGtinId__gs1GtinIdentifier"></div>
+  </div>
+  <div class="col-sm-8">
+    <div class="field" data-field="gs1UdiGtinId__gs1GtinLabel"></div>
+  </div>
+</div>]]></ofa_ui>
 		<ofa_icon/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<ofa_name>Gs1UDI-2</ofa_name>
+		<ofa_name>Gs1Udi-2</ofa_name>
 		<ofa_position>2</ofa_position>
 		<ofa_title>1</ofa_title>
 		<ofa_ui><![CDATA[<div>
@@ -959,42 +1413,43 @@ within Simplicité.]]></mdl_comment>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<ofa_name>Gs1UDI-3</ofa_name>
+		<ofa_name>Gs1Udi-3</ofa_name>
 		<ofa_position>3</ofa_position>
 		<ofa_title>1</ofa_title>
-		<ofa_ui><![CDATA[<div class="row">
-  <div class="col-sm-5">
-    <div class="field" data-field="gs1UdiHumanReadableInterpretation"></div>
-    <div class="field" data-field="gs1UdiGs1Data"></div>
-    <div class="field" data-field="gs1UdiDigitalLink"></div>
-  </div>
-  <div class="col-sm-7">
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="field" data-display="image" data-field="gs1UdiEan13Image"></div>
-      </div>
-      <div class="col-sm-3">
-        <div class="field" data-display="image" data-field="gs1UdiUpcaImage"></div>
-      </div>
-      <div class="col-sm-6">
-        <div class="field" data-display="image" data-field="gs1UdiItf14Image"></div>
-      </div>
+		<ofa_ui><![CDATA[<div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="field" data-field="gs1UdiHumanReadableInterpretation"></div>
     </div>
-    <div class="field" data-display="image" data-field="gs1UdiGs1128Image"></div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="field" data-display="image" data-field="gs1UdiGs1DataMatrixImage"></div>
-      </div>
-      <div class="col-sm-4">
-        <div class="field" data-display="image" data-field="gs1UdiGs1QrCodeImage"></div>
-      </div>
-      <div class="col-sm-4">
-        <div class="field" data-display="image" data-field="gs1UdiDigitalLinkQrCodeImage"></div>
-      </div>
+    <div class="col-sm-4">
+      <div class="field" data-field="gs1UdiGs1Data"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="field" data-field="gs1UdiDigitalLink"></div>
+    </div>
+  </div>
+  <div class="field" data-display="image" data-field="gs1UdiGs1128Image"></div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="field" data-display="image" data-field="gs1UdiGs1DataMatrixImage"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="field" data-display="image" data-field="gs1UdiGs1QrCodeImage"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="field" data-display="image" data-field="gs1UdiDigitalLinkQrCodeImage"></div>
     </div>
   </div>
 </div>]]></ofa_ui>
-		<ofa_icon/>
+		<ofa_icon>fas/qrcode</ofa_icon>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<ofa_name>Gs1Udi-4</ofa_name>
+		<ofa_position>4</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div class="field" data-field="gs1UdiDescription"></div>]]></ofa_ui>
+		<ofa_icon>fas/book</ofa_icon>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -1018,16 +1473,93 @@ within Simplicité.]]></mdl_comment>
 	<name>ObjectInternal</name>
 	<action>upsert</action>
 	<data>
-		<obo_name>Gs1UDI</obo_name>
+		<obo_name oldvalue="Gs1GTIN">Gs1Gtin</obo_name>
+		<obo_dbtable>gs1_gtin</obo_dbtable>
+		<obo_role>OBJ</obo_role>
+		<obo_class/>
+		<obo_script_id>src/com/simplicite/objects/Gs1Demo/Gs1Gtin.java</obo_script_id>
+		<obo_usets>1</obo_usets>
+		<obo_nosearch>1</obo_nosearch>
+		<obo_comment><![CDATA[`GTIN`: Internationally unique product identifier managed by the GS1 Organization]]></obo_comment>
+		<obo_type>O</obo_type>
+		<obo_searchspec/>
+		<obo_exportorder/>
+		<obo_distinct>0</obo_distinct>
+		<obo_indexable>0</obo_indexable>
+		<obo_groupby>0</obo_groupby>
+		<obo_dfltref/>
+		<obo_template_id.tpl_name>Gs1Gtin</obo_template_id.tpl_name>
+		<obo_tpl_list_id.tpl_name/>
+		<obo_copy>1</obo_copy>
+		<obo_export>1</obo_export>
+		<obo_pagine>1</obo_pagine>
+		<obo_srh_predef>1</obo_srh_predef>
+		<obo_selrow>1</obo_selrow>
+		<obo_updall>1</obo_updall>
+		<obo_delall>1</obo_delall>
+		<obo_listsearch>1</obo_listsearch>
+		<obo_list_edit>N;L;E</obo_list_edit>
+		<obo_useform>1</obo_useform>
+		<obo_title/>
+		<obo_icon>fas/archive</obo_icon>
+		<obo_refcount>0</obo_refcount>
+		<obo_tree>0</obo_tree>
+		<obo_viewmode>T</obo_viewmode>
+		<obo_historic/>
+		<obo_printable>1</obo_printable>
+		<obo_followlink>1</obo_followlink>
+		<obo_mergeable>0</obo_mergeable>
+		<obo_social>1</obo_social>
+		<obo_rowid_id.fld_name/>
+		<obo_extend_id.obj_name/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obo_btn_reload>P</obo_btn_reload>
+		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_bookmark>1</obo_btn_bookmark>
+		<obo_btn_del>P</obo_btn_del>
+		<obo_btn_copy>P</obo_btn_copy>
+		<obo_btn_export>P</obo_btn_export>
+		<obo_btn_listadd>1</obo_btn_listadd>
+		<obo_btn_listedit>1</obo_btn_listedit>
+		<obo_btn_listupsert>1</obo_btn_listupsert>
+		<obo_btn_updall>P</obo_btn_updall>
+		<obo_btn_delall>P</obo_btn_delall>
+		<obo_btn_merge>P</obo_btn_merge>
+		<obo_btn_save>1</obo_btn_save>
+		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_savenew>1</obo_btn_savenew>
+		<obo_btn_savecopy>1</obo_btn_savecopy>
+		<obo_btn_close>1</obo_btn_close>
+		<obo_tray>1</obo_tray>
+		<obo_dashboard>1;2</obo_dashboard>
+		<obo_prefix>gtin</obo_prefix>
+		<obo_search_ts/>
+		<obo_minrows/>
+		<obo_maxrows/>
+		<obo_sortable>1</obo_sortable>
+		<obo_list_areas/>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
+		<obo_permalink/>
+		<obo_btn_searchform>1</obo_btn_searchform>
+		<obo_search_index/>
+		<obo_search_column/>
+		<obo_search_dialog/>
+		<obo_search_docked/>
+		<obo_tpl_search_id.tpl_name/>
+		<obo_tpl_search_pos/>
+	</data>
+	<data>
+		<obo_name oldvalue="Gs1UDI">Gs1Udi</obo_name>
 		<obo_dbtable>gs1_udi</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
-		<obo_script_id>src/com/simplicite/objects/Gs1Demo/Gs1UDI.java</obo_script_id>
+		<obo_script_id>src/com/simplicite/objects/Gs1Demo/Gs1Udi.java</obo_script_id>
 		<obo_usets>1</obo_usets>
 		<obo_nosearch>1</obo_nosearch>
-		<obo_comment><![CDATA[A medical device `UDI`  encoded with GS1 Application Identifiers.
+		<obo_comment><![CDATA[`UDI`: A medical device universal identifier.
 
-`UDI` = `UDI-DI` (static _device identifier_, the GTIN) + `UDI-PI` (_production identifiers_)]]></obo_comment>
+`UDI` = `UDI-DI` (static _device identifier_ = the GTIN) + `UDI-PI` (_production identifiers_)]]></obo_comment>
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_exportorder/>
@@ -1101,11 +1633,11 @@ within Simplicité.]]></mdl_comment>
 	<name>ObjectFieldSystem</name>
 	<action>upsert</action>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiDeviceIdentifier</obf_field_id.fld_name>
-		<obf_order>100</obf_order>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinIdentifier</obf_field_id.fld_name>
+		<obf_order>1000</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order/>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -1127,14 +1659,344 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Gtin-1</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinType</obf_field_id.fld_name>
+		<obf_order>1010</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinLabel</obf_field_id.fld_name>
+		<obf_order>1020</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinEan13Image</obf_field_id.fld_name>
+		<obf_order>2000</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinUpcaImage</obf_field_id.fld_name>
+		<obf_order>2010</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinItf14Image</obf_field_id.fld_name>
+		<obf_order>2020</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinDescription</obf_field_id.fld_name>
+		<obf_order>3000</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinPicture</obf_field_id.fld_name>
+		<obf_order>3010</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1UdiGtinId</obf_field_id.fld_name>
+		<obf_order>100</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order>1</obf_dfault_order>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
+		<obf_cascad>C</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>0</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Udi-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinIdentifier</obf_field_id.fld_name>
+		<obf_order>110</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>gs1UdiGtinId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Udi-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name>Gs1Udi</obf_joined_id.obf_object_id.obo_name>
+		<obf_joined_id.obf_field_id.fld_name>gs1UdiGtinId</obf_joined_id.obf_field_id.fld_name>
+		<obf_joined_id.obf_order>100</obf_joined_id.obf_order>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinLabel</obf_field_id.fld_name>
+		<obf_order>120</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>gs1UdiGtinId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Udi-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name>Gs1Udi</obf_joined_id.obf_object_id.obo_name>
+		<obf_joined_id.obf_field_id.fld_name>gs1UdiGtinId</obf_joined_id.obf_field_id.fld_name>
+		<obf_joined_id.obf_order>100</obf_joined_id.obf_order>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiProductionDate</obf_field_id.fld_name>
 		<obf_order>200</obf_order>
 		<obf_group_by/>
@@ -1160,14 +2022,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-2</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiExpirationDate</obf_field_id.fld_name>
 		<obf_order>210</obf_order>
 		<obf_group_by/>
@@ -1193,14 +2055,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-2</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiLotNumber</obf_field_id.fld_name>
 		<obf_order>220</obf_order>
 		<obf_group_by/>
@@ -1226,14 +2088,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-2</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiSerialNumber</obf_field_id.fld_name>
 		<obf_order>230</obf_order>
 		<obf_group_by/>
@@ -1259,14 +2121,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-2</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiSoftwareVersion</obf_field_id.fld_name>
 		<obf_order>240</obf_order>
 		<obf_group_by/>
@@ -1292,14 +2154,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-2</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiHumanReadableInterpretation</obf_field_id.fld_name>
 		<obf_order>300</obf_order>
 		<obf_group_by/>
@@ -1325,14 +2187,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiGs1Data</obf_field_id.fld_name>
 		<obf_order>310</obf_order>
 		<obf_group_by/>
@@ -1358,14 +2220,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiDigitalLink</obf_field_id.fld_name>
 		<obf_order>320</obf_order>
 		<obf_group_by/>
@@ -1391,113 +2253,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiEan13Image</obf_field_id.fld_name>
-		<obf_order>330</obf_order>
-		<obf_group_by/>
-		<obf_dfault_order/>
-		<obf_reorder/>
-		<obf_input/>
-		<obf_ref_field_id.fld_name/>
-		<obf_ref_object_id.obo_name/>
-		<obf_cascad/>
-		<obf_card/>
-		<obf_visible/>
-		<obf_ref_export>1</obf_ref_export>
-		<obf_copy/>
-		<obf_ref_order/>
-		<obf_fld_uk/>
-		<obf_fld_visible/>
-		<obf_fld_required/>
-		<obf_fld_updatable/>
-		<obf_fld_research/>
-		<obf_fld_more/>
-		<obf_fld_listmore/>
-		<obf_fld_researchreq/>
-		<obf_fld_dfault/>
-		<obf_fld_exportable/>
-		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<obf_joined_id.obf_object_id.obo_name/>
-		<obf_joined_id.obf_field_id.fld_name/>
-		<obf_joined_id.obf_order/>
-	</data>
-	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiUpcaImage</obf_field_id.fld_name>
-		<obf_order>340</obf_order>
-		<obf_group_by/>
-		<obf_dfault_order/>
-		<obf_reorder/>
-		<obf_input/>
-		<obf_ref_field_id.fld_name/>
-		<obf_ref_object_id.obo_name/>
-		<obf_cascad/>
-		<obf_card/>
-		<obf_visible/>
-		<obf_ref_export>1</obf_ref_export>
-		<obf_copy/>
-		<obf_ref_order/>
-		<obf_fld_uk/>
-		<obf_fld_visible/>
-		<obf_fld_required/>
-		<obf_fld_updatable/>
-		<obf_fld_research/>
-		<obf_fld_more/>
-		<obf_fld_listmore/>
-		<obf_fld_researchreq/>
-		<obf_fld_dfault/>
-		<obf_fld_exportable/>
-		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<obf_joined_id.obf_object_id.obo_name/>
-		<obf_joined_id.obf_field_id.fld_name/>
-		<obf_joined_id.obf_order/>
-	</data>
-	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiItf14Image</obf_field_id.fld_name>
-		<obf_order>350</obf_order>
-		<obf_group_by/>
-		<obf_dfault_order/>
-		<obf_reorder/>
-		<obf_input/>
-		<obf_ref_field_id.fld_name/>
-		<obf_ref_object_id.obo_name/>
-		<obf_cascad/>
-		<obf_card/>
-		<obf_visible/>
-		<obf_ref_export>1</obf_ref_export>
-		<obf_copy/>
-		<obf_ref_order/>
-		<obf_fld_uk/>
-		<obf_fld_visible/>
-		<obf_fld_required/>
-		<obf_fld_updatable/>
-		<obf_fld_research/>
-		<obf_fld_more/>
-		<obf_fld_listmore/>
-		<obf_fld_researchreq/>
-		<obf_fld_dfault/>
-		<obf_fld_exportable/>
-		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<obf_joined_id.obf_object_id.obo_name/>
-		<obf_joined_id.obf_field_id.fld_name/>
-		<obf_joined_id.obf_order/>
-	</data>
-	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiGs1128Image</obf_field_id.fld_name>
 		<obf_order>360</obf_order>
 		<obf_group_by/>
@@ -1523,14 +2286,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiGs1DataMatrixImage</obf_field_id.fld_name>
 		<obf_order>370</obf_order>
 		<obf_group_by/>
@@ -1556,14 +2319,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiGs1QrCodeImage</obf_field_id.fld_name>
 		<obf_order>380</obf_order>
 		<obf_group_by/>
@@ -1589,14 +2352,14 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
 		<obf_joined_id.obf_order/>
 	</data>
 	<data>
-		<obf_object_id.obo_name>Gs1UDI</obf_object_id.obo_name>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1UdiDigitalLinkQrCodeImage</obf_field_id.fld_name>
 		<obf_order>390</obf_order>
 		<obf_group_by/>
@@ -1622,7 +2385,40 @@ within Simplicité.]]></mdl_comment>
 		<obf_fld_dfault/>
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
-		<obf_area_id.ofa_name>Gs1UDI-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_name>Gs1Udi-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1UdiDescription</obf_field_id.fld_name>
+		<obf_order>400</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Udi-4</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
@@ -1630,11 +2426,53 @@ within Simplicité.]]></mdl_comment>
 	</data>
 </object>
 <object>
+	<name>Link</name>
+	<action>upsert</action>
+	<data>
+		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
+		<obf_order>100</obf_order>
+		<obf_ref_order/>
+		<obf_object_id.obj_name>Gs1Udi</obf_object_id.obj_name>
+		<obf_field_id.fld_name>gs1UdiGtinId</obf_field_id.fld_name>
+		<obf_cascad>C</obf_cascad>
+		<obf_anon/>
+		<obf_card>0,n</obf_card>
+		<obf_query/>
+		<obf_filters/>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>0</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_associate/>
+		<obf_inline/>
+		<obf_rendering/>
+		<obf_treedepth/>
+		<obf_redolog/>
+		<obf_area_id.ofa_name>Gs1Udi-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
 	<name>Function</name>
 	<action>upsert</action>
 	<data>
+		<fct_name>GS1_GTIN_CRUD</fct_name>
+		<fct_object_id.obo_name>Gs1Gtin</fct_object_id.obo_name>
+		<fct_function>CMS</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fct_name>GS1_GTIN_R</fct_name>
+		<fct_object_id.obo_name>Gs1Gtin</fct_object_id.obo_name>
+		<fct_function>L</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fct_name>GS1_UDI_CRUD</fct_name>
-		<fct_object_id.obo_name>Gs1UDI</fct_object_id.obo_name>
+		<fct_object_id.obo_name>Gs1Udi</fct_object_id.obo_name>
 		<fct_function>CMS</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
@@ -1642,7 +2480,7 @@ within Simplicité.]]></mdl_comment>
 	</data>
 	<data>
 		<fct_name>GS1_UDI_R</fct_name>
-		<fct_object_id.obo_name>Gs1UDI</fct_object_id.obo_name>
+		<fct_object_id.obo_name>Gs1Udi</fct_object_id.obo_name>
 		<fct_function>L</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
@@ -1654,8 +2492,32 @@ within Simplicité.]]></mdl_comment>
 	<action>upsert</action>
 	<data>
 		<grt_group_id.grp_name>GS1_DEMO</grt_group_id.grp_name>
+		<grt_function_id.fct_name>GS1_GTIN_CRUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obo_name>Gs1Gtin</grt_function_id.fct_object_id.obo_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>GS1_DEMO</grt_group_id.grp_name>
 		<grt_function_id.fct_name>GS1_UDI_CRUD</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obo_name>Gs1UDI</grt_function_id.fct_object_id.obo_name>
+		<grt_function_id.fct_object_id.obo_name>Gs1Udi</grt_function_id.fct_object_id.obo_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>GS1_DEMO_PUBLIC</grt_group_id.grp_name>
+		<grt_function_id.fct_name>GS1_GTIN_R</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obo_name>Gs1Gtin</grt_function_id.fct_object_id.obo_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>GS1_DEMO_PUBLIC</grt_group_id.grp_name>
+		<grt_function_id.fct_name>GS1_UDI_R</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obo_name>Gs1Udi</grt_function_id.fct_object_id.obo_name>
 		<grt_function_id.fct_action_id.act_name/>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
@@ -1670,11 +2532,25 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectInternal</name>
 				<data>
-					<obo_name>Gs1UDI</obo_name>
+					<obo_name>Gs1Gtin</obo_name>
 				</data>
 			</object>
 		</map_object>
-		<map_order>1000</map_order>
+		<map_order>100</map_order>
+		<map_ext>0</map_ext>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<map_domain_id.obd_name>Gs1Demo</map_domain_id.obd_name>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>Gs1Udi</obo_name>
+				</data>
+			</object>
+		</map_object>
+		<map_order>110</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -1704,46 +2580,6 @@ within Simplicité.]]></mdl_comment>
 <object>
 	<name>TranslateField</name>
 	<action>upsert</action>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1UdiDeviceIdentifier</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Device identifier</tsl_value>
-		<tsl_simplehelp><![CDATA[<p>Global Trade Item Number, always expressed as 14 digits in AI (01) (GTIN-8/12/13 are left-padded with zeros). The final digit is a GS1 mod-10 check digit</p>]]></tsl_simplehelp>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip><![CDATA[<p>UDI-DI</p>]]></tsl_tooltip>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1UdiDeviceIdentifier</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Identifiant du dispositif</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
 	<data>
 		<tsl_object>
 			<object>
@@ -2109,46 +2945,6 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiEan13Image</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>EAN 13 image</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1UdiEan13Image</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Image EAN 13</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
 					<fld_name>gs1UdiGs1128Image</fld_name>
 				</data>
 			</object>
@@ -2269,7 +3065,327 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiItf14Image</fld_name>
+					<fld_name>gs1GtinIdentifier</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Identifier</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinIdentifier</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin identifier</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinType</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Type</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinType</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin type</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinPicture</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Picture</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinPicture</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin picture</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinDescription</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Description</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinDescription</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin description</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1UdiGtinId</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>GTIN</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1UdiGtinId</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Udi gtin id</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinLabel</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Label</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinLabel</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin label</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinEan13Image</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>EAN 13 image</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinEan13Image</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Image EAN 13</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinUpcaImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>UPC-A image</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinUpcaImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Image UPC-A</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinItf14Image</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2289,7 +3405,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiItf14Image</fld_name>
+					<fld_name>gs1GtinItf14Image</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2309,12 +3425,12 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiUpcaImage</fld_name>
+					<fld_name>gs1UdiDescription</fld_name>
 				</data>
 			</object>
 		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>upcA image</tsl_value>
+		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -2329,12 +3445,12 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiUpcaImage</fld_name>
+					<fld_name>gs1UdiDescription</fld_name>
 				</data>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Image upcA</tsl_value>
+		<tsl_value>Udi description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -2353,7 +3469,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectFieldArea</name>
 				<data>
-					<ofa_name>Gs1UDI-1</ofa_name>
+					<ofa_name>Gs1Udi-1</ofa_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2367,7 +3483,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectFieldArea</name>
 				<data>
-					<ofa_name>Gs1UDI-1</ofa_name>
+					<ofa_name>Gs1Udi-1</ofa_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2381,7 +3497,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectFieldArea</name>
 				<data>
-					<ofa_name>Gs1UDI-2</ofa_name>
+					<ofa_name>Gs1Udi-2</ofa_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2395,7 +3511,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectFieldArea</name>
 				<data>
-					<ofa_name>Gs1UDI-2</ofa_name>
+					<ofa_name>Gs1Udi-2</ofa_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2409,7 +3525,91 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectFieldArea</name>
 				<data>
-					<ofa_name>Gs1UDI-3</ofa_name>
+					<ofa_name>Gs1Udi-3</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Codes</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Udi-3</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Détails</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Gtin-1</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Identification</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Gtin-1</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin -1</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Gtin-2</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Codes</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Gtin-2</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin -2</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Udi-4</ofa_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -2423,12 +3623,40 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectFieldArea</name>
 				<data>
-					<ofa_name>Gs1UDI-3</ofa_name>
+					<ofa_name>Gs1Udi-4</ofa_name>
 				</data>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Détails</tsl_value>
+		<tsl_value>Udi -4</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Gtin-3</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Details</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Gtin-3</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Gtin -3</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -2475,13 +3703,13 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectInternal</name>
 				<data>
-					<obo_name>Gs1UDI</obo_name>
+					<obo_name>Gs1Udi</obo_name>
 				</data>
 			</object>
 		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Unique device identifier</tsl_value>
-		<tsl_plural_value>Unique device identifiers</tsl_plural_value>
+		<tsl_value>UDI</tsl_value>
+		<tsl_plural_value>UDIs</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -2490,13 +3718,43 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>ObjectInternal</name>
 				<data>
-					<obo_name>Gs1UDI</obo_name>
+					<obo_name>Gs1Udi</obo_name>
 				</data>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Identifiant unique des dispositifs</tsl_value>
-		<tsl_plural_value>Identifiants uniques des dispositifs</tsl_plural_value>
+		<tsl_value>UDI</tsl_value>
+		<tsl_plural_value>UDIs</tsl_plural_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>Gs1Gtin</obo_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>GTIN</tsl_value>
+		<tsl_plural_value>GTINs</tsl_plural_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>Gs1Gtin</obo_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>GTIN</tsl_value>
+		<tsl_plural_value>GTINs</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -2566,6 +3824,36 @@ within Simplicité.]]></mdl_comment>
 		<tsl_value>Accueil démo</tsl_value>
 		<tsl_help/>
 		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Dataset</name>
+	<action>upsert</action>
+	<data>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<dt_name>data</dt_name>
+		<dt_file>data/data.xml</dt_file>
+		<dt_desc/>
+		<dt_exportdate_from/>
+		<dt_exportdate_to/>
+		<dt_export_format>xml</dt_export_format>
+		<dt_export_zip>0</dt_export_zip>
+	</data>
+</object>
+<object>
+	<name>DatasetObject</name>
+	<action>upsert</action>
+	<data>
+		<dto_order>1</dto_order>
+		<dto_dt_id.dt_name>data</dto_dt_id.dt_name>
+		<dto_obo_id.obo_name>Gs1Gtin</dto_obo_id.obo_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<dto_order>2</dto_order>
+		<dto_dt_id.dt_name>data</dto_dt_id.dt_name>
+		<dto_obo_id.obo_name>Gs1Udi</dto_obo_id.obo_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 </object>

@@ -17,13 +17,13 @@ components:
           type: integer
           enum:
           - 404
-    Gs1UDI:
+    Gs1Udi:
       description: |-
-        Unique device identifier:
+        UDI:
 
-        A medical device `UDI`  encoded with GS1 Application Identifiers.
+        `UDI`: A medical device universal identifier.
 
-        `UDI` = `UDI-DI` (static _device identifier_, the GTIN) + `UDI-PI` (_production identifiers_)
+        `UDI` = `UDI-DI` (static _device identifier_ = the GTIN) + `UDI-PI` (_production identifiers_)
       type: object
       properties:
         gs1UdiSerialNumber:
@@ -41,21 +41,27 @@ components:
           description: Software version
           type: string
           maxLength: 20
-        gs1UdiItf14Image:
-          description: ITF14 image
-          type: object
+        gs1UdiDescription:
+          description: Description
+          type: string
+          maxLength: 1000000
+        gs1UdiGtinId__gs1GtinIdentifier:
+          description: GTIN Identifier
+          type: string
+          maxLength: 14
         gs1UdiExpirationDate:
           description: Expiration date
           type: string
           maxLength: 10
           example: yyyy-MM-dd
-        gs1UdiEan13Image:
-          description: EAN 13 image
-          type: object
         gs1UdiHumanReadableInterpretation:
           description: Human readable interpretation
           type: string
           maxLength: 100
+        gs1UdiGtinId__gs1GtinLabel:
+          description: GTIN Label
+          type: string
+          maxLength: 255
         gs1UdiProductionDate:
           description: Production date
           type: string
@@ -79,26 +85,70 @@ components:
           description: Unique technical row ID
           type: string
           maxLength: 11
-        gs1UdiUpcaImage:
-          description: upcA image
-          type: object
-        gs1UdiDeviceIdentifier:
-          description: Device identifier
-          type: string
-          maxLength: 14
         gs1UdiGs1128Image:
           description: GS1 128 image
           type: object
-    ArrayOfGs1UDI:
-      description: List of Unique device identifiers
+        gs1UdiGtinId:
+          description: GTIN
+          type: string
+          maxLength: 11
+    ArrayOfGs1Gtin:
+      description: List of GTINs
       type: array
       items:
-        $ref: '#/components/schemas/Gs1UDI'
+        $ref: '#/components/schemas/Gs1Gtin'
+    ArrayOfGs1Udi:
+      description: List of UDIs
+      type: array
+      items:
+        $ref: '#/components/schemas/Gs1Udi'
     TreeviewData:
       type: object
       properties:
         item:
           description: Object item with lists of linked objects' items
+          type: object
+    Gs1Gtin:
+      description: |-
+        GTIN:
+
+        `GTIN`: Internationally unique product identifier managed by the GS1 Organization
+      type: object
+      properties:
+        gs1GtinEan13Image:
+          description: EAN 13 image
+          type: object
+        gs1GtinUpcaImage:
+          description: UPC-A image
+          type: object
+        gs1GtinDescription:
+          description: Description
+          type: string
+          maxLength: 1000000
+        gs1GtinType:
+          description: Type
+          type: string
+          maxLength: 50
+          enum:
+          - MEDICAL_DEVICE
+          - OTHER
+        gs1GtinItf14Image:
+          description: ITF14 image
+          type: object
+        gs1GtinLabel:
+          description: Label
+          type: string
+          maxLength: 255
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
+        gs1GtinIdentifier:
+          description: Identifier
+          type: string
+          maxLength: 14
+        gs1GtinPicture:
+          description: Picture
           type: object
     Error400:
       description: Bad request
@@ -191,6 +241,201 @@ paths:
         required: false
       tags:
       - session
+  /rest/Gs1Udi/{row_id}:
+    post:
+      summary: Create a new Gs1Udi business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Udi'
+      operationId: obj-gs1udi-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Udi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Udi
+    get:
+      summary: Get a Gs1Udi business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1udi-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Udi'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - Gs1Udi
+    delete:
+      summary: Delete a Gs1Udi business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1udi-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Udi
+    put:
+      summary: Update a Gs1Udi business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Udi'
+      operationId: obj-gs1udi-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Udi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Udi
   /logout:
     get:
       summary: Logout (revoke bearer token)
@@ -210,12 +455,207 @@ paths:
                 $ref: '#/components/schemas/Error401'
       tags:
       - session
-  /rest/Gs1UDI:
-    get:
-      summary: Search Gs1UDI business object records or get contextualized metadata
+  /rest/Gs1Gtin/{row_id}:
+    post:
+      summary: Create a new Gs1Gtin business object record
       security:
       - bearerAuth: []
-      operationId: obj-gs1udi-search
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Gtin'
+      operationId: obj-gs1gtin-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Gtin'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Gtin
+    get:
+      summary: Get a Gs1Gtin business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1gtin-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Gtin'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - Gs1Gtin
+    delete:
+      summary: Delete a Gs1Gtin business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1gtin-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Gtin
+    put:
+      summary: Update a Gs1Gtin business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Gtin'
+      operationId: obj-gs1gtin-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Gtin'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Gtin
+  /rest/Gs1Gtin:
+    get:
+      summary: Search Gs1Gtin business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1gtin-search
       responses:
         '200':
           description: Success in searching business object records (or in getting
@@ -223,7 +663,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArrayOfGs1UDI'
+                $ref: '#/components/schemas/ArrayOfGs1Gtin'
         '401':
           description: Unauthorized
           content:
@@ -258,8 +698,118 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1UdiDeviceIdentifier
-        description: Search filter for Device identifier
+        name: gs1GtinIdentifier
+        description: Search filter for Identifier
+        required: false
+      - schema:
+          type: string
+          enum:
+          - MEDICAL_DEVICE
+          - OTHER
+        in: query
+        name: gs1GtinType
+        description: Search filter for Type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinLabel
+        description: Search filter for Label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinEan13Image
+        description: Search filter for EAN 13 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinUpcaImage
+        description: Search filter for UPC-A image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinItf14Image
+        description: Search filter for ITF14 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinDescription
+        description: Search filter for Description
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPicture
+        description: Search filter for Picture
+        required: false
+      tags:
+      - Gs1Gtin
+  /rest/Gs1Udi:
+    get:
+      summary: Search Gs1Udi business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1udi-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Udi'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId
+        description: Search filter for GTIN
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId__gs1GtinIdentifier
+        description: Search filter for GTIN Identifier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId__gs1GtinLabel
+        description: Search filter for GTIN Label
         required: false
       - schema:
           type: string
@@ -312,24 +862,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1UdiEan13Image
-        description: Search filter for EAN 13 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiUpcaImage
-        description: Search filter for upcA image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiItf14Image
-        description: Search filter for ITF14 image
-        required: false
-      - schema:
-          type: string
-        in: query
         name: gs1UdiGs1128Image
         description: Search filter for GS1 128 image
         required: false
@@ -351,8 +883,14 @@ paths:
         name: gs1UdiDigitalLinkQrCodeImage
         description: Search filter for Digital link image
         required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDescription
+        description: Search filter for Description
+        required: false
       tags:
-      - Gs1UDI
+      - Gs1Udi
   /:
     get:
       summary: Get user session information
@@ -379,201 +917,6 @@ paths:
         required: false
       tags:
       - session
-  /rest/Gs1UDI/{row_id}:
-    post:
-      summary: Create a new Gs1UDI business object record
-      security:
-      - bearerAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Gs1UDI'
-      operationId: obj-gs1udi-create
-      responses:
-        '200':
-          description: Success in creating a new business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Gs1UDI'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - Gs1UDI
-    get:
-      summary: Get a Gs1UDI business object record
-      security:
-      - bearerAuth: []
-      operationId: obj-gs1udi-get
-      responses:
-        '200':
-          description: Success in getting a single business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Gs1UDI'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_documents
-        description: Inline documents?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_thumbnails
-        description: Inline documents' thumbnails?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_objects
-        description: Inline objects?
-        required: false
-      tags:
-      - Gs1UDI
-    delete:
-      summary: Delete a Gs1UDI business object record
-      security:
-      - bearerAuth: []
-      operationId: obj-gs1udi-delete
-      responses:
-        '200':
-          description: Success in deleting a business object record
-          content:
-            application/json: {}
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - Gs1UDI
-    put:
-      summary: Update a Gs1UDI business object record
-      security:
-      - bearerAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Gs1UDI'
-      operationId: obj-gs1udi-update
-      responses:
-        '200':
-          description: Success in updating a business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Gs1UDI'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - Gs1UDI
 info:
   license:
     name: Simplicite license
@@ -586,5 +929,7 @@ info:
   title: Gs1Demo
   version: '7'
 tags:
-- name: Gs1UDI
-  description: Unique device identifier
+- name: Gs1Gtin
+  description: GTIN
+- name: Gs1Udi
+  description: UDI
