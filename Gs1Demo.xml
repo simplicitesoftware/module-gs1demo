@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite elements="165" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="166" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
@@ -89,9 +89,9 @@ within Simplicité.]]></mdl_comment>
 	<name>View</name>
 	<action>upsert</action>
 	<data>
-		<viw_name>Gs1Demo</viw_name>
+		<viw_name>Gs1DemoHome</viw_name>
 		<viw_type>H</viw_type>
-		<viw_ui/>
+		<viw_ui><![CDATA[<div class="area" data-area="1"></div>]]></viw_ui>
 		<viw_order>1</viw_order>
 		<viw_icon/>
 		<viw_disp_id.dis_code/>
@@ -123,7 +123,7 @@ within Simplicité.]]></mdl_comment>
 		<sco_permalink/>
 		<sco_disp_id.dis_code/>
 		<sco_workarea>1</sco_workarea>
-		<sco_home_id.viw_name>Gs1Demo</sco_home_id.viw_name>
+		<sco_home_id.viw_name>Gs1DemoHome</sco_home_id.viw_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<sco_comment/>
 	</data>
@@ -139,7 +139,7 @@ within Simplicité.]]></mdl_comment>
 		<grp_home_id.viw_name/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<grp_scope_id.sco_name>Gs1DemoScope</grp_scope_id.sco_name>
-		<grp_scope_id.sco_home_id.viw_name>Gs1Demo</grp_scope_id.sco_home_id.viw_name>
+		<grp_scope_id.sco_home_id.viw_name>Gs1DemoHome</grp_scope_id.sco_home_id.viw_name>
 	</data>
 	<data>
 		<grp_name>GS1_DEMO_PUBLIC</grp_name>
@@ -2568,6 +2568,31 @@ within Simplicité.]]></mdl_comment>
 	</data>
 </object>
 <object>
+	<name>ViewItem</name>
+	<action>upsert</action>
+	<data>
+		<vwi_view_id.viw_name>Gs1DemoHome</vwi_view_id.viw_name>
+		<vwi_position>1</vwi_position>
+		<vwi_type>N</vwi_type>
+		<vwi_title>0</vwi_title>
+		<vwi_research_id.rch_name/>
+		<vwi_research_id.rch_object_id.obo_name/>
+		<vwi_research_id.rch_user_id.usr_login/>
+		<vwi_search_spec/>
+		<vwi_lov_code/>
+		<vwi_show/>
+		<vwi_url/>
+		<vwi_image/>
+		<vwi_subview_id.viw_name/>
+		<vwi_treeview_id.trv_name/>
+		<vwi_crosstab_id.ctb_name/>
+		<vwi_printtmpl_id.prt_name/>
+		<vwi_printtmpl_id.prt_lang/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<vwi_shortcuts/>
+	</data>
+</object>
+<object>
 	<name>Resource</name>
 	<action>upsert</action>
 	<data>
@@ -3813,7 +3838,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>View</name>
 				<data>
-					<viw_name>Gs1Demo</viw_name>
+					<viw_name>Gs1DemoHome</viw_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -3828,7 +3853,7 @@ within Simplicité.]]></mdl_comment>
 			<object>
 				<name>View</name>
 				<data>
-					<viw_name>Gs1Demo</viw_name>
+					<viw_name>Gs1DemoHome</viw_name>
 				</data>
 			</object>
 		</tsl_object>

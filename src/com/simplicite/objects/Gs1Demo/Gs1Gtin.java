@@ -40,4 +40,13 @@ public class Gs1Gtin extends ObjectDB {
 
         return msgs;
     }
+
+    @Override
+    public boolean canReference(String objectName, String fieldName) {
+        if ("Gs1Udi".equals(objectName))
+            return "MEDICAL_DEVICE".equals(getFieldValue("gs1GtinType"));
+
+        return super.canReference(objectName, fieldName);
+    }
+    
 }

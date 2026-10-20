@@ -66,6 +66,7 @@ _Domains organize the application's main navigation menu. Each domain groups the
 ### Implemented hooks
 
 * `postValidate`
+* `canReference`
 
 `Gs1Udi` (UDI) business object definition
 -----------------------------------------
