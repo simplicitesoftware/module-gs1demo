@@ -140,37 +140,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Gs1Country'
-    Gs1Prefix:
-      description: |-
-        Prefix:
-
-        GS1 prefixes
-      type: object
-      properties:
-        gs1PreDescription:
-          description: Description
-          type: string
-          maxLength: 1000000
-        gs1PreCtyId:
-          description: Country
-          type: string
-          maxLength: 11
-        row_id:
-          description: Unique technical row ID
-          type: string
-          maxLength: 11
-        gs1PrePrefix:
-          description: Prefix
-          type: string
-          maxLength: 3
-        gs1PreCtyId__gs1CtyName:
-          description: Country name
-          type: string
-          maxLength: 100
-        gs1PreCtyId__gs1CtyCode:
-          description: Country code (3 letters)
-          type: string
-          maxLength: 3
     Gs1Gtin:
       description: |-
         GTIN:
@@ -233,6 +202,37 @@ components:
           description: Identifier
           type: string
           maxLength: 14
+    Gs1Prefix:
+      description: |-
+        Prefix:
+
+        GS1 prefixes
+      type: object
+      properties:
+        gs1PreDescription:
+          description: Description
+          type: string
+          maxLength: 1000000
+        gs1PreCtyId:
+          description: Country
+          type: string
+          maxLength: 11
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
+        gs1PrePrefix:
+          description: Prefix
+          type: string
+          maxLength: 3
+        gs1PreCtyId__gs1CtyName:
+          description: Country name
+          type: string
+          maxLength: 100
+        gs1PreCtyId__gs1CtyCode:
+          description: Country code (3 letters)
+          type: string
+          maxLength: 3
     Error400:
       description: Bad request
       type: object
@@ -999,154 +999,6 @@ paths:
         required: true
       tags:
       - Gs1Country
-  /rest/Gs1Gtin:
-    get:
-      summary: Search Gs1Gtin business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      operationId: obj-gs1gtin-search
-      responses:
-        '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArrayOfGs1Gtin'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: _indexsearch
-        description: Index search query
-        required: false
-      - schema:
-          type: string
-          enum:
-          - Gs1GtinStats
-        in: query
-        name: _crosstab
-        description: Apply pivot table
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _crosstabcubes
-        description: Pivot table data as cubes?
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinIdentifier
-        description: Search filter for Identifier
-        required: false
-      - schema:
-          type: string
-          enum:
-          - MEDICAL_DEVICE
-          - OTHER
-        in: query
-        name: gs1GtinType
-        description: Search filter for Type
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinLabel
-        description: Search filter for Label
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPreId
-        description: Search filter for Prefix
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPreId__gs1PrePrefix
-        description: Search filter for Prefix
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPreId__gs1PreCtyId
-        description: Search filter for Prefix Country
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPreId__gs1PreCtyId__gs1CtyCode
-        description: Search filter for Country code (3 letters)
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPreId__gs1PreCtyId__gs1CtyName
-        description: Search filter for Country name
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinEan13Image
-        description: Search filter for EAN 13 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinUpcaImage
-        description: Search filter for UPC-A image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinItf14Image
-        description: Search filter for ITF14 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinDescription
-        description: Search filter for Description
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPicture
-        description: Search filter for Picture
-        required: false
-      tags:
-      - Gs1Gtin
   /rest/Gs1Udi:
     get:
       summary: Search Gs1Udi business object records or get contextualized metadata
@@ -1296,6 +1148,154 @@ paths:
         required: false
       tags:
       - Gs1Udi
+  /rest/Gs1Gtin:
+    get:
+      summary: Search Gs1Gtin business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1gtin-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Gtin'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: _indexsearch
+        description: Index search query
+        required: false
+      - schema:
+          type: string
+          enum:
+          - Gs1GtinStats
+        in: query
+        name: _crosstab
+        description: Apply pivot table
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _crosstabcubes
+        description: Pivot table data as cubes?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinIdentifier
+        description: Search filter for Identifier
+        required: false
+      - schema:
+          type: string
+          enum:
+          - MEDICAL_DEVICE
+          - OTHER
+        in: query
+        name: gs1GtinType
+        description: Search filter for Type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinLabel
+        description: Search filter for Label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId
+        description: Search filter for Prefix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PrePrefix
+        description: Search filter for Prefix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PreCtyId
+        description: Search filter for Prefix Country
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PreCtyId__gs1CtyCode
+        description: Search filter for Country code (3 letters)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPreId__gs1PreCtyId__gs1CtyName
+        description: Search filter for Country name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinEan13Image
+        description: Search filter for EAN 13 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinUpcaImage
+        description: Search filter for UPC-A image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinItf14Image
+        description: Search filter for ITF14 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinDescription
+        description: Search filter for Description
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPicture
+        description: Search filter for Picture
+        required: false
+      tags:
+      - Gs1Gtin
   /:
     get:
       summary: Get user session information
@@ -1606,11 +1606,11 @@ info:
   title: Gs1Demo
   version: '7'
 tags:
-- name: Gs1Prefix
-  description: Prefix
 - name: Gs1Country
   description: Country
-- name: Gs1Gtin
-  description: GTIN
 - name: Gs1Udi
   description: UDI
+- name: Gs1Gtin
+  description: GTIN
+- name: Gs1Prefix
+  description: Prefix

@@ -32,6 +32,7 @@ _Domains organize the application's main navigation menu. Each domain groups the
 * `Gs1Demo`
   * `Gs1Gtin` _(object)_
   * `Gs1Udi` _(object)_
+* `Gs1DemoRefData` _(sub-domain of `Gs1Demo`)_
   * `Gs1Country` _(object)_
   * `Gs1Prefix` _(object)_
 

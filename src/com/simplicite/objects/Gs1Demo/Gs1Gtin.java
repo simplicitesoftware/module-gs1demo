@@ -31,6 +31,7 @@ public class Gs1Gtin extends ObjectDB {
         String prefix = gtin.substring(1, 4);
         AppLog.info("Prefix = " + prefix);
         if (!prefix.equals(getFieldValue("gs1GtinPreId.gs1PrePrefix"))) {
+            // TODO: refactor as object search
             String prefixId = getGrant().simpleQuery("select row_id from gs1_prefix where gs1_pre_prefix = '" + Tool.toSQL(prefix) + "'");
             AppLog.info("Prefix ID = " + prefixId);
             setFieldValue("gs1GtinPreId", prefixId);
@@ -61,7 +62,7 @@ public class Gs1Gtin extends ObjectDB {
 
     @Override
     public boolean canReference(String objectName, String fieldName) {
-        if (!isBatchInstance() && "Gs1Udi".equals(objectName))
+        if ("Gs1Udi".equals(objectName))
             return "MEDICAL_DEVICE".equals(getFieldValue("gs1GtinType"));
 
         return super.canReference(objectName, fieldName);
