@@ -17,6 +17,8 @@ public class Gs1Gtin extends ObjectDB {
         List<String> msgs = new ArrayList<>();
 
         ObjectField id = getField("gs1GtinIdentifier");
+        if (id.getValue().length() == 13)
+            id.setValue(id.getValue() + GS1Tool.getGTINCheckDigit(id.getValue()));
         if (!GS1Tool.isValid(id.getValue()))
             msgs.add(Message.formatError("GS1_GTIN_INVALID_IDENTIFIER", null, id.getName()));
 
@@ -48,5 +50,5 @@ public class Gs1Gtin extends ObjectDB {
 
         return super.canReference(objectName, fieldName);
     }
-    
+
 }

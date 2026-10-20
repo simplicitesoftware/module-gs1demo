@@ -409,7 +409,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>14</fld_size>
-		<fld_minsize>14</fld_minsize>
+		<fld_minsize>13</fld_minsize>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
 		<fld_dfault/>
@@ -1649,7 +1649,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1GtinIdentifier</obf_field_id.fld_name>
 		<obf_order>1000</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order/>
+		<obf_dfault_order>1</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -1913,7 +1913,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1UdiGtinId</obf_field_id.fld_name>
 		<obf_order>1000</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order/>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -1946,7 +1946,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1GtinIdentifier</obf_field_id.fld_name>
 		<obf_order>1010</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order/>
+		<obf_dfault_order>1</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name>gs1UdiGtinId</obf_ref_field_id.fld_name>
@@ -2012,7 +2012,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1UdiProductionDate</obf_field_id.fld_name>
 		<obf_order>2000</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order>2</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -2045,7 +2045,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1UdiExpirationDate</obf_field_id.fld_name>
 		<obf_order>2010</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order>3</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -2078,7 +2078,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1UdiLotNumber</obf_field_id.fld_name>
 		<obf_order>2100</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order>4</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -2111,7 +2111,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1UdiSerialNumber</obf_field_id.fld_name>
 		<obf_order>2110</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order>5</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -2144,7 +2144,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_field_id.fld_name>gs1UdiSoftwareVersion</obf_field_id.fld_name>
 		<obf_order>2120</obf_order>
 		<obf_group_by/>
-		<obf_dfault_order>1</obf_dfault_order>
+		<obf_dfault_order>6</obf_dfault_order>
 		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
