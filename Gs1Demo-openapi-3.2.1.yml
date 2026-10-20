@@ -650,6 +650,110 @@ paths:
         required: true
       tags:
       - Gs1Gtin
+  /rest/Gs1Gtin:
+    get:
+      summary: Search Gs1Gtin business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1gtin-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Gtin'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: _indexsearch
+        description: Index search query
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinIdentifier
+        description: Search filter for Identifier
+        required: false
+      - schema:
+          type: string
+          enum:
+          - MEDICAL_DEVICE
+          - OTHER
+        in: query
+        name: gs1GtinType
+        description: Search filter for Type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinLabel
+        description: Search filter for Label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinEan13Image
+        description: Search filter for EAN 13 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinUpcaImage
+        description: Search filter for UPC-A image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinItf14Image
+        description: Search filter for ITF14 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinDescription
+        description: Search filter for Description
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GtinPicture
+        description: Search filter for Picture
+        required: false
+      tags:
+      - Gs1Gtin
   /rest/Gs1Udi:
     get:
       summary: Search Gs1Udi business object records or get contextualized metadata
@@ -793,104 +897,6 @@ paths:
         required: false
       tags:
       - Gs1Udi
-  /rest/Gs1Gtin:
-    get:
-      summary: Search Gs1Gtin business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      operationId: obj-gs1gtin-search
-      responses:
-        '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArrayOfGs1Gtin'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinIdentifier
-        description: Search filter for Identifier
-        required: false
-      - schema:
-          type: string
-          enum:
-          - MEDICAL_DEVICE
-          - OTHER
-        in: query
-        name: gs1GtinType
-        description: Search filter for Type
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinLabel
-        description: Search filter for Label
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinEan13Image
-        description: Search filter for EAN 13 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinUpcaImage
-        description: Search filter for UPC-A image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinItf14Image
-        description: Search filter for ITF14 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinDescription
-        description: Search filter for Description
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1GtinPicture
-        description: Search filter for Picture
-        required: false
-      tags:
-      - Gs1Gtin
   /:
     get:
       summary: Get user session information
@@ -929,7 +935,7 @@ info:
   title: Gs1Demo
   version: '7'
 tags:
-- name: Gs1Udi
-  description: UDI
 - name: Gs1Gtin
   description: GTIN
+- name: Gs1Udi
+  description: UDI

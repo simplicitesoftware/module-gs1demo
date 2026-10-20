@@ -413,7 +413,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
 		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
+		<fld_indexable>1</fld_indexable>
 		<fld_autocomp>0</fld_autocomp>
 		<fld_groupby>0</fld_groupby>
 		<fld_updall>1</fld_updall>
@@ -503,7 +503,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
 		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
+		<fld_indexable>1</fld_indexable>
 		<fld_autocomp>0</fld_autocomp>
 		<fld_groupby>0</fld_groupby>
 		<fld_updall>1</fld_updall>
@@ -1497,7 +1497,7 @@ within Simplicité.]]></mdl_comment>
 		<obo_searchspec/>
 		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
-		<obo_indexable>0</obo_indexable>
+		<obo_indexable>1</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
 		<obo_template_id.tpl_name>Gs1Gtin</obo_template_id.tpl_name>
@@ -1554,8 +1554,8 @@ within Simplicité.]]></mdl_comment>
 		<obo_minified>0</obo_minified>
 		<obo_permalink/>
 		<obo_btn_searchform>1</obo_btn_searchform>
-		<obo_search_index/>
-		<obo_search_column/>
+		<obo_search_index>2</obo_search_index>
+		<obo_search_column>1</obo_search_column>
 		<obo_search_dialog/>
 		<obo_search_docked/>
 		<obo_tpl_search_id.tpl_name/>
@@ -1633,8 +1633,8 @@ within Simplicité.]]></mdl_comment>
 		<obo_minified>0</obo_minified>
 		<obo_permalink/>
 		<obo_btn_searchform>1</obo_btn_searchform>
-		<obo_search_index/>
-		<obo_search_column>C</obo_search_column>
+		<obo_search_index>2</obo_search_index>
+		<obo_search_column>1</obo_search_column>
 		<obo_search_dialog>1</obo_search_dialog>
 		<obo_search_docked>0</obo_search_docked>
 		<obo_tpl_search_id.tpl_name/>
