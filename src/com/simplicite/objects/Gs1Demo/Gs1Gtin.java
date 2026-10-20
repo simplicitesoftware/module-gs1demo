@@ -45,7 +45,7 @@ public class Gs1Gtin extends ObjectDB {
 
     @Override
     public boolean canReference(String objectName, String fieldName) {
-        if ("Gs1Udi".equals(objectName))
+        if (!isBatchInstance() && "Gs1Udi".equals(objectName))
             return "MEDICAL_DEVICE".equals(getFieldValue("gs1GtinType"));
 
         return super.canReference(objectName, fieldName);

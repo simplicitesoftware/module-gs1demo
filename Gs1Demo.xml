@@ -883,7 +883,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1UdiDataUrl">gs1UdiGs1Data</fld_name>
+		<fld_name>gs1UdiGs1Data</fld_name>
 		<fld_dbname>gs1_udi_gs1_data</fld_dbname>
 		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
@@ -1485,7 +1485,7 @@ within Simplicité.]]></mdl_comment>
 	<name>ObjectInternal</name>
 	<action>upsert</action>
 	<data>
-		<obo_name oldvalue="Gs1GTIN">Gs1Gtin</obo_name>
+		<obo_name>Gs1Gtin</obo_name>
 		<obo_dbtable>gs1_gtin</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
@@ -1562,7 +1562,7 @@ within Simplicité.]]></mdl_comment>
 		<obo_tpl_search_pos/>
 	</data>
 	<data>
-		<obo_name oldvalue="Gs1UDI">Gs1Udi</obo_name>
+		<obo_name>Gs1Udi</obo_name>
 		<obo_dbtable>gs1_udi</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
