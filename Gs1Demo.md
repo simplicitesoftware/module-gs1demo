@@ -32,6 +32,8 @@ _Domains organize the application's main navigation menu. Each domain groups the
 * `Gs1Demo`
   * `Gs1Gtin` _(object)_
   * `Gs1Udi` _(object)_
+  * `Gs1Country` _(object)_
+  * `Gs1Prefix` _(object)_
 
 `Gs1Gtin` (GTIN) business object definition
 -------------------------------------------
@@ -67,6 +69,27 @@ _Domains organize the application's main navigation menu. Each domain groups the
 
 * `postValidate`
 * `canReference`
+
+`Gs1Prefix` (Prefix) business object definition
+-----------------------------------------------
+
+GS1 prefixes
+
+**Physical table**: `gs1_prefix`
+
+### Relationships
+
+* Belongs to **Gs1Country** via `gs1PreCtyId` (optional) — on parent delete: set-null
+
+### Fields
+
+| Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| **`gs1PreCtyId`** link to **`Gs1Country`**                   | id                                       | gs1_pre_cty_id                 |          | yes       |          | -                                                                                |
+| _`gs1CtyCode`_                                               | _char(3)_                                | _gs1_cty_code_                 |          |           |          | _Country code (3 letters)_                                                       |
+| _`gs1CtyName`_                                               | _char(100)_                              | _gs1_cty_name_                 |          |           |          | _Country name_                                                                   |
+| `gs1PrePrefix`                                               | char(3)                                  | gs1_pre_prefix                 | yes*     | yes       |          | -                                                                                |
+| `gs1PreDescription`                                          | html(1000000)                            | gs1_pre_description            |          | yes       |          | -                                                                                |
 
 `Gs1Udi` (UDI) business object definition
 -----------------------------------------
@@ -105,4 +128,23 @@ _Domains organize the application's main navigation menu. Each domain groups the
 ### Implemented hooks
 
 * `postValidate`
+
+`Gs1Country` (Country) business object definition
+-------------------------------------------------
+
+ISO 3166-1 countries
+
+**Physical table**: `gs1_country`
+
+### Relationships
+
+* Has many **Gs1Prefix** via `gs1PreCtyId` [on delete: set-null, visible]
+
+### Fields
+
+| Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `gs1CtyCode`                                                 | char(3)                                  | gs1_cty_code                   | yes*     | yes       |          | Country code (3 letters)                                                         |
+| `gs1CtyName`                                                 | char(100)                                | gs1_cty_name                   | yes      | yes       |          | Country name                                                                     |
+| `gs1CtyFlagIcon`                                             | image                                    | gs1_cty_flag_icon              |          | yes       |          | -                                                                                |
 

@@ -97,6 +97,33 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Gs1Gtin'
+    ArrayOfGs1Prefix:
+      description: List of Prefixes
+      type: array
+      items:
+        $ref: '#/components/schemas/Gs1Prefix'
+    Gs1Country:
+      description: |-
+        Country:
+
+        ISO 3166-1 countries
+      type: object
+      properties:
+        gs1CtyCode:
+          description: Country code (3 letters)
+          type: string
+          maxLength: 3
+        gs1CtyFlagIcon:
+          description: Flag
+          type: object
+        gs1CtyName:
+          description: Country name
+          type: string
+          maxLength: 100
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
     ArrayOfGs1Udi:
       description: List of UDIs
       type: array
@@ -108,6 +135,42 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
+    ArrayOfGs1Country:
+      description: List of Countries
+      type: array
+      items:
+        $ref: '#/components/schemas/Gs1Country'
+    Gs1Prefix:
+      description: |-
+        Prefix:
+
+        GS1 prefixes
+      type: object
+      properties:
+        gs1PreDescription:
+          description: Description
+          type: string
+          maxLength: 1000000
+        gs1PreCtyId:
+          description: Country
+          type: string
+          maxLength: 11
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
+        gs1PrePrefix:
+          description: Prefix
+          type: string
+          maxLength: 3
+        gs1PreCtyId__gs1CtyName:
+          description: Country name
+          type: string
+          maxLength: 100
+        gs1PreCtyId__gs1CtyCode:
+          description: Country code (3 letters)
+          type: string
+          maxLength: 3
     Gs1Gtin:
       description: |-
         GTIN:
@@ -455,6 +518,77 @@ paths:
                 $ref: '#/components/schemas/Error401'
       tags:
       - session
+  /rest/Gs1Country:
+    get:
+      summary: Search Gs1Country business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1country-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Country'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: _indexsearch
+        description: Index search query
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CtyCode
+        description: Search filter for Country code (3 letters)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CtyName
+        description: Search filter for Country name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CtyFlagIcon
+        description: Search filter for Flag
+        required: false
+      tags:
+      - Gs1Country
   /rest/Gs1Gtin/{row_id}:
     post:
       summary: Create a new Gs1Gtin business object record
@@ -650,6 +784,201 @@ paths:
         required: true
       tags:
       - Gs1Gtin
+  /rest/Gs1Country/{row_id}:
+    post:
+      summary: Create a new Gs1Country business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Country'
+      operationId: obj-gs1country-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Country'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Country
+    get:
+      summary: Get a Gs1Country business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1country-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Country'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - Gs1Country
+    delete:
+      summary: Delete a Gs1Country business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1country-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Country
+    put:
+      summary: Update a Gs1Country business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Country'
+      operationId: obj-gs1country-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Country'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Country
   /rest/Gs1Udi:
     get:
       summary: Search Gs1Udi business object records or get contextualized metadata
@@ -923,6 +1252,278 @@ paths:
         required: false
       tags:
       - session
+  /rest/Gs1Prefix:
+    get:
+      summary: Search Gs1Prefix business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1prefix-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Prefix'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1PrePrefix
+        description: Search filter for Prefix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1PreCtyId
+        description: Search filter for Country
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1PreCtyId__gs1CtyCode
+        description: Search filter for Country code (3 letters)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1PreCtyId__gs1CtyName
+        description: Search filter for Country name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1PreDescription
+        description: Search filter for Description
+        required: false
+      tags:
+      - Gs1Prefix
+  /rest/Gs1Prefix/{row_id}:
+    post:
+      summary: Create a new Gs1Prefix business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Prefix'
+      operationId: obj-gs1prefix-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Prefix'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Prefix
+    get:
+      summary: Get a Gs1Prefix business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1prefix-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Prefix'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - Gs1Prefix
+    delete:
+      summary: Delete a Gs1Prefix business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1prefix-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Prefix
+    put:
+      summary: Update a Gs1Prefix business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Prefix'
+      operationId: obj-gs1prefix-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Prefix'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Prefix
 info:
   license:
     name: Simplicite license
@@ -935,6 +1536,10 @@ info:
   title: Gs1Demo
   version: '7'
 tags:
+- name: Gs1Prefix
+  description: Prefix
+- name: Gs1Country
+  description: Country
 - name: Gs1Udi
   description: UDI
 - name: Gs1Gtin
