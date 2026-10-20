@@ -38,22 +38,32 @@ public class Gs1UDI extends ObjectDB {
             AppLog.error(e);
         }
         try {
+            getField("gs1UdiUpcaImage").setDocument(this, "upca-" + id.getValue() + ".png", GS1Tool.upcAPNG(udi));
+        } catch (IOException e) {
+            AppLog.error(e);
+        }
+        try {
+            getField("gs1UdiItf14Image").setDocument(this, "itf14-" + id.getValue() + ".png", GS1Tool.itf14PNG(udi));
+        } catch (IOException e) {
+            AppLog.error(e);
+        }
+        try {
             getField("gs1UdiGs1128Image").setDocument(this, "gs1_128-" + id.getValue() + ".png", GS1Tool.gs1_128PNG(udi));
         } catch (IOException e) {
             AppLog.error(e);
         }
         try {
-            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + id.getValue() + ".png", GS1Tool.gs1DataMatrixPNG(udi));
+            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + id.getValue() + ".png", GS1Tool.gs1DataMatrixPNG(udi, 5));
         } catch (IOException e) {
             AppLog.error(e);
         }
         try {
-            getField("gs1UdiGs1QrCodeImage").setDocument(this, "gs1-qrcode-" + id.getValue() + ".png", GS1Tool.gs1QrCodePNG(udi));
+            getField("gs1UdiGs1QrCodeImage").setDocument(this, "gs1-qrcode-" + id.getValue() + ".png", GS1Tool.gs1QrCodePNG(udi, 5));
         } catch (IOException e) {
             AppLog.error(e);
         }
         try {
-            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + id.getValue() + ".png", GS1Tool.digitalLinkQrCodePNG(udi, null));
+            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + id.getValue() + ".png", GS1Tool.digitalLinkQrCodePNG(udi, null, 5));
         } catch (IOException e) {
             AppLog.error(e);
         }

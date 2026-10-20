@@ -41,6 +41,9 @@ components:
           description: Software version
           type: string
           maxLength: 20
+        gs1UdiItf14Image:
+          description: ITF14 image
+          type: object
         gs1UdiExpirationDate:
           description: Expiration date
           type: string
@@ -76,6 +79,9 @@ components:
           description: Unique technical row ID
           type: string
           maxLength: 11
+        gs1UdiUpcaImage:
+          description: upcA image
+          type: object
         gs1UdiDeviceIdentifier:
           description: Device identifier
           type: string
@@ -308,6 +314,18 @@ paths:
         in: query
         name: gs1UdiEan13Image
         description: Search filter for EAN 13 image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiUpcaImage
+        description: Search filter for upcA image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiItf14Image
+        description: Search filter for ITF14 image
         required: false
       - schema:
           type: string
