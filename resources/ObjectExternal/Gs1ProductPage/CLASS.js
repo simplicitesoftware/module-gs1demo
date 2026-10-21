@@ -11,7 +11,9 @@ class Gs1ProductPage {
         const md = await udi.getMetaData();
         console.log(md);
 
-        $('.title', $page).html(md.label);
+        $('.gtin', $page).html(`GTIN: ${params.gtin}`);
+        $('.lot', $page).html(`Lot: ${params.lot}`);
+        $('.serial', $page).html(`Serial: ${params.serial}`);
         $('.description', $page).html($('<pre/>').text(JSON.stringify(md, null, 2)));
     }
 }

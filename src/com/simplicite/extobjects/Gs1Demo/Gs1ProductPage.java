@@ -43,6 +43,7 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
 
             JSONObject p = new JSONObject()
                 .put("serverURL", parameters.getServerURL())
+                .put("uri", parameters.getLocationURL())
                 .put("type", type)
                 .put("gtin", gtin)
                 .put("lot", lot)
