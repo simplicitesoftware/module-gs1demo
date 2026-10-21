@@ -4,6 +4,18 @@ class Gs1ProductPage {
 
         const $page = $('#product');
 
+        $('.gtin', $page).html(`<b>GTIN</b>: ${params.gtin}`);
+        if (params.lot)
+            $('.lot', $page).html(`<b>Lot</b>: ${params.lot}`);
+        if (params.serial)
+            $('.serial', $page).html(`<b>Serial</b>: ${params.serial}`);
+        if (params.productionDate)
+            $('.productionDate', $page).html(`<b>Production date</b>: ${params.productionDate}`);
+        if (params.expiryDate)
+            $('.expiryDate', $page).html(`<b>Expiry date</b>: ${params.expiryDate}`);
+        if (params.softwareVersion)
+            $('.softwareVersion', $page).html(`<b>Software version</b>: ${params.softwareVersion}`);
+
         const app = simplicite.session({ url: params.serverURL, debug: false });
         console.log(`Version ${app.getModuleVersion()}`);
 
@@ -11,9 +23,6 @@ class Gs1ProductPage {
         const md = await udi.getMetaData();
         console.log(md);
 
-        $('.gtin', $page).html(`GTIN: ${params.gtin}`);
-        $('.lot', $page).html(`Lot: ${params.lot}`);
-        $('.serial', $page).html(`Serial: ${params.serial}`);
         $('.description', $page).html($('<pre/>').text(JSON.stringify(md, null, 2)));
     }
 }

@@ -25,7 +25,7 @@ public class Gs1Udi extends ObjectDB {
                         getFieldValue("gs1UdiLotNumber"),
                         getFieldValue("gs1UdiSerialNumber"),
                         getFieldValue("gs1UdiSoftwareVersion"),
-                        null);
+                        getGrant().getServerURL() + "/ext/Gs1ProductPage");
         setFieldValue("gs1UdiHumanReadableInterpretation", udi.hri());
         setFieldValue("gs1UdiGs1Data", udi.gs1Data());
         setFieldValue("gs1UdiDigitalLink", udi.digitalLink());

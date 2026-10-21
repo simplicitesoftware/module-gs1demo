@@ -50,7 +50,7 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
                 .put("serial", serial)
                 .put("productionDate", params.get("11"))
                 .put("expiryDate", params.get("17"))
-                .put("softwareVersion", params.get("12"));
+                .put("softwareVersion", params.get("8012"));
             AppLog.info(p.toString(2));
             wp.setReady(this.getName() + ".render(" + p.toString() + ");");
 

@@ -581,7 +581,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_type_id.flt_code/>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
+		<fld_size>255</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -1391,7 +1391,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_type_id.flt_code/>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
+		<fld_size>255</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>

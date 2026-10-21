@@ -29,7 +29,7 @@ public class Gs1Gtin extends ObjectDB {
         setFieldValue("gs1GtinHumanReadableInterpretation", GS1Tool.getHRI(gtin));
         String gs1data = GS1Tool.getGs1Data(gtin);
         setFieldValue("gs1GtinGs1Data", gs1data);
-        String digitalLink = GS1Tool.getDigitalLink(gtin, null);
+        String digitalLink = GS1Tool.getDigitalLink(gtin, getGrant().getServerURL() + "/ext/Gs1ProductPage");
         setFieldValue("gs1GtinDigitalLink", digitalLink);
 
         // Link to prefix = digits 2–4 (digit 1 is the packaging indicator). e.g. 13001234567897 => 300 => FRA
