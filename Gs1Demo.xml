@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite elements="251" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="275" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
@@ -561,6 +561,96 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
+		<fld_name>gs1GtinDigitalLink</fld_name>
+		<fld_dbname>gs1_gtin_digital_link</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>10</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>100</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinDigitalLinkQrCodeImage</fld_name>
+		<fld_dbname>gs1_gtin_digital_link_qr_code_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
 		<fld_name>gs1GtinEan13Image</fld_name>
 		<fld_dbname>gs1_gtin_ean13_image</fld_dbname>
 		<fld_visible>2</fld_visible>
@@ -582,6 +672,186 @@ within Simplicité.]]></mdl_comment>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinGs1Data</fld_name>
+		<fld_dbname>gs1_gtin_gs1_data</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>3</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>100</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinGs1DataMatrixImage</fld_name>
+		<fld_dbname>gs1_gtin_gs1_data_matrix_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinGs1QrCodeImage</fld_name>
+		<fld_dbname>gs1_gtin_gs1_qr_code_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment/>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GtinHumanReadableInterpretation</fld_name>
+		<fld_dbname>gs1_gtin_human_readable_interpretation</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>3</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>100</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -789,7 +1059,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_name>gs1GtinPreId</fld_name>
 		<fld_dbname>gs1_gtin_pre_id</fld_dbname>
 		<fld_visible>3</fld_visible>
-		<fld_updatable>2;3</fld_updatable>
+		<fld_updatable>0</fld_updatable>
 		<fld_required>0</fld_required>
 		<fld_fonctid>0</fld_fonctid>
 		<fld_research>1</fld_research>
@@ -1725,10 +1995,6 @@ within Simplicité.]]></mdl_comment>
 		<tpl_ui><![CDATA[<div>
   <div class="area" data-area="1"></div>
   <div class="area" data-area="2"></div>
-  <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9"></div>
-  </div>
   <div class="area" data-area="3"></div>
   <div class="area" data-area="4"></div>
   <div class="text" data-text=""></div>
@@ -1783,6 +2049,7 @@ within Simplicité.]]></mdl_comment>
     </div>
     <div class="col-sm-3">
       <div class="field" data-field="gs1GtinPreId__gs1PreCtyId__gs1CtyCode"></div>
+      <div class="field" data-field="gs1GtinPreId__gs1PreCtyId__gs1CtyName"></div>
     </div>
   </div>
 </div>]]></ofa_ui>
@@ -1793,15 +2060,37 @@ within Simplicité.]]></mdl_comment>
 		<ofa_name>Gs1Gtin-2</ofa_name>
 		<ofa_position>2</ofa_position>
 		<ofa_title>1</ofa_title>
-		<ofa_ui><![CDATA[<div class="row">
-  <div class="col-sm-4">
-    <div class="field" data-display="image" data-field="gs1GtinEan13Image"></div>
+		<ofa_ui><![CDATA[<div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="field" data-field="gs1GtinHumanReadableInterpretation"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="field" data-field="gs1GtinGs1Data"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="field" data-field="gs1GtinDigitalLink"></div>
+    </div>
   </div>
-  <div class="col-sm-4">
-    <div class="field" data-display="image" data-field="gs1GtinUpcaImage"></div>
-  </div>
-  <div class="col-sm-4">
-    <div class="field" data-display="image" data-field="gs1GtinItf14Image"></div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="field" data-display="image" data-field="gs1GtinEan13Image"></div>
+    </div>
+    <div class="col-sm-3">
+      <div class="field" data-display="image" data-field="gs1GtinUpcaImage"></div>
+    </div>
+    <div class="col-sm-3">
+      <div class="field" data-display="image" data-field="gs1GtinItf14Image"></div>
+    </div>
+    <div class="col-sm-1">
+      <div class="field" data-display="image" data-field="gs1GtinGs1DataMatrixImage"></div>
+    </div>
+    <div class="col-sm-1">
+      <div class="field" data-display="image" data-field="gs1GtinGs1QrCodeImage"></div>
+    </div>
+    <div class="col-sm-1">
+      <div class="field" data-display="image" data-field="gs1GtinDigitalLinkQrCodeImage"></div>
+    </div>
   </div>
 </div>]]></ofa_ui>
 		<ofa_icon>fas/barcode</ofa_icon>
@@ -1905,15 +2194,17 @@ within Simplicité.]]></mdl_comment>
       <div class="field" data-field="gs1UdiDigitalLink"></div>
     </div>
   </div>
-  <div class="field" data-display="image" data-field="gs1UdiGs1128Image"></div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
+      <div class="field" data-display="image" data-field="gs1UdiGs1128Image"></div>
+    </div>
+    <div class="col-sm-2">
       <div class="field" data-display="image" data-field="gs1UdiGs1DataMatrixImage"></div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="field" data-display="image" data-field="gs1UdiGs1QrCodeImage"></div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="field" data-display="image" data-field="gs1UdiDigitalLinkQrCodeImage"></div>
     </div>
   </div>
@@ -2640,7 +2931,7 @@ within Simplicité.]]></mdl_comment>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinEan13Image</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GtinHumanReadableInterpretation</obf_field_id.fld_name>
 		<obf_order>2000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -2673,7 +2964,7 @@ within Simplicité.]]></mdl_comment>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinUpcaImage</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GtinGs1Data</obf_field_id.fld_name>
 		<obf_order>2010</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -2706,8 +2997,206 @@ within Simplicité.]]></mdl_comment>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinItf14Image</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GtinDigitalLink</obf_field_id.fld_name>
 		<obf_order>2020</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinEan13Image</obf_field_id.fld_name>
+		<obf_order>2100</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinUpcaImage</obf_field_id.fld_name>
+		<obf_order>2110</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinItf14Image</obf_field_id.fld_name>
+		<obf_order>2120</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinGs1DataMatrixImage</obf_field_id.fld_name>
+		<obf_order>2130</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinGs1QrCodeImage</obf_field_id.fld_name>
+		<obf_order>2140</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Gtin-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinDigitalLinkQrCodeImage</obf_field_id.fld_name>
+		<obf_order>2150</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3515,7 +4004,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_ref_export>0</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_associate/>
-		<obf_inline/>
+		<obf_inline>0</obf_inline>
 		<obf_rendering/>
 		<obf_treedepth/>
 		<obf_redolog/>
@@ -3537,7 +4026,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_ref_export>0</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_associate/>
-		<obf_inline/>
+		<obf_inline>0</obf_inline>
 		<obf_rendering/>
 		<obf_treedepth/>
 		<obf_redolog/>
@@ -3559,7 +4048,7 @@ within Simplicité.]]></mdl_comment>
 		<obf_ref_export>0</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_associate/>
-		<obf_inline/>
+		<obf_inline>0</obf_inline>
 		<obf_rendering/>
 		<obf_treedepth/>
 		<obf_redolog/>
@@ -5071,6 +5560,246 @@ within Simplicité.]]></mdl_comment>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Préfix</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinDigitalLink</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Digital link</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinDigitalLink</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Digital link</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinDigitalLinkQrCodeImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Digital link image</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinDigitalLinkQrCodeImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Image digital link</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinGs1QrCodeImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>GS1 QRCode image</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinGs1QrCodeImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Image QRCode GS1</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinGs1Data</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>GS1 data</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinGs1Data</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>GS1 data</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinGs1DataMatrixImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Data matrix image</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinGs1DataMatrixImage</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Image data matrix</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinHumanReadableInterpretation</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Human readable interpretation (HRI)</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<tsl_compliance/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>gs1GtinHumanReadableInterpretation</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Human readable interpretation (HRI)</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>

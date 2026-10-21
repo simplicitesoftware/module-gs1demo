@@ -24,32 +24,33 @@ public class Gs1Udi extends ObjectDB {
                         getField("gs1UdiExpirationDate").getDate(),
                         getFieldValue("gs1UdiLotNumber"),
                         getFieldValue("gs1UdiSerialNumber"),
-                        getFieldValue("gs1UdiSoftwareVersion"));
+                        getFieldValue("gs1UdiSoftwareVersion"),
+                        null);
         setFieldValue("gs1UdiHumanReadableInterpretation", udi.hri());
-        setFieldValue("gs1UdiGs1Data", udi.gs1());
-        setFieldValue("gs1UdiDigitalLink", udi.digitalLink(null));
+        setFieldValue("gs1UdiGs1Data", udi.gs1Data());
+        setFieldValue("gs1UdiDigitalLink", udi.digitalLink());
 
         // Build images
         try {
-            getField("gs1UdiGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", GS1Tool.gs1_128PNG(udi));
+            getField("gs1UdiGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", udi.gs1128PNG());
         } catch (Exception e) {
             AppLog.warning("GS1 128 image error: " + e.getMessage());
             setFieldValue("gs1UdiGs1128Image", "");
         }
         try {
-            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GS1Tool.gs1DataMatrixPNG(udi, 5));
+            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", udi.gs1DataMatrixPNG());
         } catch (Exception e) {
             AppLog.warning("GS1 data matrix image error: " + e.getMessage());
             setFieldValue("gs1UdiGs1DataMatrixImage", "");
         }
         try {
-            getField("gs1UdiGs1QrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.gs1QrCodePNG(udi, 5));
+            getField("gs1UdiGs1QrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.gs1QrCodePNG());
         } catch (Exception e) {
             AppLog.warning("GS1 QRCode error: " + e.getMessage());
             setFieldValue("gs1UdiGs1QrCodeImage", "");
         }
         try {
-            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.digitalLinkQrCodePNG(udi, null, 5));
+            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.digitalLinkQrCodePNG());
         } catch (Exception e) {
             AppLog.warning("Digital link image error: " + e.getMessage());
             setFieldValue("gs1UdiDigitalLinkQrCodeImage", "");

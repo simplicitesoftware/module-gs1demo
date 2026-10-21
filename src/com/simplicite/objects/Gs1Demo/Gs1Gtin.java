@@ -26,6 +26,11 @@ public class Gs1Gtin extends ObjectDB {
             msgs.add(Message.formatError("GS1_GTIN_INVALID_IDENTIFIER", null, id.getName()));
 
         String gtin = id.getValue();
+        setFieldValue("gs1GtinHumanReadableInterpretation", GS1Tool.getHRI(gtin));
+        String gs1data = GS1Tool.getGs1Data(gtin);
+        setFieldValue("gs1GtinGs1Data", gs1data);
+        String digitalLink = GS1Tool.getDigitalLink(gtin, null);
+        setFieldValue("gs1GtinDigitalLink", digitalLink);
 
         // Link to prefix = digits 2–4 (digit 1 is the packaging indicator). e.g. 13001234567897 => 300 => FRA
         String prefix = gtin.substring(1, 4);
@@ -55,6 +60,24 @@ public class Gs1Gtin extends ObjectDB {
         } catch (Exception e) {
             AppLog.warning("ITF14 image error: " + e.getMessage());
             setFieldValue("gs1GtinItf14Image", "");
+        }
+        try {
+            getField("gs1GtinGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GS1Tool.gs1DataMatrixPNG(gs1data));
+        } catch (Exception e) {
+            AppLog.warning("GS1 data matrix image error: " + e.getMessage());
+            setFieldValue("gs1GtinGs1DataMatrixImage", "");
+        }
+        try {
+            getField("gs1GtinGs1QrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.gs1QrCodePNG(gs1data));
+        } catch (Exception e) {
+            AppLog.warning("GS1 QRCode error: " + e.getMessage());
+            setFieldValue("gs1GtinGs1QrCodeImage", "");
+        }
+        try {
+            getField("gs1GtinDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.digitalLinkQrCodePNG(digitalLink));
+        } catch (Exception e) {
+            AppLog.warning("Digital link image error: " + e.getMessage());
+            setFieldValue("gs1GtinDigitalLinkQrCodeImage", "");
         }
 
         return msgs;
