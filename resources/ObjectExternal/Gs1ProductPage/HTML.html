@@ -1,20 +1,22 @@
 <section id="gs1-product-page" class="container-fluid text-center">
     <div class="card mx-auto m-4 p-2">
         <div class="card-body">
-            <img class="picture card-img-top" style="display: none;"/>
-            <div class="error alert alert-danger" role="alert" style="display: none;"></div>
-            <h5 class="card-title label"></h5>
-            <div class="card-text description p-2"></div>
+            <div class="gs1-error alert alert-danger" role="alert" style="display: none;"></div>
+            <img class="gs1-gtin-picture card-img-top" style="display: none;"/>
+            <h5 class="gs1-gtin-label card-title"></h5>
+            <div class="gs1-gtin-description card-text p-2"></div>
             <table class="table table-striped table-bordered">
                 <tbody>
-                    <tr><th class="text-end">GTIN</th><td class="gtin"></td></tr>
-                    <tr><th class="text-end">Lot</th><td class="lot"></td></tr>
-                    <tr><th class="text-end">Serial number</th><td class="serial"></td></tr>
-                    <tr><th class="text-end">Porduction date</th><td class="productionDate"></td></tr>
-                    <tr><th class="text-end">Expiry date</th><td class="expiryDate"></td></tr>
-                    <tr><th class="text-end">Software version</th><td class="softwareVersion"></td></tr>
+                    <tr><th class="text-end">GTIN</th><td class="gs1-gtin"></td></tr>
+                    <tr><th class="text-end">Lot</th><td class="gs1-lot"></td></tr>
+                    <tr><th class="text-end">Serial number</th><td class="gs1-serial"></td></tr>
+                    <tr><th class="text-end">Porduction date</th><td class="gs1-production-date"></td></tr>
+                    <tr><th class="text-end">Expiry date</th><td class="gs1-expiry-date"></td></tr>
+                    <tr><th class="text-end">Software version</th><td class="gs1-software-version"></td></tr>
                 </tbody>
             </table>
+            <div class="gs1-udi-description card-text p-2"></div>
+            <img class="gs1-udi-picture card-img" style="display: none;"/>
         </div>
     </div>
 </section>
