@@ -16,13 +16,15 @@ class Gs1ProductPage {
         if (params.softwareVersion)
             $('.softwareVersion', $page).html(`<b>Software version</b>: ${params.softwareVersion}`);
 
+        /*
         const app = simplicite.session({ url: params.serverURL, debug: false });
         console.log(`Version ${app.getModuleVersion()}`);
 
         const udi = app.getBusinessObject('Gs1Udi');
         const md = await udi.getMetaData();
         console.log(md);
+        */
 
-        $('.description', $page).html($('<pre/>').text(JSON.stringify(md, null, 2)));
+        $('.description', $page).html($('<pre/>').text('TODO'));
     }
 }
