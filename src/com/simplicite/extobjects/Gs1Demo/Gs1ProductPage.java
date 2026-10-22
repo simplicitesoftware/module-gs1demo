@@ -23,7 +23,7 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
             getPage().appendJSInclude(HTMLTool.getResourceJSURL(this, "CLASS"));
             getPage().appendJSInclude(HTMLTool.simpliciteClientJS());
 
-            String digitalLinkURI = parameters.getLocationURL() + "?" + parameters.getQueryString();
+            String digitalLinkURI = parameters.getLocationURL();
             JSONObject params = GS1Tool.parseDigitalLink(digitalLinkURI)
                 .put("serverURL", parameters.getServerURL())
                 .put("digitalLinkURI", digitalLinkURI);
