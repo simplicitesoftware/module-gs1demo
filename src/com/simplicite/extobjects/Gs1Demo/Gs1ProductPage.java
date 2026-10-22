@@ -10,7 +10,7 @@ import com.simplicite.util.AppLog;
 import com.simplicite.util.tools.GS1Tool;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.Parameters;
-import com.simplicite.webapp.web.BootstrapWebPage;
+import com.simplicite.webapp.web.WebPage;
 
 public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObject {
     private static final long serialVersionUID = 1L;
@@ -18,16 +18,19 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
     @Override
     public String displayBody(Parameters parameters) {
         try {
-            getPage().appendJQuery();
-            getPage().appendCSSInclude(HTMLTool.getResourceCSSURL(this, "STYLES"));
-            getPage().appendJSInclude(HTMLTool.getResourceJSURL(this, "CLASS"));
-            getPage().appendJSInclude(HTMLTool.simpliciteClientJS());
+            WebPage wp = getPage();
+
+            wp.appendJQuery();
+            wp.appendBootstrap();
+            wp.appendSimpliciteClient();
+
+            wp.appendCSSInclude(HTMLTool.getResourceCSSURL(this, "STYLES"));
+            wp.appendJSInclude(HTMLTool.getResourceJSURL(this, "CLASS"));
 
             String digitalLinkURI = parameters.getLocationURL();
             JSONObject params = GS1Tool.parseDigitalLink(digitalLinkURI)
                 .put("serverURL", parameters.getServerURL())
                 .put("digitalLinkURI", digitalLinkURI);
-            AppLog.info(params.toString(2));
 
             return 
                 HTMLTool.getResourceHTMLContent(this, "HTML") +
