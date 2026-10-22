@@ -17,6 +17,7 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
 
     @Override
     public String displayBody(Parameters parameters) {
+        JSONObject params = null;
         try {
             WebPage wp = getPage();
 
@@ -28,16 +29,16 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
             wp.appendJSInclude(HTMLTool.getResourceJSURL(this, "CLASS"));
 
             String digitalLinkURI = parameters.getLocationURL();
-            JSONObject params = GS1Tool.parseDigitalLink(digitalLinkURI)
+            params = GS1Tool.parseDigitalLink(digitalLinkURI)
                 .put("serverURL", parameters.getServerURL())
                 .put("digitalLinkURI", digitalLinkURI);
-
-            return 
-                HTMLTool.getResourceHTMLContent(this, "HTML") +
-                HTMLTool.jsBlock(this.getName() + ".render(" + params.toString() + ");");
         } catch (Exception e) {
             AppLog.error(null, e, getGrant());
-            return e.getMessage();
+            params = new JSONObject().put("error", e.getMessage());
         }
+
+        return
+            HTMLTool.getResourceHTMLContent(this, "HTML") +
+            HTMLTool.jsBlock(this.getName() + ".render(" + params.toString() + ");");
     }
 }

@@ -8,6 +8,12 @@ class Gs1ProductPage {
 
         const $page = $('#gs1-product-page');
         try {
+            if (!params)
+                throw new Error("Empty parameters");
+
+            if (params.error)
+                throw new Error(params.error);
+            
             document.title = params.gtin;
 
             $('.gs1-gtin', $page).text(params.gtin);
