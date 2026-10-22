@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
+import com.simplicite.util.tools.GS1Tool;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.Parameters;
 import com.simplicite.webapp.web.BootstrapWebPage;
@@ -23,7 +24,14 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
             wp.appendCSSInclude(HTMLTool.getResourceCSSURL(this, "STYLES"));
             wp.appendJSInclude(HTMLTool.getResourceJSURL(this, "CLASS"));
             wp.appendJSInclude(HTMLTool.simpliciteClientJS());
+            
+            JSONObject params = GS1Tool.parseDigitalLink(parameters.getLocation())
+                .put("serverURL", parameters.getServerURL())
+                .put("uri", parameters.getLocationURL());
+            AppLog.info(params.toString(2));
+            wp.setReady(this.getName() + ".render(" + params.toString() + ");");
 
+            /*
             // e.g. /01/00000096385074/10/LOT-A/21/SERIAL-AAA?17=320101&11=260101&8012=2.0
             int i = 0;
             List<String> parts = parameters.getLocationParts(getName());
@@ -53,6 +61,7 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
                 .put("softwareVersion", params.get("8012"));
             AppLog.info(p.toString(2));
             wp.setReady(this.getName() + ".render(" + p.toString() + ");");
+            */
 
             return wp.toString();
         } catch (Exception e) {
