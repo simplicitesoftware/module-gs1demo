@@ -38,19 +38,13 @@ public class Gs1Udi extends ObjectDB {
             setFieldValue("gs1UdiGs1128Image", "");
         }
         try {
-            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", udi.gs1DataMatrixPNG());
+            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", udi.gs1DataMatrixPNGWithHRI(5));
         } catch (Exception e) {
             AppLog.warning("GS1 data matrix image error: " + e.getMessage());
             setFieldValue("gs1UdiGs1DataMatrixImage", "");
         }
         try {
-            getField("gs1UdiGs1QrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.gs1QrCodePNG());
-        } catch (Exception e) {
-            AppLog.warning("GS1 QRCode error: " + e.getMessage());
-            setFieldValue("gs1UdiGs1QrCodeImage", "");
-        }
-        try {
-            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.digitalLinkQrCodePNG());
+            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.digitalLinkQrCodePNGWithGTIN(4));
         } catch (Exception e) {
             AppLog.warning("Digital link image error: " + e.getMessage());
             setFieldValue("gs1UdiDigitalLinkQrCodeImage", "");
