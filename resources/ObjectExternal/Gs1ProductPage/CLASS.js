@@ -13,7 +13,7 @@ class Gs1ProductPage {
 
             if (params.error)
                 throw new Error(params.error);
-            
+
             document.title = params.gtin;
 
             $('.gs1-gtin', $page).text(params.gtin);
@@ -41,11 +41,11 @@ class Gs1ProductPage {
                 const udiObj = app.getBusinessObject('Gs1Udi');
                 const udiRows = await udiObj.search({
                     gs1UdiGtinId__gs1GtinIdentifier: params.gtin,
-                    gs1UdiLot: params.lot,
-                    gs1UdiSerial: params.serial,
-                    gs1UdiProductionDate: params.productiondate,
-                    gs1UdiExpiryDate: params.expiryDate,
-                    gs1UdiSoftwareVersion: params.softwareVersion,
+                    gs1UdiLot: params.lot || '',
+                    gs1UdiSerial: params.serial || '',
+                    gs1UdiProductionDate: params.productionDate || '',
+                    gs1UdiExpiryDate: params.expiryDate || '',
+                    gs1UdiSoftwareVersion: params.softwareVersion || '',
                 }, { inlineImages: [ 'gs1UdiGs1128Image' ] });
                 if (udiRows.length == 1) {
                     const udiRow = udiRows[0];

@@ -5512,7 +5512,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Préfix</tsl_value>
+		<tsl_value>Préfixe</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -6306,7 +6306,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Prefix</tsl_value>
+		<tsl_value>Country prefix</tsl_value>
 		<tsl_plural_value>Prefixes</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
@@ -6321,7 +6321,7 @@ within Simplicité.]]></mdl_comment>
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Préfix</tsl_value>
+		<tsl_value>Préfixe pays</tsl_value>
 		<tsl_plural_value>Préfix</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>

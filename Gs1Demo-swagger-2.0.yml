@@ -1354,7 +1354,7 @@ definitions:
         type: object
   Gs1Prefix:
     description: |-
-      Prefix:
+      Country prefix:
 
       GS1 prefixes
     type: object
@@ -1451,4 +1451,4 @@ tags:
 - name: Gs1Country
   description: Country
 - name: Gs1Prefix
-  description: Prefix
+  description: Country prefix
