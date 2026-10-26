@@ -17,25 +17,36 @@ class Gs1ProductPage {
             document.title = params.gtin;
 
             $('.gs1-gtin', $page).text(params.gtin);
-            if (params.lot)
-                $('.gs1-lot', $page).text(params.lot);
-            if (params.serial)
-                $('.gs1-serial', $page).text(params.serial);
-            if (params.productionDate)
-                $('.gs1-production-date', $page).text(formatDate(params.productionDate));
-            if (params.expiryDate)
-                $('.gs1-expiry-date', $page).text(formatDate(params.expiryDate));
-            if (params.softwareVersion)
-                $('.gs1-software-version', $page).text(params.softwareVersion);
+            if (params.lot) {
+                const $tr = $('.gs1-lot', $page).show();
+                $('td', $tr).text(params.lot);
+            }
+            if (params.serial) {
+                const $tr = $('.gs1-serial', $page).show();
+                $('td', $tr).text(params.serial);
+            }
+            if (params.productionDate) {
+                const $tr = $('.gs1-production-date', $page).show();
+                $('td', $tr).text(formatDate(params.productionDate));
+            }
+            if (params.expiryDate) {
+                const $tr = $('.gs1-expiry-date', $page).show();
+                $('td', $tr).text(formatDate(params.expiryDate));
+            }
+            if (params.softwareVersion) {
+                const $tr = $('.gs1-software-version', $page).show();
+                $('td', $tr).text(params.softwareVersion);
+            }
 
             const app = simplicite.session({ url: params.serverURL, debug: false });
 
             const gtinObj = app.getBusinessObject('Gs1Gtin');
-            const gtinRows = await gtinObj.search({ gs1GtinIdentifier: params.gtin }, { inlineImages: [ 'gs1GtinPicture' ] });
+            const gtinRows = await gtinObj.search({ gs1GtinIdentifier: params.gtin }, { inlineImages: [ 'gs1GtinPicture', 'gs1GtinEan13Image' ] });
             if (gtinRows.length == 1) {
                 const gtinRow = gtinRows[0];
                 $('.gs1-gtin-picture', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinPicture', gtinRow)).show();
                 $('.gs1-gtin-label', $page).text(gtinRow.gs1GtinLabel);
+                $('.gs1-gtin-ean13', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinEan13Image', gtinRow)).show();
                 $('.gs1-gtin-description', $page).html(gtinRow.gs1GtinDescription);
 
                 const udiObj = app.getBusinessObject('Gs1Udi');
@@ -50,7 +61,7 @@ class Gs1ProductPage {
                 if (udiRows.length == 1) {
                     const udiRow = udiRows[0];
                     $('.gs1-udi-description', $page).html(udiRow.gs1UdiDescription);
-                    $('.gs1-udi-picture', $page).attr('src', udiObj.getFieldDataURL('gs1UdiGs1128Image', udiRow)).show();
+                    $('.gs1-udi-gs1128', $page).attr('src', udiObj.getFieldDataURL('gs1UdiGs1128Image', udiRow)).show();
                 } else
                     throw new Error("UDI not found");
             } else
