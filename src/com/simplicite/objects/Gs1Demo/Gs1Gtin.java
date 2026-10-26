@@ -56,12 +56,6 @@ public class Gs1Gtin extends ObjectDB {
             setFieldValue("gs1GtinUpcaImage", "");
         }
         try {
-            getField("gs1GtinItf14Image").setDocument(this, "itf14-" + gtin + ".png", GS1Tool.itf14PNG(gtin));
-        } catch (Exception e) {
-            AppLog.warning("ITF14 image error: " + e.getMessage());
-            setFieldValue("gs1GtinItf14Image", "");
-        }
-        try {
             getField("gs1GtinGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GS1Tool.gs1DataMatrixPNGWithHRI(gs1data, GS1Tool.getHRILines(gtin, null, null, null, null, null), 5));
         } catch (Exception e) {
             AppLog.warning("GS1 data matrix image error: " + e.getMessage());
