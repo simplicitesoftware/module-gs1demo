@@ -1484,6 +1484,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: _indexsearch
+        description: Index search query
+        required: false
+      - schema:
+          type: string
+        in: query
         name: gs1CpgGtinId
         description: Search filter for GTIN
         required: false

@@ -2195,7 +2195,7 @@ within Simplicité.]]></mdl_comment>
 		<obo_searchspec/>
 		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
-		<obo_indexable>0</obo_indexable>
+		<obo_indexable>1</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
 		<obo_template_id.tpl_name>Gs1Cpg</obo_template_id.tpl_name>
@@ -2252,10 +2252,10 @@ within Simplicité.]]></mdl_comment>
 		<obo_minified>0</obo_minified>
 		<obo_permalink/>
 		<obo_btn_searchform>1</obo_btn_searchform>
-		<obo_search_index/>
-		<obo_search_column/>
-		<obo_search_dialog/>
-		<obo_search_docked/>
+		<obo_search_index>2</obo_search_index>
+		<obo_search_column>1</obo_search_column>
+		<obo_search_dialog>0</obo_search_dialog>
+		<obo_search_docked>0</obo_search_docked>
 		<obo_tpl_search_id.tpl_name/>
 		<obo_tpl_search_pos/>
 	</data>
@@ -2622,7 +2622,7 @@ A `UDI` is composed of:
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
-		<obf_cascad>R</obf_cascad>
+		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_visible>1</obf_visible>
 		<obf_ref_export>0</obf_ref_export>
@@ -4382,7 +4382,7 @@ A `UDI` is composed of:
 		<obf_ref_order/>
 		<obf_object_id.obj_name>Gs1Cpg</obf_object_id.obj_name>
 		<obf_field_id.fld_name>gs1CpgGtinId</obf_field_id.fld_name>
-		<obf_cascad>R</obf_cascad>
+		<obf_cascad>C</obf_cascad>
 		<obf_anon/>
 		<obf_card>0,n</obf_card>
 		<obf_query/>
@@ -4391,7 +4391,7 @@ A `UDI` is composed of:
 		<obf_ref_export>0</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_associate/>
-		<obf_inline/>
+		<obf_inline>0</obf_inline>
 		<obf_rendering/>
 		<obf_treedepth/>
 		<obf_redolog/>
