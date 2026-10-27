@@ -34,18 +34,6 @@ public class Gs1Cpg extends ObjectDB {
 
         // Build UDI images
         try {
-            getField("gs1GenGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", cpg.gs1128PNG());
-        } catch (Exception e) {
-            AppLog.warning("GS1 128 image error: " + e.getMessage());
-            setFieldValue("gs1GenGs1128Image", "");
-        }
-        try {
-            getField("gs1GenGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", cpg.gs1DataMatrixPNGWithHRI(5));
-        } catch (Exception e) {
-            AppLog.warning("GS1 data matrix image error: " + e.getMessage());
-            setFieldValue("gs1GenGs1DataMatrixImage", "");
-        }
-        try {
             getField("gs1GenDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", cpg.digitalLinkQrCodePNGWithGTIN(4));
         } catch (Exception e) {
             AppLog.warning("Digital link image error: " + e.getMessage());

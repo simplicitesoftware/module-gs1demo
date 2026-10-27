@@ -184,7 +184,7 @@ within Simplicité.]]></mdl_comment>
 	<data>
 		<usp_user_id.usr_login>gs1demo</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Gs1DemoScope</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"Gs1Udi","rowId":"1","label":"Dispositif médical : 03001234567892 01/10/2025 31/03/2027 LOT1 SERIAL111"},{"object":"Gs1Gtin","rowId":"4","label":"GTIN : 04001234567822"},{"object":"Gs1Gtin","rowId":"2","label":"GTIN : 00000096385074"},{"object":"Gs1Gtin","rowId":"1","label":"GTIN : 03001234567892"},{"object":"Gs1Cpg","rowId":"2","label":"Produit de grande consommation : 04001234567822"},{"object":"Gs1Udi","rowId":"2","label":"UDI : 00000096385074 01/01/2026 01/01/2032 LOT-A SERIAL-AAA 2.0"}]]]></usp_value>
+		<usp_value><![CDATA[[{"object":"Gs1Gtin","rowId":"6","label":"GTIN : 08000500278802"},{"object":"Gs1Udi","rowId":"1","label":"Dispositif médical : 03001234567892 01/10/2025 31/03/2027 LOT1 SERIAL111"},{"object":"Gs1Gtin","rowId":"4","label":"GTIN : 04001234567822"},{"object":"Gs1Gtin","rowId":"2","label":"GTIN : 00000096385074"},{"object":"Gs1Gtin","rowId":"1","label":"GTIN : 03001234567892"},{"object":"Gs1Cpg","rowId":"2","label":"Produit de grande consommation : 04001234567822"},{"object":"Gs1Udi","rowId":"2","label":"UDI : 00000096385074 01/01/2026 01/01/2032 LOT-A SERIAL-AAA 2.0"}]]]></usp_value>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 	<data>
