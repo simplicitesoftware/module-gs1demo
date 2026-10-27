@@ -19,6 +19,7 @@ public class Gs1Cpg extends ObjectDB {
         // Build UDI
         GS1Tool.CPG cpg = new GS1Tool.CPG(
             gtin,
+            // TODO: getFieldValue("gs1GenVariant"),
             getField("gs1GenProductionDate").getDate(),
             getField("gs1GenBestBeforeDate").getDate(),
             getField("gs1GenExpirationDate").getDate(),

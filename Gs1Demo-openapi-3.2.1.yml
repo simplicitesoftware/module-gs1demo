@@ -190,6 +190,10 @@ components:
           type: string
           maxLength: 10
           example: yyyy-MM-dd
+        gs1GenVariant:
+          description: Variant
+          type: string
+          maxLength: 20
         row_id:
           description: Unique technical row ID
           type: string
@@ -1528,6 +1532,12 @@ paths:
         in: query
         name: gs1GenExpirationDate
         description: Search filter for Expiration date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenVariant
+        description: Search filter for Variant
         required: false
       - schema:
           type: string

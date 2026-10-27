@@ -941,6 +941,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: gs1GenVariant
+        description: Search filter for Variant
+        type: string
+        required: false
+      - in: query
         name: gs1GenLotNumber
         description: Search filter for Lot number
         type: string
@@ -1587,6 +1592,10 @@ definitions:
         type: string
         maxLength: 10
         example: yyyy-MM-dd
+      gs1GenVariant:
+        description: Variant
+        type: string
+        maxLength: 20
       row_id:
         description: Unique technical row ID
         type: string
