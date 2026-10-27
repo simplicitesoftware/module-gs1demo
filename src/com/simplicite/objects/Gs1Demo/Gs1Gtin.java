@@ -75,6 +75,8 @@ public class Gs1Gtin extends ObjectDB {
     public boolean canReference(String objectName, String fieldName) {
         if ("Gs1Udi".equals(objectName))
             return "MEDICAL_DEVICE".equals(getFieldValue("gs1GtinType"));
+        if ("Gs1Cpg".equals(objectName))
+            return "CONSUMER_PRODUCT".equals(getFieldValue("gs1GtinType"));
 
         return super.canReference(objectName, fieldName);
     }

@@ -19,74 +19,91 @@ components:
           - 404
     Gs1Udi:
       description: |-
-        UDI:
+        Medical device:
 
-        `UDI`: A medical device universal identifier.
+        Medical device
+        --------------
 
-        `UDI` = `UDI-DI` (static _device identifier_ = the GTIN) + `UDI-PI` (_production identifiers_)
+        A mdeical device is identified by a `UDI` (medical device universal identifier).
+
+        A `UDI` is composed of:
+
+        - a `UDI-DI`: static _device identifier_ (= the GTIN)
+        - a `UDI-PI`: _production identifiers_
+
+        ### Digital links syntax
+
+        - in path:
+          - `01`: GTIN (key)
+          - `10`: batch or lot number (optional)
+          - `21`: serial number (optional)
+        - in query string:
+          - `17`: expiry date (`YYMMDD`, optional)
+          - `11`: production date (`YYMMDD`, optional)
+          - `8012`: software version (optional)
       type: object
       properties:
-        gs1UdiSerialNumber:
-          description: Serial number
+        gs1GenLotNumber:
+          description: Lot number
           type: string
           maxLength: 20
         gs1UdiDigitalLink:
           description: Digital link
           type: string
           maxLength: 255
-        gs1UdiGs1DataMatrixImage:
-          description: GS1 data matrix image
-          type: object
-        gs1UdiSoftwareVersion:
-          description: Software version
-          type: string
-          maxLength: 20
-        gs1UdiDescription:
-          description: Description
-          type: string
-          maxLength: 1000000
-        gs1UdiGtinId__gs1GtinIdentifier:
-          description: GTIN Identifier
-          type: string
-          maxLength: 14
-        gs1UdiExpirationDate:
+        gs1GenExpirationDate:
           description: Expiration date
           type: string
           maxLength: 10
           example: yyyy-MM-dd
-        gs1UdiHumanReadableInterpretation:
-          description: Human readable interpretation (HRI)
+        gs1UdiGs1DataMatrixImage:
+          description: GS1 data matrix image
+          type: object
+        gs1UdiSoftwareVersion:
+          description: Medical device software version
           type: string
-          maxLength: 100
-        gs1UdiGtinId__gs1GtinLabel:
-          description: GTIN Label
+          maxLength: 20
+        gs1UdiDescription:
+          description: Medical device description
           type: string
-          maxLength: 255
-        gs1UdiProductionDate:
+          maxLength: 1000000
+        gs1GenProductionDate:
           description: Production date
           type: string
           maxLength: 10
           example: yyyy-MM-dd
+        gs1UdiGtinId__gs1GtinIdentifier:
+          description: GTIN identifier
+          type: string
+          maxLength: 14
+        gs1UdiHumanReadableInterpretation:
+          description: HRI( )human readable identifier)
+          type: string
+          maxLength: 100
+        gs1UdiGtinId__gs1GtinLabel:
+          description: GTIN label
+          type: string
+          maxLength: 255
         gs1UdiDigitalLinkQrCodeImage:
-          description: Digital link image
+          description: Digital link QRCode image
           type: object
+        gs1GenSerialNumber:
+          description: Serial number
+          type: string
+          maxLength: 20
         gs1UdiGs1Data:
           description: GS1 data
           type: string
           maxLength: 100
-        gs1UdiLotNumber:
-          description: Lot number
-          type: string
-          maxLength: 20
+        gs1GenGs1128Image:
+          description: GS1 128 barcode image
+          type: object
         row_id:
           description: Unique technical row ID
           type: string
           maxLength: 11
-        gs1UdiGs1128Image:
-          description: GS1 128 image
-          type: object
         gs1UdiGtinId:
-          description: GTIN
+          description: Reference to GTIN
           type: string
           maxLength: 11
     ArrayOfGs1Gtin:
@@ -99,6 +116,70 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Gs1Prefix'
+    Gs1Cpg:
+      description: |-
+        Consumer product:
+
+        Consumer product
+        ----------------
+
+        ### Digital links
+
+        - in path:
+          - `01`: GTIN (key)
+          - `22`: consumer product variant (optional)
+          - `10`: batch or lot number (optional)
+          - `21`: serial number (optional)
+        - in query string:
+          - `17`: expiry date (`YYMMDD`, optional)
+          - `15`: best-before date (`YYMMDD`, optional)
+          - `11`: production date (`YYMMDD`, optional)
+          - `3103`: net weight in kg (numer with 3 decimal places, optional)
+      type: object
+      properties:
+        gs1GenLotNumber:
+          description: Lot number
+          type: string
+          maxLength: 20
+        gs1CpgWeight:
+          description: Weight
+          type: string
+          maxLength: 10
+        gs1GenExpirationDate:
+          description: Expiration date
+          type: string
+          maxLength: 10
+          example: yyyy-MM-dd
+        gs1GenSerialNumber:
+          description: Serial number
+          type: string
+          maxLength: 20
+        gs1CpgGtinId__gs1GtinIdentifier:
+          description: GTIN identifier
+          type: string
+          maxLength: 14
+        gs1GenBestBeforeDate:
+          description: Best before date
+          type: string
+          maxLength: 10
+          example: yyyy-MM-dd
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
+        gs1CpgGtinId__gs1GtinLabel:
+          description: GTIN label
+          type: string
+          maxLength: 255
+        gs1CpgGtinId:
+          description: GTIN
+          type: string
+          maxLength: 11
+        gs1GenProductionDate:
+          description: Production date
+          type: string
+          maxLength: 10
+          example: yyyy-MM-dd
     Gs1Country:
       description: |-
         Country:
@@ -111,7 +192,7 @@ components:
           type: string
           maxLength: 3
         gs1CtyFlagIcon:
-          description: Flag
+          description: Country flag
           type: object
         gs1CtyName:
           description: Country name
@@ -121,8 +202,13 @@ components:
           description: Unique technical row ID
           type: string
           maxLength: 11
+    ArrayOfGs1Cpg:
+      description: List of Consumer products
+      type: array
+      items:
+        $ref: '#/components/schemas/Gs1Cpg'
     ArrayOfGs1Udi:
-      description: List of UDIs
+      description: List of Medical devices
       type: array
       items:
         $ref: '#/components/schemas/Gs1Udi'
@@ -137,6 +223,84 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Gs1Country'
+    Gs1Gtin:
+      description: |-
+        GTIN:
+
+        `GTIN`: Internationally unique product identifier managed by the GS1 Organization
+      type: object
+      properties:
+        gs1GtinPreId:
+          description: GTIN reference to contry prefix
+          type: string
+          maxLength: 11
+        gs1GtinDigitalLinkQrCodeImage:
+          description: Digital link image
+          type: object
+        gs1GtinUpcaImage:
+          description: UPC-A image
+          type: object
+        gs1GtinHumanReadableInterpretation:
+          description: Human readable interpretation (HRI)
+          type: string
+          maxLength: 100
+        gs1GtinPicture:
+          description: GTIN picture
+          type: object
+        gs1GtinPreId__gs1PreCtyId__gs1CtyName:
+          description: Country name
+          type: string
+          maxLength: 100
+        gs1GtinDigitalLink:
+          description: Digital link
+          type: string
+          maxLength: 255
+        gs1GtinGs1Data:
+          description: GS1 data
+          type: string
+          maxLength: 100
+        gs1GtinEan13Image:
+          description: EAN 13 image
+          type: object
+        gs1GtinDescription:
+          description: GTIN description
+          type: string
+          maxLength: 1000000
+        gs1GtinType:
+          description: GTIN type
+          type: string
+          maxLength: 50
+          enum:
+          - MEDICAL_DEVICE
+          - CONSUMER_PRODUCT
+          - OTHER
+        gs1GtinPreId__gs1PrePrefix:
+          description: Prefix
+          type: string
+          maxLength: 3
+        gs1GtinPreId__gs1PreCtyId__gs1CtyCode:
+          description: Country code (3 letters)
+          type: string
+          maxLength: 3
+        gs1GtinLabel:
+          description: GTIN label
+          type: string
+          maxLength: 255
+        gs1GtinPreId__gs1PreCtyId:
+          description: Reference to country
+          type: string
+          maxLength: 11
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
+        gs1GtinIdentifier:
+          description: GTIN identifier
+          type: string
+          maxLength: 14
+        gs1GtinGs1DataMatrixImage:
+          description: Data matrix image
+          type: object
     Gs1Prefix:
       description: |-
         Country prefix:
@@ -145,11 +309,11 @@ components:
       type: object
       properties:
         gs1PreDescription:
-          description: Description
+          description: Prefix description
           type: string
           maxLength: 1000000
         gs1PreCtyId:
-          description: Country
+          description: Reference to country
           type: string
           maxLength: 11
         row_id:
@@ -168,83 +332,6 @@ components:
           description: Country code (3 letters)
           type: string
           maxLength: 3
-    Gs1Gtin:
-      description: |-
-        GTIN:
-
-        `GTIN`: Internationally unique product identifier managed by the GS1 Organization
-      type: object
-      properties:
-        gs1GtinPreId:
-          description: Prefix
-          type: string
-          maxLength: 11
-        gs1GtinDigitalLinkQrCodeImage:
-          description: Digital link image
-          type: object
-        gs1GtinUpcaImage:
-          description: UPC-A image
-          type: object
-        gs1GtinHumanReadableInterpretation:
-          description: Human readable interpretation (HRI)
-          type: string
-          maxLength: 100
-        gs1GtinPicture:
-          description: Picture
-          type: object
-        gs1GtinPreId__gs1PreCtyId__gs1CtyName:
-          description: Country name
-          type: string
-          maxLength: 100
-        gs1GtinDigitalLink:
-          description: Digital link
-          type: string
-          maxLength: 255
-        gs1GtinGs1Data:
-          description: GS1 data
-          type: string
-          maxLength: 100
-        gs1GtinEan13Image:
-          description: EAN 13 image
-          type: object
-        gs1GtinDescription:
-          description: Description
-          type: string
-          maxLength: 1000000
-        gs1GtinType:
-          description: Type
-          type: string
-          maxLength: 50
-          enum:
-          - MEDICAL_DEVICE
-          - OTHER
-        gs1GtinPreId__gs1PrePrefix:
-          description: Prefix
-          type: string
-          maxLength: 3
-        gs1GtinPreId__gs1PreCtyId__gs1CtyCode:
-          description: Country code (3 letters)
-          type: string
-          maxLength: 3
-        gs1GtinLabel:
-          description: Label
-          type: string
-          maxLength: 255
-        gs1GtinPreId__gs1PreCtyId:
-          description: Prefix Country
-          type: string
-          maxLength: 11
-        row_id:
-          description: Unique technical row ID
-          type: string
-          maxLength: 11
-        gs1GtinIdentifier:
-          description: Identifier
-          type: string
-          maxLength: 14
-        gs1GtinGs1DataMatrixImage:
-          description: Data matrix image
-          type: object
     Error400:
       description: Bad request
       type: object
@@ -617,7 +704,7 @@ paths:
           type: string
         in: query
         name: gs1CtyFlagIcon
-        description: Search filter for Flag
+        description: Search filter for Country flag
         required: false
       tags:
       - Gs1Country
@@ -1011,149 +1098,6 @@ paths:
         required: true
       tags:
       - Gs1Country
-  /rest/Gs1Udi:
-    get:
-      summary: Search Gs1Udi business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      operationId: obj-gs1udi-search
-      responses:
-        '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArrayOfGs1Udi'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: _indexsearch
-        description: Index search query
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGtinId
-        description: Search filter for GTIN
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGtinId__gs1GtinIdentifier
-        description: Search filter for GTIN Identifier
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGtinId__gs1GtinLabel
-        description: Search filter for GTIN Label
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiProductionDate
-        description: Search filter for Production date
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiExpirationDate
-        description: Search filter for Expiration date
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiLotNumber
-        description: Search filter for Lot number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiSerialNumber
-        description: Search filter for Serial number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiSoftwareVersion
-        description: Search filter for Software version
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiHumanReadableInterpretation
-        description: Search filter for Human readable interpretation (HRI)
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1Data
-        description: Search filter for GS1 data
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiDigitalLink
-        description: Search filter for Digital link
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1128Image
-        description: Search filter for GS1 128 image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiGs1DataMatrixImage
-        description: Search filter for GS1 data matrix image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiDigitalLinkQrCodeImage
-        description: Search filter for Digital link image
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: gs1UdiDescription
-        description: Search filter for Description
-        required: false
-      tags:
-      - Gs1Udi
   /rest/Gs1Gtin:
     get:
       summary: Search Gs1Gtin business object records or get contextualized metadata
@@ -1223,28 +1167,29 @@ paths:
           type: string
         in: query
         name: gs1GtinIdentifier
-        description: Search filter for Identifier
+        description: Search filter for GTIN identifier
         required: false
       - schema:
           type: string
           enum:
           - MEDICAL_DEVICE
+          - CONSUMER_PRODUCT
           - OTHER
         in: query
         name: gs1GtinType
-        description: Search filter for Type
+        description: Search filter for GTIN type
         required: false
       - schema:
           type: string
         in: query
         name: gs1GtinLabel
-        description: Search filter for Label
+        description: Search filter for GTIN label
         required: false
       - schema:
           type: string
         in: query
         name: gs1GtinPreId
-        description: Search filter for Prefix
+        description: Search filter for GTIN reference to contry prefix
         required: false
       - schema:
           type: string
@@ -1256,7 +1201,7 @@ paths:
           type: string
         in: query
         name: gs1GtinPreId__gs1PreCtyId
-        description: Search filter for Prefix Country
+        description: Search filter for Reference to country
         required: false
       - schema:
           type: string
@@ -1316,16 +1261,455 @@ paths:
           type: string
         in: query
         name: gs1GtinDescription
-        description: Search filter for Description
+        description: Search filter for GTIN description
         required: false
       - schema:
           type: string
         in: query
         name: gs1GtinPicture
-        description: Search filter for Picture
+        description: Search filter for GTIN picture
         required: false
       tags:
       - Gs1Gtin
+  /rest/Gs1Cpg:
+    get:
+      summary: Search Gs1Cpg business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1cpg-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Cpg'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CpgGtinId
+        description: Search filter for GTIN
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CpgGtinId__gs1GtinIdentifier
+        description: Search filter for GTIN identifier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CpgGtinId__gs1GtinLabel
+        description: Search filter for GTIN label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenProductionDate
+        description: Search filter for Production date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenBestBeforeDate
+        description: Search filter for Best before date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenExpirationDate
+        description: Search filter for Expiration date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenLotNumber
+        description: Search filter for Lot number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenSerialNumber
+        description: Search filter for Serial number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1CpgWeight
+        description: Search filter for Weight
+        required: false
+      tags:
+      - Gs1Cpg
+  /rest/Gs1Cpg/{row_id}:
+    post:
+      summary: Create a new Gs1Cpg business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Cpg'
+      operationId: obj-gs1cpg-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Cpg'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Cpg
+    get:
+      summary: Get a Gs1Cpg business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1cpg-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Cpg'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - Gs1Cpg
+    delete:
+      summary: Delete a Gs1Cpg business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1cpg-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Cpg
+    put:
+      summary: Update a Gs1Cpg business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gs1Cpg'
+      operationId: obj-gs1cpg-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gs1Cpg'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - Gs1Cpg
+  /rest/Gs1Udi:
+    get:
+      summary: Search Gs1Udi business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-gs1udi-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfGs1Udi'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: _indexsearch
+        description: Index search query
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId
+        description: Search filter for Reference to GTIN
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId__gs1GtinIdentifier
+        description: Search filter for GTIN identifier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGtinId__gs1GtinLabel
+        description: Search filter for GTIN label
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenProductionDate
+        description: Search filter for Production date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenExpirationDate
+        description: Search filter for Expiration date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenLotNumber
+        description: Search filter for Lot number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenSerialNumber
+        description: Search filter for Serial number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiSoftwareVersion
+        description: Search filter for Medical device software version
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiHumanReadableInterpretation
+        description: Search filter for HRI( )human readable identifier)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGs1Data
+        description: Search filter for GS1 data
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDigitalLink
+        description: Search filter for Digital link
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenGs1128Image
+        description: Search filter for GS1 128 barcode image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiGs1DataMatrixImage
+        description: Search filter for GS1 data matrix image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDigitalLinkQrCodeImage
+        description: Search filter for Digital link QRCode image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1UdiDescription
+        description: Search filter for Medical device description
+        required: false
+      tags:
+      - Gs1Udi
   /:
     get:
       summary: Get user session information
@@ -1407,7 +1791,7 @@ paths:
           type: string
         in: query
         name: gs1PreCtyId
-        description: Search filter for Country
+        description: Search filter for Reference to country
         required: false
       - schema:
           type: string
@@ -1425,7 +1809,7 @@ paths:
           type: string
         in: query
         name: gs1PreDescription
-        description: Search filter for Description
+        description: Search filter for Prefix description
         required: false
       tags:
       - Gs1Prefix
@@ -1638,9 +2022,11 @@ info:
 tags:
 - name: Gs1Country
   description: Country
+- name: Gs1Gtin
+  description: GTIN
+- name: Gs1Cpg
+  description: Consumer product
 - name: Gs1Prefix
   description: Country prefix
 - name: Gs1Udi
-  description: UDI
-- name: Gs1Gtin
-  description: GTIN
+  description: Medical device

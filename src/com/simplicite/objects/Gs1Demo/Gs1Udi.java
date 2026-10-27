@@ -20,10 +20,10 @@ public class Gs1Udi extends ObjectDB {
         GS1Tool.UDI udi =
                 new GS1Tool.UDI(
                         gtin,
-                        getField("gs1UdiProductionDate").getDate(),
-                        getField("gs1UdiExpirationDate").getDate(),
-                        getFieldValue("gs1UdiLotNumber"),
-                        getFieldValue("gs1UdiSerialNumber"),
+                        getField("gs1GenProductionDate").getDate(),
+                        getField("gs1GenExpirationDate").getDate(),
+                        getFieldValue("gs1GenLotNumber"),
+                        getFieldValue("gs1GenSerialNumber"),
                         getFieldValue("gs1UdiSoftwareVersion"),
                         getGrant().getServerURL() + "/ext/Gs1ProductPage");
         setFieldValue("gs1UdiHumanReadableInterpretation", udi.hri());
@@ -32,10 +32,10 @@ public class Gs1Udi extends ObjectDB {
 
         // Build images
         try {
-            getField("gs1UdiGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", udi.gs1128PNG());
+            getField("gs1GenGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", udi.gs1128PNG());
         } catch (Exception e) {
             AppLog.warning("GS1 128 image error: " + e.getMessage());
-            setFieldValue("gs1UdiGs1128Image", "");
+            setFieldValue("gs1GenGs1128Image", "");
         }
         try {
             getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", udi.gs1DataMatrixPNGWithHRI(5));

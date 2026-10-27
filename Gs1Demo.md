@@ -32,9 +32,49 @@ _Domains organize the application's main navigation menu. Each domain groups the
 * `Gs1Demo`
   * `Gs1Gtin` _(object)_
   * `Gs1Udi` _(object)_
+  * `Gs1Cpg` _(object)_
 * `Gs1DemoRefData` _(sub-domain of `Gs1Demo`)_
   * `Gs1Country` _(object)_
   * `Gs1Prefix` _(object)_
+
+`Gs1Cpg` (Consumer product) business object definition
+------------------------------------------------------
+
+Consumer product
+----------------
+
+### Digital links
+
+- in path:
+  - `01`: GTIN (key)
+  - `22`: consumer product variant (optional)
+  - `10`: batch or lot number (optional)
+  - `21`: serial number (optional)
+- in query string:
+  - `17`: expiry date (`YYMMDD`, optional)
+  - `15`: best-before date (`YYMMDD`, optional)
+  - `11`: production date (`YYMMDD`, optional)
+  - `3103`: net weight in kg (numer with 3 decimal places, optional)
+
+**Physical table**: `gs1_cpg`
+
+### Relationships
+
+* Belongs to **Gs1Gtin** via `gs1CpgGtinId` (required) — on parent delete: restrict
+
+### Fields
+
+| Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| **`gs1CpgGtinId`** link to **`Gs1Gtin`**                     | id                                       | gs1_cpg_gtin_id                | yes*     | yes       |          | -                                                                                |
+| _`gs1GtinIdentifier`_                                        | _char(14)_                               | _gs1_gtin_identifier_          |          |           |          | _GTIN identifier_                                                                |
+| _`gs1GtinLabel`_                                             | _char(255)_                              | _gs1_gtin_label_               |          |           |          | _GTIN label_                                                                     |
+| `gs1GenProductionDate`                                       | date                                     | gs1_gen_production_date        | *        | yes       |          | Production date                                                                  |
+| `gs1GenBestBeforeDate`                                       | date                                     | gs1_gen_best_before_date       | *        | yes       |          | Best before date                                                                 |
+| `gs1GenExpirationDate`                                       | date                                     | gs1_gen_expiration_date        | *        | yes       |          | Expiration date                                                                  |
+| `gs1GenLotNumber`                                            | char(20)                                 | gs1_gen_lot_number             | *        | yes       |          | Lot number                                                                       |
+| `gs1GenSerialNumber`                                         | char(20)                                 | gs1_gen_serial_number          | *        | yes       |          | Serial number                                                                    |
+| `gs1CpgWeight`                                               | bigdec(10, 3)                            | gs1_cpg_weight                 | *        | yes       |          | -                                                                                |
 
 `Gs1Gtin` (GTIN) business object definition
 -------------------------------------------
@@ -46,20 +86,21 @@ _Domains organize the application's main navigation menu. Each domain groups the
 ### Relationships
 
 * Belongs to **Gs1Prefix** via `gs1GtinPreId` (optional) — on parent delete: set-null
+* Has many **Gs1Cpg** via `gs1CpgGtinId` [on delete: restrict, visible]
 * Has many **Gs1Udi** via `gs1UdiGtinId` [on delete: cascade, visible]
 
 ### Fields
 
 | Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| **`gs1GtinPreId`** link to **`Gs1Prefix`**                   | id                                       | gs1_gtin_pre_id                |          |           |          | -                                                                                |
-| _`gs1PrePrefix`_                                             | _char(3)_                                | _gs1_pre_prefix_               |          |           |          | _-_                                                                              |
-| _`gs1PreCtyId`_                                              | _id_                                     | _gs1_pre_cty_id_               |          |           |          | _-_                                                                              |
+| **`gs1GtinPreId`** link to **`Gs1Prefix`**                   | id                                       | gs1_gtin_pre_id                |          |           |          | GTIN reference to contry prefix                                                  |
+| _`gs1PrePrefix`_                                             | _char(3)_                                | _gs1_pre_prefix_               |          |           |          | _Prefix_                                                                         |
+| _`gs1PreCtyId`_                                              | _id_                                     | _gs1_pre_cty_id_               |          |           |          | _Reference to country_                                                           |
 | _`gs1CtyCode`_                                               | _char(3)_                                | _gs1_cty_code_                 |          |           |          | _Country code (3 letters)_                                                       |
 | _`gs1CtyName`_                                               | _char(100)_                              | _gs1_cty_name_                 |          |           |          | _Country name_                                                                   |
-| `gs1GtinIdentifier`                                          | char(14)                                 | gs1_gtin_identifier            | yes*     | yes       |          | -                                                                                |
-| `gs1GtinType`                                                | enum(50) using GS1_GTIN_TYPE list        | gs1_gtin_type                  | yes      | yes       |          | -                                                                                |
-| `gs1GtinLabel`                                               | char(255)                                | gs1_gtin_label                 | yes      | yes       |          | -                                                                                |
+| `gs1GtinIdentifier`                                          | char(14)                                 | gs1_gtin_identifier            | yes*     | yes       |          | GTIN identifier                                                                  |
+| `gs1GtinType`                                                | enum(50) using GS1_GTIN_TYPE list        | gs1_gtin_type                  | yes      | yes       |          | GTIN type                                                                        |
+| `gs1GtinLabel`                                               | char(255)                                | gs1_gtin_label                 | yes      | yes       |          | GTIN label                                                                       |
 | `gs1GtinHumanReadableInterpretation`                         | char(100)                                | gs1_gtin_human_readable_interpretation |          |           |          | -                                                                                |
 | `gs1GtinGs1Data`                                             | char(100)                                | gs1_gtin_gs1_data              |          |           |          | -                                                                                |
 | `gs1GtinDigitalLink`                                         | url(255)                                 | gs1_gtin_digital_link          |          |           |          | -                                                                                |
@@ -67,13 +108,14 @@ _Domains organize the application's main navigation menu. Each domain groups the
 | `gs1GtinUpcaImage`                                           | image                                    | gs1_gtin_upca_image            |          |           |          | -                                                                                |
 | `gs1GtinGs1DataMatrixImage`                                  | image                                    | gs1_gtin_gs1_data_matrix_image |          |           |          | -                                                                                |
 | `gs1GtinDigitalLinkQrCodeImage`                              | image                                    | gs1_gtin_digital_link_qr_code_image |          |           |          | -                                                                                |
-| `gs1GtinDescription`                                         | html(1000000)                            | gs1_gtin_description           |          | yes       |          | -                                                                                |
-| `gs1GtinPicture`                                             | image                                    | gs1_gtin_picture               |          | yes       |          | -                                                                                |
+| `gs1GtinDescription`                                         | html(1000000)                            | gs1_gtin_description           |          | yes       |          | GTIN description                                                                 |
+| `gs1GtinPicture`                                             | image                                    | gs1_gtin_picture               |          | yes       |          | GTIN picture                                                                     |
 
 ### Enumerations
 
 * `GS1_GTIN_TYPE`
     - `MEDICAL_DEVICE` Medical device
+    - `CONSUMER_PRODUCT` Consumer product
     - `OTHER` Other
 
 ### Implemented hooks
@@ -97,18 +139,35 @@ GS1 prefixes
 
 | Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| **`gs1PreCtyId`** link to **`Gs1Country`**                   | id                                       | gs1_pre_cty_id                 |          | yes       |          | -                                                                                |
+| **`gs1PreCtyId`** link to **`Gs1Country`**                   | id                                       | gs1_pre_cty_id                 |          | yes       |          | Reference to country                                                             |
 | _`gs1CtyCode`_                                               | _char(3)_                                | _gs1_cty_code_                 |          |           |          | _Country code (3 letters)_                                                       |
 | _`gs1CtyName`_                                               | _char(100)_                              | _gs1_cty_name_                 |          |           |          | _Country name_                                                                   |
-| `gs1PrePrefix`                                               | char(3)                                  | gs1_pre_prefix                 | yes*     | yes       |          | -                                                                                |
-| `gs1PreDescription`                                          | html(1000000)                            | gs1_pre_description            |          | yes       |          | -                                                                                |
+| `gs1PrePrefix`                                               | char(3)                                  | gs1_pre_prefix                 | yes*     | yes       |          | Prefix                                                                           |
+| `gs1PreDescription`                                          | html(1000000)                            | gs1_pre_description            |          | yes       |          | Prefix description                                                               |
 
-`Gs1Udi` (UDI) business object definition
------------------------------------------
+`Gs1Udi` (Medical device) business object definition
+----------------------------------------------------
 
-`UDI`: A medical device universal identifier.
+Medical device
+--------------
 
-`UDI` = `UDI-DI` (static _device identifier_ = the GTIN) + `UDI-PI` (_production identifiers_)
+A mdeical device is identified by a `UDI` (medical device universal identifier).
+
+A `UDI` is composed of:
+
+- a `UDI-DI`: static _device identifier_ (= the GTIN)
+- a `UDI-PI`: _production identifiers_
+
+### Digital links syntax
+
+- in path:
+  - `01`: GTIN (key)
+  - `10`: batch or lot number (optional)
+  - `21`: serial number (optional)
+- in query string:
+  - `17`: expiry date (`YYMMDD`, optional)
+  - `11`: production date (`YYMMDD`, optional)
+  - `8012`: software version (optional)
 
 **Physical table**: `gs1_udi`
 
@@ -120,21 +179,21 @@ GS1 prefixes
 
 | Name                                                         | Type                                     | Column                         | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| **`gs1UdiGtinId`** link to **`Gs1Gtin`**                     | id                                       | gs1_udi_gtin_id                | yes*     | yes       |          | -                                                                                |
-| _`gs1GtinIdentifier`_                                        | _char(14)_                               | _gs1_gtin_identifier_          |          |           |          | _-_                                                                              |
-| _`gs1GtinLabel`_                                             | _char(255)_                              | _gs1_gtin_label_               |          |           |          | _-_                                                                              |
-| `gs1UdiProductionDate`                                       | date                                     | gs1_udi_production_date        | *        | yes       |          | -                                                                                |
-| `gs1UdiExpirationDate`                                       | date                                     | gs1_udi_expiration_date        | *        | yes       |          | -                                                                                |
-| `gs1UdiLotNumber`                                            | char(20)                                 | gs1_udi_lot_number             | *        | yes       |          | -                                                                                |
-| `gs1UdiSerialNumber`                                         | char(20)                                 | gs1_udi_serial_number          | *        | yes       |          | -                                                                                |
-| `gs1UdiSoftwareVersion`                                      | char(20)                                 | gs1_udi_software_version       | *        | yes       |          | -                                                                                |
-| `gs1UdiHumanReadableInterpretation`                          | char(100)                                | gs1_udi_human_readable_interpretation |          |           |          | -                                                                                |
-| `gs1UdiGs1Data`                                              | char(100)                                | gs1_udi_gs1_data               |          |           |          | -                                                                                |
-| `gs1UdiDigitalLink`                                          | url(255)                                 | gs1_udi_digital_link           |          |           |          | -                                                                                |
-| `gs1UdiGs1128Image`                                          | image                                    | gs1_udi_gs1128_image           |          |           |          | -                                                                                |
-| `gs1UdiGs1DataMatrixImage`                                   | image                                    | gs1_udi_gs1_data_matrix_image  |          |           |          | -                                                                                |
-| `gs1UdiDigitalLinkQrCodeImage`                               | image                                    | gs1_udi_digital_link_qr_code_image |          |           |          | -                                                                                |
-| `gs1UdiDescription`                                          | html(1000000)                            | gs1_udi_description            |          | yes       |          | -                                                                                |
+| **`gs1UdiGtinId`** link to **`Gs1Gtin`**                     | id                                       | gs1_udi_gtin_id                | yes*     | yes       |          | Reference to GTIN                                                                |
+| _`gs1GtinIdentifier`_                                        | _char(14)_                               | _gs1_gtin_identifier_          |          |           |          | _GTIN identifier_                                                                |
+| _`gs1GtinLabel`_                                             | _char(255)_                              | _gs1_gtin_label_               |          |           |          | _GTIN label_                                                                     |
+| `gs1GenProductionDate`                                       | date                                     | gs1_gen_production_date        | *        | yes       |          | Production date                                                                  |
+| `gs1GenExpirationDate`                                       | date                                     | gs1_gen_expiration_date        | *        | yes       |          | Expiration date                                                                  |
+| `gs1GenLotNumber`                                            | char(20)                                 | gs1_gen_lot_number             | *        | yes       |          | Lot number                                                                       |
+| `gs1GenSerialNumber`                                         | char(20)                                 | gs1_gen_serial_number          | *        | yes       |          | Serial number                                                                    |
+| `gs1UdiSoftwareVersion`                                      | char(20)                                 | gs1_udi_software_version       | *        | yes       |          | Medical device software version                                                  |
+| `gs1UdiHumanReadableInterpretation`                          | char(100)                                | gs1_udi_human_readable_interpretation |          |           |          | HRI( )human readable identifier)                                                 |
+| `gs1UdiGs1Data`                                              | char(100)                                | gs1_udi_gs1_data               |          |           |          | GS1 data                                                                         |
+| `gs1UdiDigitalLink`                                          | url(255)                                 | gs1_udi_digital_link           |          |           |          | Digital link                                                                     |
+| `gs1GenGs1128Image`                                          | image                                    | gs1_gen_gs1128_image           |          |           |          | GS1 128 barcode image                                                            |
+| `gs1UdiGs1DataMatrixImage`                                   | image                                    | gs1_udi_gs1_data_matrix_image  |          |           |          | GS1 data matrix image                                                            |
+| `gs1UdiDigitalLinkQrCodeImage`                               | image                                    | gs1_udi_digital_link_qr_code_image |          |           |          | Digital link QRCode image                                                        |
+| `gs1UdiDescription`                                          | html(1000000)                            | gs1_udi_description            |          | yes       |          | Medical device description                                                       |
 
 ### Implemented hooks
 
@@ -157,5 +216,5 @@ ISO 3166-1 countries
 |--------------------------------------------------------------|------------------------------------------|--------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
 | `gs1CtyCode`                                                 | char(3)                                  | gs1_cty_code                   | yes*     | yes       |          | Country code (3 letters)                                                         |
 | `gs1CtyName`                                                 | char(100)                                | gs1_cty_name                   | yes      | yes       |          | Country name                                                                     |
-| `gs1CtyFlagIcon`                                             | image                                    | gs1_cty_flag_icon              |          | yes       |          | -                                                                                |
+| `gs1CtyFlagIcon`                                             | image                                    | gs1_cty_flag_icon              |          | yes       |          | Country flag                                                                     |
 

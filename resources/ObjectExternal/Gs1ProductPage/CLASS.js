@@ -46,24 +46,24 @@ class Gs1ProductPage {
                 const gtinRow = gtinRows[0];
                 $('.gs1-gtin-picture', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinPicture', gtinRow)).show();
                 $('.gs1-gtin-label', $page).text(gtinRow.gs1GtinLabel);
-                $('.gs1-gtin-ean13', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinEan13Image', gtinRow)).show();
+                $('.gs1-gtin-ean13-image', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinEan13Image', gtinRow)).show();
                 if (gtinRow.gs1GtinDescription)
                     $('.gs1-gtin-description', $page).html(gtinRow.gs1GtinDescription).show();
 
                 const udiObj = app.getBusinessObject('Gs1Udi');
                 const udiRows = await udiObj.search({
                     gs1UdiGtinId__gs1GtinIdentifier: params.gtin,
-                    gs1UdiLot: params.lot || '',
-                    gs1UdiSerial: params.serial || '',
-                    gs1UdiProductionDate: params.productionDate || '',
-                    gs1UdiExpiryDate: params.expiryDate || '',
+                    gs1GenLot: params.lot || '',
+                    gs1GenSerial: params.serial || '',
+                    gs1GenProductionDate: params.productionDate || '',
+                    gs1GenExpiryDate: params.expiryDate || '',
                     gs1UdiSoftwareVersion: params.softwareVersion || '',
-                }, { inlineImages: [ 'gs1UdiGs1128Image' ] });
+                }, { inlineImages: [ 'gs1GenGs1128Image' ] });
                 if (udiRows.length == 1) {
                     const udiRow = udiRows[0];
                     if (udiRow.gs1UdiDescription)
-                        $('.gs1-udi-description', $page).html(udiRow.gs1UdiDescription).show();
-                    $('.gs1-udi-gs1128', $page).attr('src', udiObj.getFieldDataURL('gs1UdiGs1128Image', udiRow)).show();
+                        $('.gs1-description', $page).html(udiRow.gs1UdiDescription).show();
+                    $('.gs1-128-image', $page).attr('src', udiObj.getFieldDataURL('gs1GenGs1128Image', udiRow)).show();
                 } else
                     throw new Error("UDI not found");
             } else
