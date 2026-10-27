@@ -69,12 +69,22 @@ Consumer product
 | **`gs1CpgGtinId`** link to **`Gs1Gtin`**                     | id                                       | gs1_cpg_gtin_id                | yes*     | yes       |          | -                                                                                |
 | _`gs1GtinIdentifier`_                                        | _char(14)_                               | _gs1_gtin_identifier_          |          |           |          | _GTIN identifier_                                                                |
 | _`gs1GtinLabel`_                                             | _char(255)_                              | _gs1_gtin_label_               |          |           |          | _GTIN label_                                                                     |
+| _`gs1GtinEan13Image`_                                        | _image_                                  | _gs1_gtin_ean13_image_         |          |           |          | _-_                                                                              |
 | `gs1GenProductionDate`                                       | date                                     | gs1_gen_production_date        | *        | yes       |          | Production date                                                                  |
 | `gs1GenBestBeforeDate`                                       | date                                     | gs1_gen_best_before_date       | *        | yes       |          | Best before date                                                                 |
 | `gs1GenExpirationDate`                                       | date                                     | gs1_gen_expiration_date        | *        | yes       |          | Expiration date                                                                  |
 | `gs1GenLotNumber`                                            | char(20)                                 | gs1_gen_lot_number             | *        | yes       |          | Lot number                                                                       |
 | `gs1GenSerialNumber`                                         | char(20)                                 | gs1_gen_serial_number          | *        | yes       |          | Serial number                                                                    |
 | `gs1CpgWeight`                                               | bigdec(10, 3)                            | gs1_cpg_weight                 | *        | yes       |          | -                                                                                |
+| `gs1GenHumanReadableInterpretation`                          | char(100)                                | gs1_gen_human_readable_interpretation |          |           |          | HRI (human readable interpretation)                                              |
+| `gs1GenGs1Data`                                              | char(100)                                | gs1_gen_gs1_data               |          |           |          | GS1 data                                                                         |
+| `gs1GenDigitalLink`                                          | url(255)                                 | gs1_gen_digital_link           |          |           |          | Digital link                                                                     |
+| `gs1GenDigitalLinkQrCodeImage`                               | image                                    | gs1_gen_digital_link_qr_code_image |          |           |          | Digital link QRCode image                                                        |
+| `gs1GenDescription`                                          | html(1000000)                            | gs1_gen_description            |          | yes       |          | Prefix description                                                               |
+
+### Implemented hooks
+
+* `postValidate`
 
 `Gs1Gtin` (GTIN) business object definition
 -------------------------------------------
@@ -101,14 +111,14 @@ Consumer product
 | `gs1GtinIdentifier`                                          | char(14)                                 | gs1_gtin_identifier            | yes*     | yes       |          | GTIN identifier                                                                  |
 | `gs1GtinType`                                                | enum(50) using GS1_GTIN_TYPE list        | gs1_gtin_type                  | yes      | yes       |          | GTIN type                                                                        |
 | `gs1GtinLabel`                                               | char(255)                                | gs1_gtin_label                 | yes      | yes       |          | GTIN label                                                                       |
-| `gs1GtinHumanReadableInterpretation`                         | char(100)                                | gs1_gtin_human_readable_interpretation |          |           |          | -                                                                                |
-| `gs1GtinGs1Data`                                             | char(100)                                | gs1_gtin_gs1_data              |          |           |          | -                                                                                |
-| `gs1GtinDigitalLink`                                         | url(255)                                 | gs1_gtin_digital_link          |          |           |          | -                                                                                |
+| `gs1GenHumanReadableInterpretation`                          | char(100)                                | gs1_gen_human_readable_interpretation |          |           |          | HRI (human readable interpretation)                                              |
+| `gs1GenGs1Data`                                              | char(100)                                | gs1_gen_gs1_data               |          |           |          | GS1 data                                                                         |
+| `gs1GenDigitalLink`                                          | url(255)                                 | gs1_gen_digital_link           |          |           |          | Digital link                                                                     |
 | `gs1GtinEan13Image`                                          | image                                    | gs1_gtin_ean13_image           |          |           |          | -                                                                                |
 | `gs1GtinUpcaImage`                                           | image                                    | gs1_gtin_upca_image            |          |           |          | -                                                                                |
-| `gs1GtinGs1DataMatrixImage`                                  | image                                    | gs1_gtin_gs1_data_matrix_image |          |           |          | -                                                                                |
-| `gs1GtinDigitalLinkQrCodeImage`                              | image                                    | gs1_gtin_digital_link_qr_code_image |          |           |          | -                                                                                |
-| `gs1GtinDescription`                                         | html(1000000)                            | gs1_gtin_description           |          | yes       |          | GTIN description                                                                 |
+| `gs1GenGs1DataMatrixImage`                                   | image                                    | gs1_gen_gs1_data_matrix_image  |          |           |          | GS1 data matrix image                                                            |
+| `gs1GenDigitalLinkQrCodeImage`                               | image                                    | gs1_gen_digital_link_qr_code_image |          |           |          | Digital link QRCode image                                                        |
+| `gs1GenDescription`                                          | html(1000000)                            | gs1_gen_description            |          | yes       |          | Prefix description                                                               |
 | `gs1GtinPicture`                                             | image                                    | gs1_gtin_picture               |          | yes       |          | GTIN picture                                                                     |
 
 ### Enumerations
@@ -143,7 +153,7 @@ GS1 prefixes
 | _`gs1CtyCode`_                                               | _char(3)_                                | _gs1_cty_code_                 |          |           |          | _Country code (3 letters)_                                                       |
 | _`gs1CtyName`_                                               | _char(100)_                              | _gs1_cty_name_                 |          |           |          | _Country name_                                                                   |
 | `gs1PrePrefix`                                               | char(3)                                  | gs1_pre_prefix                 | yes*     | yes       |          | Prefix                                                                           |
-| `gs1PreDescription`                                          | html(1000000)                            | gs1_pre_description            |          | yes       |          | Prefix description                                                               |
+| `gs1GenDescription`                                          | html(1000000)                            | gs1_gen_description            |          | yes       |          | Prefix description                                                               |
 
 `Gs1Udi` (Medical device) business object definition
 ----------------------------------------------------
@@ -187,13 +197,13 @@ A `UDI` is composed of:
 | `gs1GenLotNumber`                                            | char(20)                                 | gs1_gen_lot_number             | *        | yes       |          | Lot number                                                                       |
 | `gs1GenSerialNumber`                                         | char(20)                                 | gs1_gen_serial_number          | *        | yes       |          | Serial number                                                                    |
 | `gs1UdiSoftwareVersion`                                      | char(20)                                 | gs1_udi_software_version       | *        | yes       |          | Medical device software version                                                  |
-| `gs1UdiHumanReadableInterpretation`                          | char(100)                                | gs1_udi_human_readable_interpretation |          |           |          | HRI( )human readable identifier)                                                 |
-| `gs1UdiGs1Data`                                              | char(100)                                | gs1_udi_gs1_data               |          |           |          | GS1 data                                                                         |
-| `gs1UdiDigitalLink`                                          | url(255)                                 | gs1_udi_digital_link           |          |           |          | Digital link                                                                     |
+| `gs1GenHumanReadableInterpretation`                          | char(100)                                | gs1_gen_human_readable_interpretation |          |           |          | HRI (human readable interpretation)                                              |
+| `gs1GenGs1Data`                                              | char(100)                                | gs1_gen_gs1_data               |          |           |          | GS1 data                                                                         |
+| `gs1GenDigitalLink`                                          | url(255)                                 | gs1_gen_digital_link           |          |           |          | Digital link                                                                     |
 | `gs1GenGs1128Image`                                          | image                                    | gs1_gen_gs1128_image           |          |           |          | GS1 128 barcode image                                                            |
-| `gs1UdiGs1DataMatrixImage`                                   | image                                    | gs1_udi_gs1_data_matrix_image  |          |           |          | GS1 data matrix image                                                            |
-| `gs1UdiDigitalLinkQrCodeImage`                               | image                                    | gs1_udi_digital_link_qr_code_image |          |           |          | Digital link QRCode image                                                        |
-| `gs1UdiDescription`                                          | html(1000000)                            | gs1_udi_description            |          | yes       |          | Medical device description                                                       |
+| `gs1GenGs1DataMatrixImage`                                   | image                                    | gs1_gen_gs1_data_matrix_image  |          |           |          | GS1 data matrix image                                                            |
+| `gs1GenDigitalLinkQrCodeImage`                               | image                                    | gs1_gen_digital_link_qr_code_image |          |           |          | Digital link QRCode image                                                        |
+| `gs1GenDescription`                                          | html(1000000)                            | gs1_gen_description            |          | yes       |          | Prefix description                                                               |
 
 ### Implemented hooks
 

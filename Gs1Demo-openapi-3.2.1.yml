@@ -47,26 +47,18 @@ components:
           description: Lot number
           type: string
           maxLength: 20
-        gs1UdiDigitalLink:
-          description: Digital link
-          type: string
-          maxLength: 255
         gs1GenExpirationDate:
           description: Expiration date
           type: string
           maxLength: 10
           example: yyyy-MM-dd
-        gs1UdiGs1DataMatrixImage:
-          description: GS1 data matrix image
-          type: object
         gs1UdiSoftwareVersion:
           description: Medical device software version
           type: string
           maxLength: 20
-        gs1UdiDescription:
-          description: Medical device description
-          type: string
-          maxLength: 1000000
+        gs1GenGs1DataMatrixImage:
+          description: GS1 data matrix image
+          type: object
         gs1GenProductionDate:
           description: Production date
           type: string
@@ -76,25 +68,29 @@ components:
           description: GTIN identifier
           type: string
           maxLength: 14
-        gs1UdiHumanReadableInterpretation:
-          description: HRI( )human readable identifier)
+        gs1GenHumanReadableInterpretation:
+          description: HRI (human readable interpretation)
           type: string
           maxLength: 100
+        gs1GenGs1Data:
+          description: GS1 data
+          type: string
+          maxLength: 100
+        gs1GenDigitalLinkQrCodeImage:
+          description: Digital link QRCode image
+          type: object
         gs1UdiGtinId__gs1GtinLabel:
           description: GTIN label
           type: string
           maxLength: 255
-        gs1UdiDigitalLinkQrCodeImage:
-          description: Digital link QRCode image
-          type: object
         gs1GenSerialNumber:
           description: Serial number
           type: string
           maxLength: 20
-        gs1UdiGs1Data:
-          description: GS1 data
+        gs1GenDescription:
+          description: Prefix description
           type: string
-          maxLength: 100
+          maxLength: 1000000
         gs1GenGs1128Image:
           description: GS1 128 barcode image
           type: object
@@ -102,6 +98,10 @@ components:
           description: Unique technical row ID
           type: string
           maxLength: 11
+        gs1GenDigitalLink:
+          description: Digital link
+          type: string
+          maxLength: 255
         gs1UdiGtinId:
           description: Reference to GTIN
           type: string
@@ -150,14 +150,41 @@ components:
           type: string
           maxLength: 10
           example: yyyy-MM-dd
-        gs1GenSerialNumber:
-          description: Serial number
-          type: string
-          maxLength: 20
         gs1CpgGtinId__gs1GtinIdentifier:
           description: GTIN identifier
           type: string
           maxLength: 14
+        gs1CpgGtinId:
+          description: GTIN
+          type: string
+          maxLength: 11
+        gs1GenProductionDate:
+          description: Production date
+          type: string
+          maxLength: 10
+          example: yyyy-MM-dd
+        gs1GenHumanReadableInterpretation:
+          description: HRI (human readable interpretation)
+          type: string
+          maxLength: 100
+        gs1GenGs1Data:
+          description: GS1 data
+          type: string
+          maxLength: 100
+        gs1GenDigitalLinkQrCodeImage:
+          description: Digital link QRCode image
+          type: object
+        gs1CpgGtinId__gs1GtinEan13Image:
+          description: GTIN EAN 13 image
+          type: object
+        gs1GenSerialNumber:
+          description: Serial number
+          type: string
+          maxLength: 20
+        gs1GenDescription:
+          description: Prefix description
+          type: string
+          maxLength: 1000000
         gs1GenBestBeforeDate:
           description: Best before date
           type: string
@@ -171,15 +198,10 @@ components:
           description: GTIN label
           type: string
           maxLength: 255
-        gs1CpgGtinId:
-          description: GTIN
+        gs1GenDigitalLink:
+          description: Digital link
           type: string
-          maxLength: 11
-        gs1GenProductionDate:
-          description: Production date
-          type: string
-          maxLength: 10
-          example: yyyy-MM-dd
+          maxLength: 255
     Gs1Country:
       description: |-
         Country:
@@ -223,84 +245,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Gs1Country'
-    Gs1Gtin:
-      description: |-
-        GTIN:
-
-        `GTIN`: Internationally unique product identifier managed by the GS1 Organization
-      type: object
-      properties:
-        gs1GtinPreId:
-          description: GTIN reference to contry prefix
-          type: string
-          maxLength: 11
-        gs1GtinDigitalLinkQrCodeImage:
-          description: Digital link image
-          type: object
-        gs1GtinUpcaImage:
-          description: UPC-A image
-          type: object
-        gs1GtinHumanReadableInterpretation:
-          description: Human readable interpretation (HRI)
-          type: string
-          maxLength: 100
-        gs1GtinPicture:
-          description: GTIN picture
-          type: object
-        gs1GtinPreId__gs1PreCtyId__gs1CtyName:
-          description: Country name
-          type: string
-          maxLength: 100
-        gs1GtinDigitalLink:
-          description: Digital link
-          type: string
-          maxLength: 255
-        gs1GtinGs1Data:
-          description: GS1 data
-          type: string
-          maxLength: 100
-        gs1GtinEan13Image:
-          description: EAN 13 image
-          type: object
-        gs1GtinDescription:
-          description: GTIN description
-          type: string
-          maxLength: 1000000
-        gs1GtinType:
-          description: GTIN type
-          type: string
-          maxLength: 50
-          enum:
-          - MEDICAL_DEVICE
-          - CONSUMER_PRODUCT
-          - OTHER
-        gs1GtinPreId__gs1PrePrefix:
-          description: Prefix
-          type: string
-          maxLength: 3
-        gs1GtinPreId__gs1PreCtyId__gs1CtyCode:
-          description: Country code (3 letters)
-          type: string
-          maxLength: 3
-        gs1GtinLabel:
-          description: GTIN label
-          type: string
-          maxLength: 255
-        gs1GtinPreId__gs1PreCtyId:
-          description: Reference to country
-          type: string
-          maxLength: 11
-        row_id:
-          description: Unique technical row ID
-          type: string
-          maxLength: 11
-        gs1GtinIdentifier:
-          description: GTIN identifier
-          type: string
-          maxLength: 14
-        gs1GtinGs1DataMatrixImage:
-          description: Data matrix image
-          type: object
     Gs1Prefix:
       description: |-
         Country prefix:
@@ -308,7 +252,7 @@ components:
         GS1 prefixes
       type: object
       properties:
-        gs1PreDescription:
+        gs1GenDescription:
           description: Prefix description
           type: string
           maxLength: 1000000
@@ -332,6 +276,84 @@ components:
           description: Country code (3 letters)
           type: string
           maxLength: 3
+    Gs1Gtin:
+      description: |-
+        GTIN:
+
+        `GTIN`: Internationally unique product identifier managed by the GS1 Organization
+      type: object
+      properties:
+        gs1GtinPreId:
+          description: GTIN reference to contry prefix
+          type: string
+          maxLength: 11
+        gs1GtinUpcaImage:
+          description: UPC-A image
+          type: object
+        gs1GenGs1DataMatrixImage:
+          description: GS1 data matrix image
+          type: object
+        gs1GenHumanReadableInterpretation:
+          description: HRI (human readable interpretation)
+          type: string
+          maxLength: 100
+        gs1GtinPicture:
+          description: GTIN picture
+          type: object
+        gs1GtinPreId__gs1PreCtyId__gs1CtyName:
+          description: Country name
+          type: string
+          maxLength: 100
+        gs1GenGs1Data:
+          description: GS1 data
+          type: string
+          maxLength: 100
+        gs1GenDigitalLinkQrCodeImage:
+          description: Digital link QRCode image
+          type: object
+        gs1GtinEan13Image:
+          description: EAN 13 image
+          type: object
+        gs1GtinType:
+          description: GTIN type
+          type: string
+          maxLength: 50
+          enum:
+          - MEDICAL_DEVICE
+          - CONSUMER_PRODUCT
+          - OTHER
+        gs1GtinPreId__gs1PrePrefix:
+          description: Prefix
+          type: string
+          maxLength: 3
+        gs1GtinPreId__gs1PreCtyId__gs1CtyCode:
+          description: Country code (3 letters)
+          type: string
+          maxLength: 3
+        gs1GenDescription:
+          description: Prefix description
+          type: string
+          maxLength: 1000000
+        gs1GtinLabel:
+          description: GTIN label
+          type: string
+          maxLength: 255
+        gs1GtinPreId__gs1PreCtyId:
+          description: Reference to country
+          type: string
+          maxLength: 11
+        row_id:
+          description: Unique technical row ID
+          type: string
+          maxLength: 11
+        gs1GtinIdentifier:
+          description: GTIN identifier
+          type: string
+          maxLength: 14
+        gs1GenDigitalLink:
+          description: Digital link
+          type: string
+          maxLength: 255
     Error400:
       description: Bad request
       type: object
@@ -1218,19 +1240,19 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1GtinHumanReadableInterpretation
-        description: Search filter for Human readable interpretation (HRI)
+        name: gs1GenHumanReadableInterpretation
+        description: Search filter for HRI (human readable interpretation)
         required: false
       - schema:
           type: string
         in: query
-        name: gs1GtinGs1Data
+        name: gs1GenGs1Data
         description: Search filter for GS1 data
         required: false
       - schema:
           type: string
         in: query
-        name: gs1GtinDigitalLink
+        name: gs1GenDigitalLink
         description: Search filter for Digital link
         required: false
       - schema:
@@ -1248,20 +1270,20 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1GtinGs1DataMatrixImage
-        description: Search filter for Data matrix image
+        name: gs1GenGs1DataMatrixImage
+        description: Search filter for GS1 data matrix image
         required: false
       - schema:
           type: string
         in: query
-        name: gs1GtinDigitalLinkQrCodeImage
-        description: Search filter for Digital link image
+        name: gs1GenDigitalLinkQrCodeImage
+        description: Search filter for Digital link QRCode image
         required: false
       - schema:
           type: string
         in: query
-        name: gs1GtinDescription
-        description: Search filter for GTIN description
+        name: gs1GenDescription
+        description: Search filter for Prefix description
         required: false
       - schema:
           type: string
@@ -1337,6 +1359,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: gs1CpgGtinId__gs1GtinEan13Image
+        description: Search filter for GTIN EAN 13 image
+        required: false
+      - schema:
+          type: string
+        in: query
         name: gs1GenProductionDate
         description: Search filter for Production date
         required: false
@@ -1369,6 +1397,36 @@ paths:
         in: query
         name: gs1CpgWeight
         description: Search filter for Weight
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenHumanReadableInterpretation
+        description: Search filter for HRI (human readable interpretation)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenGs1Data
+        description: Search filter for GS1 data
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenDigitalLink
+        description: Search filter for Digital link
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenDigitalLinkQrCodeImage
+        description: Search filter for Digital link QRCode image
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: gs1GenDescription
+        description: Search filter for Prefix description
         required: false
       tags:
       - Gs1Cpg
@@ -1669,19 +1727,19 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1UdiHumanReadableInterpretation
-        description: Search filter for HRI( )human readable identifier)
+        name: gs1GenHumanReadableInterpretation
+        description: Search filter for HRI (human readable interpretation)
         required: false
       - schema:
           type: string
         in: query
-        name: gs1UdiGs1Data
+        name: gs1GenGs1Data
         description: Search filter for GS1 data
         required: false
       - schema:
           type: string
         in: query
-        name: gs1UdiDigitalLink
+        name: gs1GenDigitalLink
         description: Search filter for Digital link
         required: false
       - schema:
@@ -1693,20 +1751,20 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1UdiGs1DataMatrixImage
+        name: gs1GenGs1DataMatrixImage
         description: Search filter for GS1 data matrix image
         required: false
       - schema:
           type: string
         in: query
-        name: gs1UdiDigitalLinkQrCodeImage
+        name: gs1GenDigitalLinkQrCodeImage
         description: Search filter for Digital link QRCode image
         required: false
       - schema:
           type: string
         in: query
-        name: gs1UdiDescription
-        description: Search filter for Medical device description
+        name: gs1GenDescription
+        description: Search filter for Prefix description
         required: false
       tags:
       - Gs1Udi
@@ -1808,7 +1866,7 @@ paths:
       - schema:
           type: string
         in: query
-        name: gs1PreDescription
+        name: gs1GenDescription
         description: Search filter for Prefix description
         required: false
       tags:
@@ -2022,11 +2080,11 @@ info:
 tags:
 - name: Gs1Country
   description: Country
+- name: Gs1Prefix
+  description: Country prefix
 - name: Gs1Gtin
   description: GTIN
 - name: Gs1Cpg
   description: Consumer product
-- name: Gs1Prefix
-  description: Country prefix
 - name: Gs1Udi
   description: Medical device

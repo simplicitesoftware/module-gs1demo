@@ -25,12 +25,13 @@ public class Gs1Gtin extends ObjectDB {
         if (!GS1Tool.isValid(id.getValue()))
             msgs.add(Message.formatError("GS1_GTIN_INVALID_IDENTIFIER", null, id.getName()));
 
+        // Build strings
         String gtin = id.getValue();
-        setFieldValue("gs1GtinHumanReadableInterpretation", GS1Tool.getHRI(gtin));
+        setFieldValue("gs1GenHumanReadableInterpretation", GS1Tool.getHRI(gtin));
         String gs1data = GS1Tool.getGs1Data(gtin);
-        setFieldValue("gs1GtinGs1Data", gs1data);
+        setFieldValue("gs1GenGs1Data", gs1data);
         String digitalLink = GS1Tool.getDigitalLink(gtin, getGrant().getServerURL() + "/ext/Gs1ProductPage");
-        setFieldValue("gs1GtinDigitalLink", digitalLink);
+        setFieldValue("gs1GenDigitalLink", digitalLink);
 
         // Link to prefix = digits 2–4 (digit 1 is the packaging indicator). e.g. 13001234567897 => 300 => FRA
         String prefix = gtin.substring(1, 4);
@@ -56,13 +57,13 @@ public class Gs1Gtin extends ObjectDB {
             setFieldValue("gs1GtinUpcaImage", "");
         }
         try {
-            getField("gs1GtinGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GS1Tool.gs1DataMatrixPNGWithHRI(gs1data, GS1Tool.getHRILines(gtin, null, null, null, null, null), 5));
+            getField("gs1GenGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GS1Tool.gs1DataMatrixPNGWithHRI(gs1data, GS1Tool.getHRILines(gtin), 5));
         } catch (Exception e) {
             AppLog.warning("GS1 data matrix image error: " + e.getMessage());
             setFieldValue("gs1GtinGs1DataMatrixImage", "");
         }
         try {
-            getField("gs1GtinDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.digitalLinkQrCodePNGWithGTIN(digitalLink, gtin, 4));
+            getField("gs1GenDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.digitalLinkQrCodePNGWithGTIN(digitalLink, gtin, 4));
         } catch (Exception e) {
             AppLog.warning("Digital link image error: " + e.getMessage());
             setFieldValue("gs1GtinDigitalLinkQrCodeImage", "");

@@ -47,8 +47,8 @@ class Gs1ProductPage {
                 $('.gs1-gtin-picture', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinPicture', gtinRow)).show();
                 $('.gs1-gtin-label', $page).text(gtinRow.gs1GtinLabel);
                 $('.gs1-gtin-ean13-image', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinEan13Image', gtinRow)).show();
-                if (gtinRow.gs1GtinDescription)
-                    $('.gs1-gtin-description', $page).html(gtinRow.gs1GtinDescription).show();
+                if (gtinRow.gs1GenDescription)
+                    $('.gs1-gtin-description', $page).html(gtinRow.gs1GenDescription).show();
 
                 const udiObj = app.getBusinessObject('Gs1Udi');
                 const udiRows = await udiObj.search({
@@ -61,8 +61,8 @@ class Gs1ProductPage {
                 }, { inlineImages: [ 'gs1GenGs1128Image' ] });
                 if (udiRows.length == 1) {
                     const udiRow = udiRows[0];
-                    if (udiRow.gs1UdiDescription)
-                        $('.gs1-description', $page).html(udiRow.gs1UdiDescription).show();
+                    if (udiRow.gs1GenDescription)
+                        $('.gs1-description', $page).html(udiRow.gs1GenDescription).show();
                     $('.gs1-128-image', $page).attr('src', udiObj.getFieldDataURL('gs1GenGs1128Image', udiRow)).show();
                 } else
                     throw new Error("UDI not found");

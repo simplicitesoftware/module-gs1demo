@@ -17,20 +17,21 @@ public class Gs1Udi extends ObjectDB {
         String gtin = getFieldValue("gs1UdiGtinId.gs1GtinIdentifier");
 
         // Build UDI
-        GS1Tool.UDI udi =
-                new GS1Tool.UDI(
-                        gtin,
-                        getField("gs1GenProductionDate").getDate(),
-                        getField("gs1GenExpirationDate").getDate(),
-                        getFieldValue("gs1GenLotNumber"),
-                        getFieldValue("gs1GenSerialNumber"),
-                        getFieldValue("gs1UdiSoftwareVersion"),
-                        getGrant().getServerURL() + "/ext/Gs1ProductPage");
-        setFieldValue("gs1UdiHumanReadableInterpretation", udi.hri());
-        setFieldValue("gs1UdiGs1Data", udi.gs1Data());
-        setFieldValue("gs1UdiDigitalLink", udi.digitalLink());
+        GS1Tool.UDI udi = new GS1Tool.UDI(
+            gtin,
+            getField("gs1GenProductionDate").getDate(),
+            getField("gs1GenExpirationDate").getDate(),
+            getFieldValue("gs1GenLotNumber"),
+            getFieldValue("gs1GenSerialNumber"),
+            getFieldValue("gs1UdiSoftwareVersion"),
+            getGrant().getServerURL() + "/ext/Gs1ProductPage");
 
-        // Build images
+        // Build strings
+        setFieldValue("gs1GenHumanReadableInterpretation", udi.hri());
+        setFieldValue("gs1GenGs1Data", udi.gs1Data());
+        setFieldValue("gs1GenDigitalLink", udi.digitalLink());
+
+        // Build UDI images
         try {
             getField("gs1GenGs1128Image").setDocument(this, "gs1-128-" + gtin + ".png", udi.gs1128PNG());
         } catch (Exception e) {
@@ -38,16 +39,16 @@ public class Gs1Udi extends ObjectDB {
             setFieldValue("gs1GenGs1128Image", "");
         }
         try {
-            getField("gs1UdiGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", udi.gs1DataMatrixPNGWithHRI(5));
+            getField("gs1GenGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", udi.gs1DataMatrixPNGWithHRI(5));
         } catch (Exception e) {
             AppLog.warning("GS1 data matrix image error: " + e.getMessage());
-            setFieldValue("gs1UdiGs1DataMatrixImage", "");
+            setFieldValue("gs1GenGs1DataMatrixImage", "");
         }
         try {
-            getField("gs1UdiDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.digitalLinkQrCodePNGWithGTIN(4));
+            getField("gs1GenDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", udi.digitalLinkQrCodePNGWithGTIN(4));
         } catch (Exception e) {
             AppLog.warning("Digital link image error: " + e.getMessage());
-            setFieldValue("gs1UdiDigitalLinkQrCodeImage", "");
+            setFieldValue("gs1GenDigitalLinkQrCodeImage", "");
         }
 
         return msgs;

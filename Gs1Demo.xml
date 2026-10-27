@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite elements="310" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="300" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
@@ -158,7 +158,7 @@ within Simplicité.]]></mdl_comment>
 		<usr_menu_defcollapsed>0</usr_menu_defcollapsed>
 		<usr_menu_defdomain_id.obd_name/>
 		<usr_logout>2026-10-20 22:21:08</usr_logout>
-		<usr_last_logon>2026-10-27 15:27:48</usr_last_logon>
+		<usr_last_logon>2026-10-27 17:27:59</usr_last_logon>
 		<usr_dateformat/>
 		<usr_numformat/>
 		<usr_lang_pref>FRA</usr_lang_pref>
@@ -175,7 +175,7 @@ within Simplicité.]]></mdl_comment>
 		<usp_user_id.usr_login>gs1demo</usp_user_id.usr_login>
 		<usp_param_id.sys_code>CLIENT_ID</usp_param_id.sys_code>
 		<usp_value><![CDATA[[{
- "dt": "2026-10-27 15:34:46",
+ "dt": "2026-10-27 17:27:59",
  "ag": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
  "id": "aea33wo3o78wiaxfezkgje63xvuondmu0e1sp647g60wv9bo2l0a6fstnyv3hsce1793111301259"
 }]]]></usp_value>
@@ -184,7 +184,7 @@ within Simplicité.]]></mdl_comment>
 	<data>
 		<usp_user_id.usr_login>gs1demo</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Gs1DemoScope</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"Gs1Gtin","rowId":"1","label":"GTIN : 03001234567892"},{"object":"Gs1Gtin","rowId":"2","label":"GTIN : 00000096385074"},{"object":"Gs1Gtin","rowId":"4","label":"GTIN : 04001234567822"},{"object":"Gs1Cpg","rowId":"2","label":"Produit de grande consommation : 04001234567822"},{"object":"Gs1Udi","rowId":"2","label":"UDI : 00000096385074 01/01/2026 01/01/2032 LOT-A SERIAL-AAA 2.0"}]]]></usp_value>
+		<usp_value><![CDATA[[{"object":"Gs1Udi","rowId":"1","label":"Dispositif médical : 03001234567892 01/10/2025 31/03/2027 LOT1 SERIAL111"},{"object":"Gs1Gtin","rowId":"4","label":"GTIN : 04001234567822"},{"object":"Gs1Gtin","rowId":"2","label":"GTIN : 00000096385074"},{"object":"Gs1Gtin","rowId":"1","label":"GTIN : 03001234567892"},{"object":"Gs1Cpg","rowId":"2","label":"Produit de grande consommation : 04001234567822"},{"object":"Gs1Udi","rowId":"2","label":"UDI : 00000096385074 01/01/2026 01/01/2032 LOT-A SERIAL-AAA 2.0"}]]]></usp_value>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -205,11 +205,21 @@ within Simplicité.]]></mdl_comment>
 		<usp_value><![CDATA[[
  {
   "type": "list",
-  "label": "Dispositifs médicaux",
-  "object": "Gs1Udi",
+  "label": "GTINs",
+  "object": "Gs1Gtin",
   "init": {
    "nav": "new",
    "pagesize": 20
+  }
+ },
+ {
+  "type": "form",
+  "label": "GTIN : 08000500278802",
+  "object": "Gs1Gtin",
+  "rowId": "6",
+  "init": {
+   "showNav": true,
+   "nav": "add"
   }
  }
 ]]]></usp_value>
@@ -690,6 +700,141 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
+		<fld_name oldvalue="gs1PreDescription" oldvalue1="gs1PreDescription">gs1GenDescription</fld_name>
+		<fld_dbname>gs1_gen_description</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>3;2</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>11</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>1000000</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment><![CDATA[Prefix description]]></fld_comment>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name oldvalue="gs1UdiDigitalLink">gs1GenDigitalLink</fld_name>
+		<fld_dbname>gs1_gen_digital_link</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>10</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>255</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment><![CDATA[Digital link]]></fld_comment>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GenDigitalLinkQrCodeImage</fld_name>
+		<fld_dbname>gs1_gen_digital_link_qr_code_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment><![CDATA[Digital link QRCode image]]></fld_comment>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
 		<fld_name oldvalue="gs1UdiExpirationDate">gs1GenExpirationDate</fld_name>
 		<fld_dbname>gs1_gen_expiration_date</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -772,6 +917,141 @@ within Simplicité.]]></mdl_comment>
 		<fld_objlist/>
 		<fld_settings/>
 		<fld_comment><![CDATA[GS1 128 barcode image]]></fld_comment>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GenGs1Data</fld_name>
+		<fld_dbname>gs1_gen_gs1_data</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>3</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>100</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment><![CDATA[GS1 data]]></fld_comment>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GenGs1DataMatrixImage</fld_name>
+		<fld_dbname>gs1_gen_gs1_data_matrix_image</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq/>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>20</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment><![CDATA[GS1 data matrix image]]></fld_comment>
+		<fld_classification/>
+		<fld_anon/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
+		<fld_deprecated/>
+		<fld_compliance>NE</fld_compliance>
+	</data>
+	<data>
+		<fld_name>gs1GenHumanReadableInterpretation</fld_name>
+		<fld_dbname>gs1_gen_human_readable_interpretation</fld_dbname>
+		<fld_visible>2</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_sort_nulls/>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
+		<fld_tray/>
+		<fld_type>3</fld_type>
+		<fld_clipboard>0</fld_clipboard>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>100</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_settings/>
+		<fld_comment><![CDATA[HRI (human readable interpretation)]]></fld_comment>
 		<fld_classification/>
 		<fld_anon/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
@@ -915,141 +1195,6 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name>gs1GtinDescription</fld_name>
-		<fld_dbname>gs1_gtin_description</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>3;2</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>11</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>1000000</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[GTIN description]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1GtinDigitalLink</fld_name>
-		<fld_dbname>gs1_gtin_digital_link</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>10</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>255</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1GtinDigitalLinkQrCodeImage</fld_name>
-		<fld_dbname>gs1_gtin_digital_link_qr_code_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
 		<fld_name>gs1GtinEan13Image</fld_name>
 		<fld_dbname>gs1_gtin_ean13_image</fld_dbname>
 		<fld_visible>2</fld_visible>
@@ -1071,141 +1216,6 @@ within Simplicité.]]></mdl_comment>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1GtinGs1Data</fld_name>
-		<fld_dbname>gs1_gtin_gs1_data</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>3</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1GtinGs1DataMatrixImage</fld_name>
-		<fld_dbname>gs1_gtin_gs1_data_matrix_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment/>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1GtinHumanReadableInterpretation</fld_name>
-		<fld_dbname>gs1_gtin_human_readable_interpretation</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>3</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -1545,51 +1555,6 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name>gs1PreDescription</fld_name>
-		<fld_dbname>gs1_pre_description</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>3;2</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>11</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>1000000</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[Prefix description]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
 		<fld_name>gs1PrePrefix</fld_name>
 		<fld_dbname>gs1_pre_prefix</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -1635,231 +1600,6 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name>gs1UdiDescription</fld_name>
-		<fld_dbname>gs1_udi_description</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>3;2</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>11</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>1000000</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[Medical device description]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiDigitalLink</fld_name>
-		<fld_dbname>gs1_udi_digital_link</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>10</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>255</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[Digital link]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiDigitalLinkQrCodeImage</fld_name>
-		<fld_dbname>gs1_udi_digital_link_qr_code_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[Digital link QRCode image]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiGs1Data</fld_name>
-		<fld_dbname>gs1_udi_gs1_data</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>3</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[GS1 data]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiGs1DataMatrixImage</fld_name>
-		<fld_dbname>gs1_udi_gs1_data_matrix_image</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research/>
-		<fld_researchreq/>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>20</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>11</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[GS1 data matrix image]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
 		<fld_name>gs1UdiGtinId</fld_name>
 		<fld_dbname>gs1_udi_gtin_id</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -1897,51 +1637,6 @@ within Simplicité.]]></mdl_comment>
 		<fld_objlist/>
 		<fld_settings/>
 		<fld_comment><![CDATA[Reference to GTIN]]></fld_comment>
-		<fld_classification/>
-		<fld_anon/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-		<fld_incrementsyntax/>
-		<fld_deprecated/>
-		<fld_compliance>NE</fld_compliance>
-	</data>
-	<data>
-		<fld_name>gs1UdiHumanReadableInterpretation</fld_name>
-		<fld_dbname>gs1_udi_human_readable_interpretation</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>0</fld_updatable>
-		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
-		<fld_sort>C</fld_sort>
-		<fld_sort_nulls/>
-		<fld_more>0</fld_more>
-		<fld_listmore>0</fld_listmore>
-		<fld_listsum/>
-		<fld_exportable>1</fld_exportable>
-		<fld_tray/>
-		<fld_type>3</fld_type>
-		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
-		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
-		<fld_minsize/>
-		<fld_precision/>
-		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
-		<fld_indexable>0</fld_indexable>
-		<fld_autocomp>0</fld_autocomp>
-		<fld_groupby>0</fld_groupby>
-		<fld_updall>1</fld_updall>
-		<fld_case/>
-		<fld_righttoleft>0</fld_righttoleft>
-		<fld_rendering/>
-		<fld_speech/>
-		<fld_calc/>
-		<fld_objlist/>
-		<fld_settings/>
-		<fld_comment><![CDATA[HRI( )human readable identifier)]]></fld_comment>
 		<fld_classification/>
 		<fld_anon/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
@@ -2013,6 +1708,7 @@ within Simplicité.]]></mdl_comment>
   <div class="area" data-area="1"></div>
   <div class="area" data-area="2"></div>
   <div class="area" data-area="3"></div>
+  <div class="area" data-area="4"></div>
 </div>]]></tpl_ui>
 		<tpl_min/>
 		<tpl_image/>
@@ -2087,8 +1783,11 @@ within Simplicité.]]></mdl_comment>
   <div class="col-sm-4">
     <div class="field" data-field="gs1CpgGtinId__gs1GtinIdentifier"></div>
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-6">
     <div class="field" data-field="gs1CpgGtinId__gs1GtinLabel"></div>
+  </div>
+  <div class="col-sm-2">
+    <div class="field" data-display="image" data-field="gs1CpgGtinId__gs1GtinEan13Image"></div>
   </div>
 </div>]]></ofa_ui>
 		<ofa_icon>fas/archive</ofa_icon>
@@ -2130,11 +1829,30 @@ within Simplicité.]]></mdl_comment>
 		<ofa_position>3</ofa_position>
 		<ofa_title>1</ofa_title>
 		<ofa_ui><![CDATA[<div class="row">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-4"></div>
-  <div class="col-sm-4"></div>
+  <div class="col-sm-9">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="field" data-field="gs1GenHumanReadableInterpretation"></div>
+      </div>
+      <div class="col-sm-6">
+        <div class="field" data-field="gs1GenGs1Data"></div>
+      </div>
+    </div>
+    <div class="field" data-field="gs1GenDigitalLink"></div>
+  </div>
+  <div class="col-sm-3">
+    <div class="field" data-display="image" data-field="gs1GenDigitalLinkQrCodeImage"></div>
+  </div>
 </div>]]></ofa_ui>
 		<ofa_icon>fas/qrcode</ofa_icon>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<ofa_name>Gs1Cpg-4</ofa_name>
+		<ofa_position>4</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div class="field" data-field="gs1CpgDescription"></div>]]></ofa_ui>
+		<ofa_icon>fas/info-circle</ofa_icon>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -2173,13 +1891,13 @@ within Simplicité.]]></mdl_comment>
 		<ofa_ui><![CDATA[<div>
   <div class="row">
     <div class="col-sm-4">
-      <div class="field" data-field="gs1GtinHumanReadableInterpretation"></div>
+      <div class="field" data-field="gs1GenHumanReadableInterpretation"></div>
     </div>
     <div class="col-sm-4">
-      <div class="field" data-field="gs1GtinGs1Data"></div>
+      <div class="field" data-field="gs1GenGs1Data"></div>
     </div>
     <div class="col-sm-4">
-      <div class="field" data-field="gs1GtinDigitalLink"></div>
+      <div class="field" data-field="gs1GenDigitalLink"></div>
     </div>
   </div>
   <div class="row">
@@ -2190,10 +1908,10 @@ within Simplicité.]]></mdl_comment>
       <div class="field" data-display="image" data-field="gs1GtinUpcaImage"></div>
     </div>
     <div class="col-sm-3">
-      <div class="field" data-display="image" data-field="gs1GtinGs1DataMatrixImage"></div>
+      <div class="field" data-display="image" data-field="gs1GenGs1DataMatrixImage"></div>
     </div>
     <div class="col-sm-3">
-      <div class="field" data-display="image" data-field="gs1GtinDigitalLinkQrCodeImage"></div>
+      <div class="field" data-display="image" data-field="gs1GenDigitalLinkQrCodeImage"></div>
     </div>
   </div>
 </div>]]></ofa_ui>
@@ -2206,7 +1924,7 @@ within Simplicité.]]></mdl_comment>
 		<ofa_title>1</ofa_title>
 		<ofa_ui><![CDATA[<div class="row">
   <div class="col-sm-9">
-    <div class="field" data-field="gs1GtinDescription"></div>
+    <div class="field" data-field="gs1GenDescription"></div>
     <div class="area" data-area="Gs1Udi;gs1UdiGtinId"></div>
     <div class="area" data-area="Gs1Cpg;gs1CpgGtinId"></div>
   </div>
@@ -2233,7 +1951,7 @@ within Simplicité.]]></mdl_comment>
       <div class="field" data-field="gs1PreCtyId__gs1CtyName"></div>
     </div>
   </div>
-  <div class="field" data-field="gs1PreDescription"></div>
+  <div class="field" data-field="gs1GenDescription"></div>
 </div>]]></ofa_ui>
 		<ofa_icon>fas/hashtag</ofa_icon>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
@@ -2288,13 +2006,13 @@ within Simplicité.]]></mdl_comment>
 		<ofa_ui><![CDATA[<div>
   <div class="row">
     <div class="col-sm-4">
-      <div class="field" data-field="gs1UdiHumanReadableInterpretation"></div>
+      <div class="field" data-field="gs1GenHumanReadableInterpretation"></div>
     </div>
     <div class="col-sm-4">
-      <div class="field" data-field="gs1UdiGs1Data"></div>
+      <div class="field" data-field="gs1GenGs1Data"></div>
     </div>
     <div class="col-sm-4">
-      <div class="field" data-field="gs1UdiDigitalLink"></div>
+      <div class="field" data-field="gs1GenDigitalLink"></div>
     </div>
   </div>
   <div class="row">
@@ -2302,10 +2020,10 @@ within Simplicité.]]></mdl_comment>
       <div class="field" data-display="image" data-field="gs1GenGs1128Image"></div>
     </div>
     <div class="col-sm-3">
-      <div class="field" data-display="image" data-field="gs1UdiGs1DataMatrixImage"></div>
+      <div class="field" data-display="image" data-field="gs1GenGs1DataMatrixImage"></div>
     </div>
     <div class="col-sm-3">
-      <div class="field" data-display="image" data-field="gs1UdiDigitalLinkQrCodeImage"></div>
+      <div class="field" data-display="image" data-field="gs1GenDigitalLinkQrCodeImage"></div>
     </div>
   </div>
 </div>]]></ofa_ui>
@@ -2316,8 +2034,8 @@ within Simplicité.]]></mdl_comment>
 		<ofa_name>Gs1Udi-4</ofa_name>
 		<ofa_position>4</ofa_position>
 		<ofa_title>1</ofa_title>
-		<ofa_ui><![CDATA[<div class="field" data-field="gs1UdiDescription"></div>]]></ofa_ui>
-		<ofa_icon>fas/book</ofa_icon>
+		<ofa_ui><![CDATA[<div class="field" data-field="gs1GenDescription"></div>]]></ofa_ui>
+		<ofa_icon>fas/info-circle</ofa_icon>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -2455,7 +2173,7 @@ within Simplicité.]]></mdl_comment>
 		<obo_dbtable>gs1_cpg</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
-		<obo_script_id/>
+		<obo_script_id>src/com/simplicite/objects/Gs1Demo/Gs1Cpg.java</obo_script_id>
 		<obo_usets>1</obo_usets>
 		<obo_nosearch>1</obo_nosearch>
 		<obo_comment><![CDATA[Consumer product
@@ -2897,7 +2615,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1CpgGtinId</obf_field_id.fld_name>
-		<obf_order>100</obf_order>
+		<obf_order>1000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>1</obf_dfault_order>
 		<obf_reorder/>
@@ -2930,7 +2648,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GtinIdentifier</obf_field_id.fld_name>
-		<obf_order>110</obf_order>
+		<obf_order>1010</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -2958,12 +2676,12 @@ A `UDI` is composed of:
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name>Gs1Cpg</obf_joined_id.obf_object_id.obo_name>
 		<obf_joined_id.obf_field_id.fld_name>gs1CpgGtinId</obf_joined_id.obf_field_id.fld_name>
-		<obf_joined_id.obf_order>100</obf_joined_id.obf_order>
+		<obf_joined_id.obf_order>1000</obf_joined_id.obf_order>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GtinLabel</obf_field_id.fld_name>
-		<obf_order>120</obf_order>
+		<obf_order>1020</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -2991,12 +2709,45 @@ A `UDI` is composed of:
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name>Gs1Cpg</obf_joined_id.obf_object_id.obo_name>
 		<obf_joined_id.obf_field_id.fld_name>gs1CpgGtinId</obf_joined_id.obf_field_id.fld_name>
-		<obf_joined_id.obf_order>100</obf_joined_id.obf_order>
+		<obf_joined_id.obf_order>1000</obf_joined_id.obf_order>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GtinEan13Image</obf_field_id.fld_name>
+		<obf_order>1030</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>gs1CpgGtinId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible>2</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more>0</obf_fld_more>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Cpg-1</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name>Gs1Cpg</obf_joined_id.obf_object_id.obo_name>
+		<obf_joined_id.obf_field_id.fld_name>gs1CpgGtinId</obf_joined_id.obf_field_id.fld_name>
+		<obf_joined_id.obf_order>1000</obf_joined_id.obf_order>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GenProductionDate</obf_field_id.fld_name>
-		<obf_order>130</obf_order>
+		<obf_order>2000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3029,7 +2780,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GenBestBeforeDate</obf_field_id.fld_name>
-		<obf_order>140</obf_order>
+		<obf_order>2010</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3062,7 +2813,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GenExpirationDate</obf_field_id.fld_name>
-		<obf_order>150</obf_order>
+		<obf_order>2020</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3095,7 +2846,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GenLotNumber</obf_field_id.fld_name>
-		<obf_order>160</obf_order>
+		<obf_order>2030</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3128,7 +2879,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1GenSerialNumber</obf_field_id.fld_name>
-		<obf_order>170</obf_order>
+		<obf_order>2040</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3161,7 +2912,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1CpgWeight</obf_field_id.fld_name>
-		<obf_order>180</obf_order>
+		<obf_order>2050</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>1</obf_dfault_order>
 		<obf_reorder/>
@@ -3186,6 +2937,171 @@ A `UDI` is composed of:
 		<obf_fld_exportable/>
 		<obf_fld_compliance/>
 		<obf_area_id.ofa_name>Gs1Cpg-2</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GenHumanReadableInterpretation</obf_field_id.fld_name>
+		<obf_order>3000</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Cpg-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GenGs1Data</obf_field_id.fld_name>
+		<obf_order>3010</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Cpg-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GenDigitalLink</obf_field_id.fld_name>
+		<obf_order>3020</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Cpg-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GenDigitalLinkQrCodeImage</obf_field_id.fld_name>
+		<obf_order>3500</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Cpg-3</obf_area_id.ofa_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
+	</data>
+	<data>
+		<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+		<obf_field_id.fld_name>gs1GenDescription</obf_field_id.fld_name>
+		<obf_order>4000</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_reorder/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_uk/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_compliance/>
+		<obf_area_id.ofa_name>Gs1Cpg-4</obf_area_id.ofa_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name/>
 		<obf_joined_id.obf_field_id.fld_name/>
@@ -3457,7 +3373,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinHumanReadableInterpretation</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenHumanReadableInterpretation</obf_field_id.fld_name>
 		<obf_order>2000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -3490,7 +3406,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinGs1Data</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenGs1Data</obf_field_id.fld_name>
 		<obf_order>2010</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -3523,7 +3439,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinDigitalLink</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenDigitalLink</obf_field_id.fld_name>
 		<obf_order>2020</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -3622,7 +3538,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinGs1DataMatrixImage</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenGs1DataMatrixImage</obf_field_id.fld_name>
 		<obf_order>2130</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -3655,7 +3571,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinDigitalLinkQrCodeImage</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenDigitalLinkQrCodeImage</obf_field_id.fld_name>
 		<obf_order>2150</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -3688,7 +3604,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Gtin</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1GtinDescription</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenDescription</obf_field_id.fld_name>
 		<obf_order>3000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -3755,7 +3671,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Prefix</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1PrePrefix</obf_field_id.fld_name>
-		<obf_order>10</obf_order>
+		<obf_order>1000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>2</obf_dfault_order>
 		<obf_reorder/>
@@ -3788,7 +3704,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Prefix</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1PreCtyId</obf_field_id.fld_name>
-		<obf_order>100</obf_order>
+		<obf_order>1010</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3821,7 +3737,7 @@ A `UDI` is composed of:
 	<data>
 		<obf_object_id.obo_name>Gs1Prefix</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1CtyCode</obf_field_id.fld_name>
-		<obf_order>110</obf_order>
+		<obf_order>1020</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>1</obf_dfault_order>
 		<obf_reorder/>
@@ -3849,12 +3765,12 @@ A `UDI` is composed of:
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name>Gs1Prefix</obf_joined_id.obf_object_id.obo_name>
 		<obf_joined_id.obf_field_id.fld_name>gs1PreCtyId</obf_joined_id.obf_field_id.fld_name>
-		<obf_joined_id.obf_order>100</obf_joined_id.obf_order>
+		<obf_joined_id.obf_order>1010</obf_joined_id.obf_order>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Prefix</obf_object_id.obo_name>
 		<obf_field_id.fld_name>gs1CtyName</obf_field_id.fld_name>
-		<obf_order>120</obf_order>
+		<obf_order>1030</obf_order>
 		<obf_group_by>1</obf_group_by>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -3882,12 +3798,12 @@ A `UDI` is composed of:
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<obf_joined_id.obf_object_id.obo_name>Gs1Prefix</obf_joined_id.obf_object_id.obo_name>
 		<obf_joined_id.obf_field_id.fld_name>gs1PreCtyId</obf_joined_id.obf_field_id.fld_name>
-		<obf_joined_id.obf_order>100</obf_joined_id.obf_order>
+		<obf_joined_id.obf_order>1010</obf_joined_id.obf_order>
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Prefix</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1PreDescription</obf_field_id.fld_name>
-		<obf_order>130</obf_order>
+		<obf_field_id.fld_name>gs1GenDescription</obf_field_id.fld_name>
+		<obf_order>1900</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
 		<obf_reorder/>
@@ -4183,7 +4099,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiHumanReadableInterpretation</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenHumanReadableInterpretation</obf_field_id.fld_name>
 		<obf_order>3000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -4216,7 +4132,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiGs1Data</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenGs1Data</obf_field_id.fld_name>
 		<obf_order>3010</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -4249,7 +4165,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiDigitalLink</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenDigitalLink</obf_field_id.fld_name>
 		<obf_order>3020</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -4315,7 +4231,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiGs1DataMatrixImage</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenGs1DataMatrixImage</obf_field_id.fld_name>
 		<obf_order>3510</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -4348,7 +4264,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiDigitalLinkQrCodeImage</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenDigitalLinkQrCodeImage</obf_field_id.fld_name>
 		<obf_order>3530</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -4381,7 +4297,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_object_id.obo_name>Gs1Udi</obf_object_id.obo_name>
-		<obf_field_id.fld_name>gs1UdiDescription</obf_field_id.fld_name>
+		<obf_field_id.fld_name>gs1GenDescription</obf_field_id.fld_name>
 		<obf_order>4000</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -4418,7 +4334,7 @@ A `UDI` is composed of:
 	<action>upsert</action>
 	<data>
 		<obf_ref_object_id.obo_name>Gs1Country</obf_ref_object_id.obo_name>
-		<obf_order>100</obf_order>
+		<obf_order>1010</obf_order>
 		<obf_ref_order/>
 		<obf_object_id.obj_name>Gs1Prefix</obf_object_id.obj_name>
 		<obf_field_id.fld_name>gs1PreCtyId</obf_field_id.fld_name>
@@ -4462,7 +4378,7 @@ A `UDI` is composed of:
 	</data>
 	<data>
 		<obf_ref_object_id.obo_name>Gs1Gtin</obf_ref_object_id.obo_name>
-		<obf_order>100</obf_order>
+		<obf_order>1000</obf_order>
 		<obf_ref_order/>
 		<obf_object_id.obj_name>Gs1Cpg</obf_object_id.obj_name>
 		<obf_field_id.fld_name>gs1CpgGtinId</obf_field_id.fld_name>
@@ -5163,7 +5079,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiHumanReadableInterpretation</fld_name>
+					<fld_name>gs1GenHumanReadableInterpretation</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5183,7 +5099,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiHumanReadableInterpretation</fld_name>
+					<fld_name>gs1GenHumanReadableInterpretation</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5203,7 +5119,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiGs1Data</fld_name>
+					<fld_name>gs1GenGs1Data</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5223,7 +5139,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiGs1Data</fld_name>
+					<fld_name>gs1GenGs1Data</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5243,7 +5159,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiDigitalLink</fld_name>
+					<fld_name>gs1GenDigitalLink</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5263,7 +5179,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiDigitalLink</fld_name>
+					<fld_name>gs1GenDigitalLink</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5283,7 +5199,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiDigitalLinkQrCodeImage</fld_name>
+					<fld_name>gs1GenDigitalLinkQrCodeImage</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5303,7 +5219,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiDigitalLinkQrCodeImage</fld_name>
+					<fld_name>gs1GenDigitalLinkQrCodeImage</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5363,7 +5279,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiGs1DataMatrixImage</fld_name>
+					<fld_name>gs1GenGs1DataMatrixImage</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5383,7 +5299,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1UdiGs1DataMatrixImage</fld_name>
+					<fld_name>gs1GenGs1DataMatrixImage</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5509,46 +5425,6 @@ A `UDI` is composed of:
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Photo</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinDescription</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Description</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinDescription</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -5709,46 +5585,6 @@ A `UDI` is composed of:
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Image UPC-A</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1UdiDescription</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Description</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1UdiDescription</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -5963,7 +5799,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1PreDescription</fld_name>
+					<fld_name>gs1GenDescription</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -5983,7 +5819,7 @@ A `UDI` is composed of:
 			<object>
 				<name>Field</name>
 				<data>
-					<fld_name>gs1PreDescription</fld_name>
+					<fld_name>gs1GenDescription</fld_name>
 				</data>
 			</object>
 		</tsl_object>
@@ -6029,206 +5865,6 @@ A `UDI` is composed of:
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Préfix</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinDigitalLink</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Digital link</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinDigitalLink</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Digital link</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinDigitalLinkQrCodeImage</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Digital link image</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinDigitalLinkQrCodeImage</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Image digital link</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinGs1Data</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>GS1 data</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinGs1Data</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>GS1 data</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinGs1DataMatrixImage</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Data matrix image</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinGs1DataMatrixImage</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Image data matrix</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinHumanReadableInterpretation</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Human readable interpretation (HRI)</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_plural_value/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<tsl_tooltip/>
-		<tsl_compliance/>
-		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_object>
-			<object>
-				<name>Field</name>
-				<data>
-					<fld_name>gs1GtinHumanReadableInterpretation</fld_name>
-				</data>
-			</object>
-		</tsl_object>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Human readable interpretation (HRI)</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -6652,7 +6288,7 @@ A `UDI` is composed of:
 			</object>
 		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Production details</tsl_value>
+		<tsl_value>Production</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -6695,6 +6331,34 @@ A `UDI` is composed of:
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Cpg -3</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Cpg-4</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Details</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>Gs1Cpg-4</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Cpg -4</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
@@ -7034,6 +6698,26 @@ A `UDI` is composed of:
 		<tsl_placeholder/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldSystem</name>
+				<data>
+					<obf_object_id.obo_name>Gs1Cpg</obf_object_id.obo_name>
+					<obf_field_id.fld_name>gs1GtinEan13Image</obf_field_id.fld_name>
+					<obf_order>1030</obf_order>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>GTIN EAN 13 image</tsl_value>
+		<tsl_plural_value/>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
 </object>
 <object>
 	<name>TranslateScope</name>
@@ -7142,7 +6826,7 @@ A `UDI` is composed of:
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 		<dt_name>data</dt_name>
 		<dt_file>data/data.xml</dt_file>
-		<dt_desc/>
+		<dt_desc><![CDATA[Demo data]]></dt_desc>
 		<dt_exportdate_from/>
 		<dt_exportdate_to/>
 		<dt_export_format>xml</dt_export_format>
@@ -7174,6 +6858,12 @@ A `UDI` is composed of:
 		<dto_order>4</dto_order>
 		<dto_dt_id.dt_name>data</dto_dt_id.dt_name>
 		<dto_obo_id.obo_name>Gs1Udi</dto_obo_id.obo_name>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<dto_order>5</dto_order>
+		<dto_dt_id.dt_name>data</dto_dt_id.dt_name>
+		<dto_obo_id.obo_name>Gs1Cpg</dto_obo_id.obo_name>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
 </object>
