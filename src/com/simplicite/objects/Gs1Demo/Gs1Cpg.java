@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.simplicite.util.AppLog;
 import com.simplicite.util.ObjectDB;
-import com.simplicite.util.tools.GS1Tool;
+import com.simplicite.util.tools.GTINTool;
 
 public class Gs1Cpg extends ObjectDB {
     private static final long serialVersionUID = 1L;
@@ -17,7 +17,7 @@ public class Gs1Cpg extends ObjectDB {
         String gtin = getFieldValue("gs1CpgGtinId.gs1GtinIdentifier");
 
         // Build UDI
-        GS1Tool.CPG cpg = new GS1Tool.CPG(
+        GTINTool.CPG cpg = new GTINTool.CPG(
             gtin,
             getFieldValue("gs1GenVariant"),
             getField("gs1GenProductionDate").getDate(),

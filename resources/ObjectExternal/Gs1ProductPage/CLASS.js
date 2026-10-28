@@ -89,7 +89,7 @@ class Gs1ProductPage {
                         gs1GenLot: params.lot || '',
                         gs1GenSerial: params.serial || '',
                         gs1GenProductionDate: params.productionDate || '',
-                        gs1GenBestBeforeDate: params.productionDate || '',
+                        gs1GenBestBeforeDate: params.bestBeforeDate || '',
                         gs1GenExpiryDate: params.expiryDate || ''
                     });
                     if (udiRows.length == 1) {

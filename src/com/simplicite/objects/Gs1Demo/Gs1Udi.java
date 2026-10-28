@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.simplicite.util.AppLog;
 import com.simplicite.util.ObjectDB;
-import com.simplicite.util.tools.GS1Tool;
+import com.simplicite.util.tools.GTINTool;
 
 public class Gs1Udi extends ObjectDB {
     private static final long serialVersionUID = 1L;
@@ -17,7 +17,7 @@ public class Gs1Udi extends ObjectDB {
         String gtin = getFieldValue("gs1UdiGtinId.gs1GtinIdentifier");
 
         // Build UDI
-        GS1Tool.UDI udi = new GS1Tool.UDI(
+        GTINTool.UDI udi = new GTINTool.UDI(
             gtin,
             getField("gs1GenProductionDate").getDate(),
             getField("gs1GenExpirationDate").getDate(),

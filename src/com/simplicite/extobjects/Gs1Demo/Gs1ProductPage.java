@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
-import com.simplicite.util.tools.GS1Tool;
+import com.simplicite.util.tools.GTINTool;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.Parameters;
 import com.simplicite.webapp.web.WebPage;
@@ -29,7 +29,7 @@ public class Gs1ProductPage extends com.simplicite.webapp.web.WebPageExternalObj
             wp.appendJSInclude(HTMLTool.getResourceJSURL(this, "CLASS"));
 
             String digitalLinkURI = parameters.getLocationURL();
-            params = GS1Tool.parseDigitalLink(digitalLinkURI)
+            params = GTINTool.parseDigitalLink(digitalLinkURI)
                 .put("serverURL", parameters.getServerURL())
                 .put("digitalLinkURI", digitalLinkURI);
         } catch (Exception e) {

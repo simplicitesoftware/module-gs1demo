@@ -8,7 +8,7 @@ import com.simplicite.util.Message;
 import com.simplicite.util.ObjectDB;
 import com.simplicite.util.ObjectField;
 import com.simplicite.util.Tool;
-import com.simplicite.util.tools.GS1Tool;
+import com.simplicite.util.tools.GTINTool;
 
 public class Gs1Gtin extends ObjectDB {
     private static final long serialVersionUID = 1L;
@@ -20,17 +20,17 @@ public class Gs1Gtin extends ObjectDB {
         ObjectField id = getField("gs1GtinIdentifier");
         // Add check digit to GTIN identifier if not present
         if (id.getValue().length() == 13)
-            id.setValue(id.getValue() + GS1Tool.getGTINCheckDigit(id.getValue()));
+            id.setValue(id.getValue() + GTINTool.getGTINCheckDigit(id.getValue()));
         // Check validity of GTIN identifier
-        if (!GS1Tool.isValid(id.getValue()))
+        if (!GTINTool.isValid(id.getValue()))
             msgs.add(Message.formatError("GS1_GTIN_INVALID_IDENTIFIER", null, id.getName()));
 
         // Build strings
         String gtin = id.getValue();
-        setFieldValue("gs1GenHumanReadableInterpretation", GS1Tool.getHRI(gtin));
-        String gs1data = GS1Tool.getGs1Data(gtin);
+        setFieldValue("gs1GenHumanReadableInterpretation", GTINTool.getHRI(gtin));
+        String gs1data = GTINTool.getGs1Data(gtin);
         setFieldValue("gs1GenGs1Data", gs1data);
-        String digitalLink = GS1Tool.getDigitalLink(gtin, getGrant().getServerURL() + "/ext/Gs1ProductPage");
+        String digitalLink = GTINTool.getDigitalLink(gtin, getGrant().getServerURL() + "/ext/Gs1ProductPage");
         setFieldValue("gs1GenDigitalLink", digitalLink);
 
         // Link to prefix = digits 2–4 (digit 1 is the packaging indicator). e.g. 13001234567897 => 300 => FRA
@@ -45,25 +45,25 @@ public class Gs1Gtin extends ObjectDB {
 
         // Build images
         try {
-            getField("gs1GtinEan13Image").setDocument(this, "ean13-" + gtin + ".png", GS1Tool.ean13PNG(gtin));
+            getField("gs1GtinEan13Image").setDocument(this, "ean13-" + gtin + ".png", GTINTool.ean13PNG(gtin));
         } catch (Exception e) {
             AppLog.warning("EAN13 image error: " + e.getMessage());
             setFieldValue("gs1GtinEan13Image", "");
         }
         try {
-            getField("gs1GtinUpcaImage").setDocument(this, "upca-" + gtin + ".png", GS1Tool.upcAPNG(gtin));
+            getField("gs1GtinUpcaImage").setDocument(this, "upca-" + gtin + ".png", GTINTool.upcAPNG(gtin));
         } catch (Exception e) {
             AppLog.warning("UPC-A image error: " + e.getMessage());
             setFieldValue("gs1GtinUpcaImage", "");
         }
         try {
-            getField("gs1GenGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GS1Tool.gs1DataMatrixPNGWithHRI(gs1data, GS1Tool.getHRILines(gtin), 5));
+            getField("gs1GenGs1DataMatrixImage").setDocument(this, "gs1-datamatrix-" + gtin + ".png", GTINTool.gs1DataMatrixPNGWithHRI(gs1data, GTINTool.getHRILines(gtin), 5));
         } catch (Exception e) {
             AppLog.warning("GS1 data matrix image error: " + e.getMessage());
             setFieldValue("gs1GtinGs1DataMatrixImage", "");
         }
         try {
-            getField("gs1GenDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GS1Tool.digitalLinkQrCodePNGWithGTIN(digitalLink, gtin, 4));
+            getField("gs1GenDigitalLinkQrCodeImage").setDocument(this, "gs1-qrcode-" + gtin + ".png", GTINTool.digitalLinkQrCodePNGWithGTIN(digitalLink, gtin, 4));
         } catch (Exception e) {
             AppLog.warning("Digital link image error: " + e.getMessage());
             setFieldValue("gs1GtinDigitalLinkQrCodeImage", "");
