@@ -56,7 +56,8 @@ class Gs1ProductPage {
             const gtinRows = await gtinObj.search({ gs1GtinIdentifier: params.gtin }, { inlineImages: [ 'gs1GtinPicture', 'gs1GtinEan13Image' ] });
             if (gtinRows.length == 1) {
                 const gtinRow = gtinRows[0];
-                $('.gs1-gtin-picture', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinPicture', gtinRow)).show();
+                if (gtinRow.gs1GtinPicture)
+                    $('.gs1-picture', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinPicture', gtinRow)).show();
                 $('.gs1-gtin-label', $page).text(gtinRow.gs1GtinLabel);
                 $('.gs1-gtin-ean13-image', $page).attr('src', gtinObj.getFieldDataURL('gs1GtinEan13Image', gtinRow)).show();
                 if (gtinRow.gs1GenDescription)
@@ -91,11 +92,13 @@ class Gs1ProductPage {
                         gs1GenProductionDate: params.productionDate || '',
                         gs1GenBestBeforeDate: params.bestBeforeDate || '',
                         gs1GenExpiryDate: params.expiryDate || ''
-                    });
+                    }, { inlineImages: [ 'gs1CpgPicture' ] });
                     if (udiRows.length == 1) {
                         const cpgRow = udiRows[0];
-                        if (cpgRow?.gs1GenDescription)
+                        if (cpgRow.gs1GenDescription)
                             $('.gs1-description', $page).html(cpgRow.gs1GenDescription).show();
+                        if (cpgRow.gs1CpgPicture)
+                            $('.gs1-picture', $page).attr('src', cpgObj.getFieldDataURL('gs1CpgPicture', cpgRow)).show();
                     } else
                         throw new Error("Consumer product not found");
                 }

@@ -692,7 +692,7 @@ paths:
       - in: query
         name: gs1CpgWeight
         description: Search filter for Weight
-        type: string
+        type: number
         required: false
       - in: query
         name: gs1GenHumanReadableInterpretation
@@ -717,6 +717,11 @@ paths:
       - in: query
         name: gs1GenDescription
         description: Search filter for Prefix description
+        type: string
+        required: false
+      - in: query
+        name: gs1CpgPicture
+        description: Search filter for Picture
         type: string
         required: false
       tags:
@@ -942,6 +947,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: gs1UdiGtinId__gs1GtinEan13Image
+        description: Search filter for GTIN EAN 13 image
+        type: string
+        required: false
+      - in: query
         name: gs1GenProductionDate
         description: Search filter for Production date
         type: string
@@ -1120,11 +1130,6 @@ paths:
       - in: query
         name: gs1GtinEan13Image
         description: Search filter for EAN 13 image
-        type: string
-        required: false
-      - in: query
-        name: gs1GtinUpcaImage
-        description: Search filter for UPC-A image
         type: string
         required: false
       - in: query
@@ -1500,6 +1505,9 @@ definitions:
         description: Unique technical row ID
         type: string
         maxLength: 11
+      gs1UdiGtinId__gs1GtinEan13Image:
+        description: GTIN EAN 13 image
+        type: object
       gs1GenDigitalLink:
         description: Digital link
         type: string
@@ -1545,8 +1553,7 @@ definitions:
         maxLength: 20
       gs1CpgWeight:
         description: Weight
-        type: string
-        maxLength: 10
+        type: number
       gs1GenExpirationDate:
         description: Expiration date
         type: string
@@ -1608,6 +1615,9 @@ definitions:
         description: Digital link
         type: string
         maxLength: 255
+      gs1CpgPicture:
+        description: Picture
+        type: object
   Gs1Country:
     description: |-
       Country:
@@ -1693,9 +1703,6 @@ definitions:
         description: GTIN reference to contry prefix
         type: string
         maxLength: 11
-      gs1GtinUpcaImage:
-        description: UPC-A image
-        type: object
       gs1GenGs1DataMatrixImage:
         description: GS1 data matrix image
         type: object
