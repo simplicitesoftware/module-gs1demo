@@ -31,10 +31,7 @@
     }
 }]]></mdl_url>
 		<mdl_type>C</mdl_type>
-		<mdl_comment><![CDATA[GS1 demo
-=========
-
-This module contains a demo of [GS1 standards](https://www.gs1.org) standards
+		<mdl_comment><![CDATA[This module contains a demo of [GS1 standards](https://www.gs1.org) standards
 within Simplicité.]]></mdl_comment>
 		<mdl_lib>build/module-gs1demo.jar</mdl_lib>
 	</data>
