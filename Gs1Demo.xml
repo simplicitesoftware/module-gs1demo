@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite elements="304" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="307" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
@@ -427,6 +427,16 @@ within Simplicité.]]></mdl_comment>
 	</data>
 </object>
 <object>
+	<name>FieldType</name>
+	<action>upsert</action>
+	<data>
+		<flt_code>GS1_ATTRIBUTE_20</flt_code>
+		<flt_method/>
+		<flt_regexp><![CDATA[^[!\"%-?A-Z_a-z]{1,20}$]]></flt_regexp>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
 	<name>Field</name>
 	<action>upsert</action>
 	<data>
@@ -520,7 +530,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="isoCtyCode3">gs1CtyCode</fld_name>
+		<fld_name>gs1CtyCode</fld_name>
 		<fld_dbname>gs1_cty_code</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>2;3</fld_updatable>
@@ -565,7 +575,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="isoCtyFlagIcon">gs1CtyFlagIcon</fld_name>
+		<fld_name>gs1CtyFlagIcon</fld_name>
 		<fld_dbname>gs1_cty_flag_icon</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>2;3</fld_updatable>
@@ -610,7 +620,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="isoCtyName">gs1CtyName</fld_name>
+		<fld_name>gs1CtyName</fld_name>
 		<fld_dbname>gs1_cty_name</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>2;3</fld_updatable>
@@ -700,7 +710,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1PreDescription" oldvalue1="gs1PreDescription">gs1GenDescription</fld_name>
+		<fld_name>gs1GenDescription</fld_name>
 		<fld_dbname>gs1_gen_description</fld_dbname>
 		<fld_visible>2</fld_visible>
 		<fld_updatable>3;2</fld_updatable>
@@ -745,7 +755,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1UdiDigitalLink">gs1GenDigitalLink</fld_name>
+		<fld_name>gs1GenDigitalLink</fld_name>
 		<fld_dbname>gs1_gen_digital_link</fld_dbname>
 		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
@@ -835,7 +845,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1UdiExpirationDate">gs1GenExpirationDate</fld_name>
+		<fld_name>gs1GenExpirationDate</fld_name>
 		<fld_dbname>gs1_gen_expiration_date</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>3;2</fld_updatable>
@@ -1060,7 +1070,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1UdiLotNumber">gs1GenLotNumber</fld_name>
+		<fld_name>gs1GenLotNumber</fld_name>
 		<fld_dbname>gs1_gen_lot_number</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>3;2</fld_updatable>
@@ -1075,9 +1085,9 @@ within Simplicité.]]></mdl_comment>
 		<fld_listsum/>
 		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
-		<fld_type>3</fld_type>
+		<fld_type>15</fld_type>
 		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
+		<fld_type_id.flt_code>GS1_ATTRIBUTE_20</fld_type_id.flt_code>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>20</fld_size>
@@ -1105,7 +1115,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1UdiProductionDate">gs1GenProductionDate</fld_name>
+		<fld_name>gs1GenProductionDate</fld_name>
 		<fld_dbname>gs1_gen_production_date</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>3;2</fld_updatable>
@@ -1150,7 +1160,7 @@ within Simplicité.]]></mdl_comment>
 		<fld_compliance>NE</fld_compliance>
 	</data>
 	<data>
-		<fld_name oldvalue="gs1UdiSerialNumber">gs1GenSerialNumber</fld_name>
+		<fld_name>gs1GenSerialNumber</fld_name>
 		<fld_dbname>gs1_gen_serial_number</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>3;2</fld_updatable>
@@ -1165,9 +1175,9 @@ within Simplicité.]]></mdl_comment>
 		<fld_listsum/>
 		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
-		<fld_type>3</fld_type>
+		<fld_type>15</fld_type>
 		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
+		<fld_type_id.flt_code>GS1_ATTRIBUTE_20</fld_type_id.flt_code>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>20</fld_size>
@@ -1210,9 +1220,9 @@ within Simplicité.]]></mdl_comment>
 		<fld_listsum/>
 		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
-		<fld_type>3</fld_type>
+		<fld_type>15</fld_type>
 		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
+		<fld_type_id.flt_code>GS1_ATTRIBUTE_20</fld_type_id.flt_code>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>20</fld_size>
@@ -1705,9 +1715,9 @@ within Simplicité.]]></mdl_comment>
 		<fld_listsum/>
 		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
-		<fld_type>3</fld_type>
+		<fld_type>15</fld_type>
 		<fld_clipboard>0</fld_clipboard>
-		<fld_type_id.flt_code/>
+		<fld_type_id.flt_code>GS1_ATTRIBUTE_20</fld_type_id.flt_code>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>20</fld_size>
@@ -2142,7 +2152,7 @@ within Simplicité.]]></mdl_comment>
 	<name>ObjectInternal</name>
 	<action>upsert</action>
 	<data>
-		<obo_name oldvalue="ISOCountry">Gs1Country</obo_name>
+		<obo_name>Gs1Country</obo_name>
 		<obo_dbtable>gs1_country</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
@@ -2219,7 +2229,7 @@ within Simplicité.]]></mdl_comment>
 		<obo_tpl_search_pos/>
 	</data>
 	<data>
-		<obo_name oldvalue="Gs1ConsumerProduct">Gs1Cpg</obo_name>
+		<obo_name>Gs1Cpg</obo_name>
 		<obo_dbtable>gs1_cpg</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
@@ -6107,7 +6117,7 @@ A `UDI` is composed of:
 			</object>
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Gen variant</tsl_value>
+		<tsl_value>Variante</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_plural_value/>
 		<tsl_short_value/>
@@ -6482,6 +6492,38 @@ A `UDI` is composed of:
 		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Détails</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>TranslateFieldType</name>
+	<action>upsert</action>
+	<data>
+		<tsl_object>
+			<object>
+				<name>FieldType</name>
+				<data>
+					<flt_code>GS1_ATTRIBUTE_20</flt_code>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Attribute value (20 characters)</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>FieldType</name>
+				<data>
+					<flt_code>GS1_ATTRIBUTE_20</flt_code>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Valeur d'attribut (20 caractères)</tsl_value>
 		<tsl_plural_value/>
 		<row_module_id.mdl_name>Gs1Demo</row_module_id.mdl_name>
 	</data>
